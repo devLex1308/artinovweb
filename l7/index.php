@@ -176,6 +176,19 @@
 				foreach ($phoneBook as $key => $value) {
 					echo "<li>Щоб дозвонитись в $key наберіть $value</li>";
 				}
+				$step = 1/3;
+				echo -27**$step;
+
+				$start = "<div class='circle'></div>";
+				$countCircle=10;
+
+				for ($i=0; $i < $countCircle; $i++) { 
+					$start = "<div class='circle'>".$start." $i</div>";
+				}
+
+				$name = "start";
+
+				echo $$name;
 					
 				
 				echo "</ol>";
