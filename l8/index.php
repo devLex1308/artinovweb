@@ -98,7 +98,7 @@
 
 				function Pifagor($a = null,$b = null){
 					
-					if($a!=null||$b!=null){
+					if($a!=null&&$b!=null){
 						if(is_int($a)&&is_int($b)){
 							$c = sqrt($a*$a+$b*$b);
 							echo "Довжина гіпотенузи $c";
@@ -108,12 +108,123 @@
 					}else{
 						echo "Не задано числа";
 					}
-					
-					
 				}
 
-				Pifagor(4);		
+				//Pifagor(1);	
 
+				function getNameDayByNumber($n){
+					echo "<br>";
+
+					// if($n==1){
+					// 	echo "Понеділок";
+					// }
+					// if($n==2){
+					// 	echo "Вівторок";
+					// }
+					// if($n==3){
+					// 	echo "Середа";
+					// }
+
+					switch ($n) {
+						case 1:
+							echo "Понеділок";
+							break;
+						case 2:
+							echo "Вівторок";
+							break;
+						case 3:
+							echo "Середа";
+							break;
+						case 4:
+							echo "Четверг";
+							break;
+						case 5:
+							echo "П'ятниця";
+							break;
+						case 6:
+							echo "Субота";
+							break;
+						case 7:
+							echo "Неділя";
+							break;
+						
+						default:
+							echo "В тижні тільки 7 днів, ви ввели не коректне число";
+							break;
+					}
+				}	
+
+				getNameDayByNumber(17);
+
+
+				$array = [];
+				for ($i=0; $i < $count_el; $i++) { 
+					$array[mt_rand(0,60)]=mt_rand(0,100);
+				}
+
+				$array['animal'] = "dog";
+
+				my_print_r($array);
+				sort($array);
+				my_print_r($array);
+				echo "Обернений масив";
+				$rArray = array_reverse($array);
+				my_print_r($rArray);
+
+				$array_asoc = [
+						"name"=>"ff",
+						"b" => 23,
+						"x" => "Невідома змінна"
+					];
+
+				my_print_r($array_asoc);
+				ksort($array_asoc);
+				my_print_r($array_asoc);
+
+				$animals = "кіт&пес&миша&курка&кіткіткіт";
+
+				$aAnimals = explode("&", $animals);
+
+				$arAnimals = array_reverse($aAnimals);
+
+				$rAnimals = implode("Lala", $arAnimals);
+				echo "$rAnimals";
+				$replase = str_replace("к", "w", $animals);
+				echo "<br>$replase";
+
+				echo "<br>";
+				$t = 2;
+
+				function expT(){
+					//global $t;
+					if(isset($t)){
+						echo "$t";
+					}else{
+						echo "Змінної не існує";
+					}
+					
+					echo "<br>";
+				}
+
+				expT();
+				expT();
+				expT();
+
+				echo "$t";
+
+				function getPifagor($a,$b){
+					$c = sqrt($a*$a+$b*$b);
+					return $c;
+				}
+
+				$g = getPifagor(13,40);
+				echo "<br>Гіпотенуза $g";
+
+
+
+
+				//my_print_r($arAnimals);
+			
 
 
 			?>
