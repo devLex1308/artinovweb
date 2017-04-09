@@ -127,3 +127,114 @@ $orderusers=mysql_query("SELECT orders.id AS idorder,
 									LEFT JOIN rooms ON rooms.id = orders.h_p
 									LEFT JOIN buses ON buses.id = orders.trans
 									WHERE orders.eventid='".$_GET['show']."'");
+
+
+<?php
+	try {  
+
+	  
+	  # MySQL через PDO_MYSQL  
+	  $DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
+	  
+	  $host = 'localhost';
+		$dbname = 'test';
+		$user = 'test';
+		$pass = '123456';
+	
+		$login = $_POST['login'];
+		$pass1 = $_POST['password'];
+		
+		# MySQL через PDO_MYSQL  
+			
+		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
+		
+		/*Вставити
+			
+			$sql = '
+				INSERT INTO users
+					SET
+					login = :login,
+					pass = :pass
+
+			';
+			
+			$query = $DBH->prepare($sql);
+
+			$query->bindParam(":login", 	$login, 	PDO::PARAM_STR);
+			$query->bindParam(":pass", 		$pass1, 	PDO::PARAM_STR);
+			
+			$query->execute();
+		
+		*/
+		
+		/* Вибір
+		
+			$sql = '
+				SELECT * 
+				FROM users
+				WHERE
+					id = :id
+
+			';
+			
+			$query = $DBH->prepare($sql);
+			
+			$id = 1;
+
+			$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+			
+			$query->execute();
+			$result = $query->fetch();
+			//$result = $query->fetchAll();
+		
+		*/
+		
+		/* Видалити
+		
+			$sql = '
+				DELETE  
+				FROM users
+				WHERE
+					id = :id
+
+			';
+			
+			$query = $DBH->prepare($sql);
+			
+			$id = 1;
+
+			$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+			
+			$query->execute();
+
+		
+		*/
+		
+		/*
+			Змінити
+			
+			 $sql = '
+				UPDATE users
+				SET
+					login = :login,
+					pass = :pass
+				WHERE id = :id
+			';
+			
+			$query = $DBH->prepare($sql);
+
+			$query->bindParam(":login", 	$login, 	PDO::PARAM_STR);
+			$query->bindParam(":pass", 		$pass1, 	PDO::PARAM_STR);
+			$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+			
+			$query->execute();
+			
+		
+		*/
+	   
+	}  
+	catch(PDOException $e) {  
+		echo $e->getMessage();  
+	}
+
+?>
