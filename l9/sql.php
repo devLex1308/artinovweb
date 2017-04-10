@@ -96,37 +96,37 @@ FROM table_name
 WHERE column_name BETWEEN value1 AND value2;
 
 $orderusers=mysql_query("SELECT orders.id AS idorder,
-											Userfio.fio AS name,
-											orders.userid AS userid, 
-											Userfio.vk AS sociallink,
-											Userfioreg.fio AS namewhoreg, 
-											Userfioreg.vk AS sociallinkwhoreg,
-											Userfioreg.tel AS phonewhoreg,
-											orders.datasa AS orderstime,
-											Userfio.tel AS phone,
-											Userfio.bday AS bday,
-											Userfio.adr AS adr,
-											Userfio.serial AS serial1,
-											orders.addon AS adminquestions,
-											hotels.name AS hotel,
-											rooms.titleroom  AS roomnane,  
-											buses.name AS bus,
-											orders.t_p AS plasebus,
-											orders.comment AS comment1,
-											orders.status AS status,
-											orders.summa AS price,
-											orders.yak AS aspaid,
-											orders.a_co AS admincoment,
-											orders.fact AS fact,
-											orders.hto AS htosetpaid,
-											orders.admin_take_money AS who_take_money  	
-									FROM orders
-									LEFT JOIN users AS Userfio ON Userfio.id = orders.userid
-									LEFT JOIN users AS Userfioreg ON Userfioreg.id = orders.whoreg
-									LEFT JOIN hotels ON hotels.id = orders.hotel
-									LEFT JOIN rooms ON rooms.id = orders.h_p
-									LEFT JOIN buses ON buses.id = orders.trans
-									WHERE orders.eventid='".$_GET['show']."'");
+		Userfio.fio AS name,
+		orders.userid AS userid, 
+		Userfio.vk AS sociallink,
+		Userfioreg.fio AS namewhoreg, 
+		Userfioreg.vk AS sociallinkwhoreg,
+		Userfioreg.tel AS phonewhoreg,
+		orders.datasa AS orderstime,
+		Userfio.tel AS phone,
+		Userfio.bday AS bday,
+		Userfio.adr AS adr,
+		Userfio.serial AS serial1,
+		orders.addon AS adminquestions,
+		hotels.name AS hotel,
+		rooms.titleroom  AS roomnane,  
+		buses.name AS bus,
+		orders.t_p AS plasebus,
+		orders.comment AS comment1,
+		orders.status AS status,
+		orders.summa AS price,
+		orders.yak AS aspaid,
+		orders.a_co AS admincoment,
+		orders.fact AS fact,
+		orders.hto AS htosetpaid,
+		orders.admin_take_money AS who_take_money  	
+FROM orders
+LEFT JOIN users AS Userfio ON Userfio.id = orders.userid
+LEFT JOIN users AS Userfioreg ON Userfioreg.id = orders.whoreg
+LEFT JOIN hotels ON hotels.id = orders.hotel
+LEFT JOIN rooms ON rooms.id = orders.h_p
+LEFT JOIN buses ON buses.id = orders.trans
+WHERE orders.eventid='".$_GET['show']."'");
 
 
 <?php

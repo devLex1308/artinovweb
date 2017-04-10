@@ -210,7 +210,7 @@
 				expT();
 				expT();
 
-				echo "$t";
+				
 
 				function getPifagor($a,$b){
 					$c = sqrt($a*$a+$b*$b);
@@ -222,7 +222,38 @@
 
 
 
+				function luckyTicket(){
+					$count = 0;
+					for ($i1=0; $i1 < 10; $i1++) { 
+						for ($i2=0; $i2 < 10; $i2++) { 
+							for ($i3=0; $i3 < 10; $i3++) { 
+								for ($i4=0; $i4 < 10; $i4++) { 
+									for ($i5=0; $i5 < 10; $i5++) { 
+										for ($i6=0; $i6 < 10; $i6++) { 
+											if(($i1+$i2+$i3)==($i4+$i5+$i6)){
+												echo "$i1$i2$i3$i4$i5$i6 ";
+												$count++;
 
+											}
+
+											$sum = 0;
+											for ($i=0; $i < 100; $i++) { 
+												$sum+=$i;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					echo "Всього щасливих квитків $count";
+				}
+				$start = mktime();
+				luckyTicket();
+				$end = mktime();
+				$time = $end - $start;
+
+				echo "Функція luckyTicket виконувалась $time мілісекунд";
 				//my_print_r($arAnimals);
 			
 
