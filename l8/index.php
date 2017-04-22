@@ -15,184 +15,249 @@
 			</nav>
 		</header>
 		<div id="content">
-			<h1>PHP</h1>
+
+			<h1>PHP 2</h1>
 			<?php
-				//echo "<h1>Привіт</h1>";
+				$count_el = 10;
+				$array = [];
+				for ($i=0; $i < $count_el; $i++) { 
+					$array[]=mt_rand(0,100);
+				}
 
-				echo "<h1>Привіт</h1>"; // Привіт
-				#echo "<h1>Привіт</h1>";
+				unset($array[6]);
 
-				/*
-				echo "<h1>Привіт</h1>";
-				echo "<h1>Привіт</h1>";
-				echo "<h1>Привіт</h1>";
-				*/
-
-				$box = "Кіт";
-				$Box = "Собака";
-				$bOx = "Ящірка";
-
-				echo "$bOx $Box";
-
-				$boy = "Олександр";
-				$girl = "Леся";
-				$sum = $girl." + ".$boy;
-
-				echo "<br>$girl + $boy";
-				echo "<br>$sum";
-
-				$a = 10;
-				$b = 5;
-
-				$sum = $a + $b;
-				$sum = $sum + 8;
-				$sum += 8;
-				$plus = $a + $b;
-				$minus = $a - $b;
-				$miltiple = $a * $b;
-				$devision = $b/$a;
-				$o = $a % $b;
-				echo "Число 1 = $a, число 2 = $b";
-				echo "<br>Результат операція додавання $plus";
-				echo "<br>Результат операція віднімання $minus";
-				echo "<br>Результат операція множення $miltiple";
-				echo "<br>Результат операція ділення $devision";
-				echo "<br>$o";
-
-				$array = array(1,2,3,4,7);
-				$array2 = [7,4,3,2,1];
-
-				$plus_array = $array[1]+$array[3]; 
-				$array[0] = $array[1]+$array[3];
 				echo "<pre>";
 				print_r($array);
 				echo "</pre>";
-				echo "<br>$plus_array";
 
-				$zoo = ["слон","жираф", "мавпа", "удав","лисиця"];
-				
-				$zoo[1] .= $zoo[0];
-				$zoo[2] = "Бегемот";
-				//$zoo[99] = "Ігуану";
-				$count = count($zoo);
-				$zoo[$count] = "індик";
-				$zoo[] = "пінгвін";
-				$zoo[] = "броненосець";
-				$zoo[5] = $array[2];
-				echo "<br>В масиві $count елеменів";
-				echo "<pre>";
-				print_r($zoo);
-				echo "</pre>";
-			?>
-			<h2>Операції розгалудження</h2>
-			<?php
-				$a = 7;
-				$b = 5;
-				$bool = $a==$b;
+				$array2 = [];
 
-				$num = -16;
-
-				if($num>=0){
-					$result = sqrt($num);
-					echo "<br>Корінь з числа $num рівний $result";
+				if(!empty($array)){
+					echo "Масив не порожній";
 				}else{
-					echo "<br>З відємного числа неможливо отримати квадратний корінь";
+					echo "Масив порожній";
+				}
+				$a=1;
+				unset($a);
+				if(!isset($a)){
+					echo "Такої змінної немає";
 				}
 
-				$dilene = 3;
-				$dilnuk = 0;
-				
-				if($dilnuk!=0){
-					$chastka = $dilene/$dilnuk;
-					echo "<br> $chastka";
+				$phoneBook = [];
 
-				}else{
-					echo "<br>На нуль ділити не можна";
-				}
-
-				$r = 2;
-				$result = 2+2*2;
-
-				echo "<br>$result";
-				$sColor = "зелений";
-				$bIsAmbulans = true;
-
-				if($sColor=="зелений"){
-					if($bIsAmbulans){
-						echo "<br> Перехід не дозволено";
-					}else{
-						echo "<br> Перехід дозволено";
-					}
-					
-				}else{
-					echo "<br> Перехід не дозволено";
-				}
-
-
-				if(($sColor=="зелений")&&(!$bIsAmbulans)){
-					echo "<br> Перехід дозволено";
-				}else{
-					echo "<br> Перехід не дозволено";
-				}
-
-				$day = "вівторок";
-
-				if (($day=="понеділок")||($day=="середа")||($day=="п'ятниця")){
-					echo "Стоматолог приймає";
-				}else{
-					echo "У стоматолога вихідний";
-				}
-
-				echo "<br>";
-				// for($i=0;$i<10000;$i++){
-				// 	echo " $i";
-				// }
-
-				// for($i=10000;$i>0;$i--){
-				// 	echo " $i";
-				// }
-				echo "<ol>";
-				$count = count($zoo);
-				for ($i=0; $i < $count; $i++) { 
-					echo "<li>".$zoo[$i]."</li>";
-					echo "<li>{$zoo[$i]}</li>";
-				}
-				echo "</ol>";
-
-				$phoneBook = [
-					"Пожарна"=>101,
-					"Поліція"=>102,
-					"Швидка"=>103,
-					"Газова"=>104,
+				$contact = [
+					'name'=>'Пожарна',
+					'phone'=>101
 				];
+
+				$phoneBook[] = $contact;
+
+				$contact = [
+					'name'=>'Поліція',
+					'phone'=>102
+				];
+
+				$phoneBook[] = $contact;
+
+				$contact = [
+					'name'=>'Швидка',
+					'phone'=>103
+				];
+
+				$phoneBook[] = $contact;
+
 				echo "<pre>";
 				print_r($phoneBook);
 				echo "</pre>";
-				echo $phoneBook['Газова'];
 
+				//echo $phoneBook[1]['phone'];
 
-				$count = count($phoneBook);
-				echo "<ol>";
+				echo "<ul>";
 				foreach ($phoneBook as $key => $value) {
-					echo "<li>Щоб дозвонитись в $key наберіть $value</li>";
+					echo "<li>".$value['name'].":".$value['phone']."</li>";
 				}
-				$step = 1/3;
-				echo -27**$step;
+				echo "</ul>";
 
-				$start = "<div class='circle'></div>";
-				$countCircle=10;
-
-				for ($i=0; $i < $countCircle; $i++) { 
-					$start = "<div class='circle'>".$start." $i</div>";
+				$s = "Швидка";
+				for ($i=0; $i < count($phoneBook); $i++) { 
+					if($phoneBook[$i]['name']==$s){
+						echo $phoneBook[$i]['phone'];
+					}
 				}
 
-				$name = "start";
+				my_print_r(123);
 
-				echo $$name;
+				function my_print_r($array){
+					if(is_array($array)){
+						echo "<pre>";
+						print_r($array);
+						echo "</pre>";
+					}else{
+						echo $array;
+					}
+				}
+
+				function Pifagor($a = null,$b = null){
 					
+					if($a!=null&&$b!=null){
+						if(is_int($a)&&is_int($b)){
+							$c = sqrt($a*$a+$b*$b);
+							echo "Довжина гіпотенузи $c";
+						}else{
+							echo "Один з елементів не число";
+						}
+					}else{
+						echo "Не задано числа";
+					}
+				}
+
+				//Pifagor(1);	
+
+				function getNameDayByNumber($n){
+					echo "<br>";
+
+					// if($n==1){
+					// 	echo "Понеділок";
+					// }
+					// if($n==2){
+					// 	echo "Вівторок";
+					// }
+					// if($n==3){
+					// 	echo "Середа";
+					// }
+
+					switch ($n) {
+						case 1:
+							echo "Понеділок";
+							break;
+						case 2:
+							echo "Вівторок";
+							break;
+						case 3:
+							echo "Середа";
+							break;
+						case 4:
+							echo "Четверг";
+							break;
+						case 5:
+							echo "П'ятниця";
+							break;
+						case 6:
+							echo "Субота";
+							break;
+						case 7:
+							echo "Неділя";
+							break;
+						
+						default:
+							echo "В тижні тільки 7 днів, ви ввели не коректне число";
+							break;
+					}
+				}	
+
+				getNameDayByNumber(17);
+
+
+				$array = [];
+				for ($i=0; $i < $count_el; $i++) { 
+					$array[mt_rand(0,60)]=mt_rand(0,100);
+				}
+
+				$array['animal'] = "dog";
+
+				my_print_r($array);
+				sort($array);
+				my_print_r($array);
+				echo "Обернений масив";
+				$rArray = array_reverse($array);
+				my_print_r($rArray);
+
+				$array_asoc = [
+						"name"=>"ff",
+						"b" => 23,
+						"x" => "Невідома змінна"
+					];
+
+				my_print_r($array_asoc);
+				ksort($array_asoc);
+				my_print_r($array_asoc);
+
+				$animals = "кіт&пес&миша&курка&кіткіткіт";
+
+				$aAnimals = explode("&", $animals);
+
+				$arAnimals = array_reverse($aAnimals);
+
+				$rAnimals = implode("Lala", $arAnimals);
+				echo "$rAnimals";
+				$replase = str_replace("к", "w", $animals);
+				echo "<br>$replase";
+
+				echo "<br>";
+				$t = 2;
+
+				function expT(){
+					//global $t;
+					if(isset($t)){
+						echo "$t";
+					}else{
+						echo "Змінної не існує";
+					}
+					
+					echo "<br>";
+				}
+
+				expT();
+				expT();
+				expT();
+
 				
-				echo "</ol>";
-				
+
+				function getPifagor($a,$b){
+					$c = sqrt($a*$a+$b*$b);
+					return $c;
+				}
+
+				$g = getPifagor(13,40);
+				echo "<br>Гіпотенуза $g";
+
+
+
+				function luckyTicket(){
+					$count = 0;
+					for ($i1=0; $i1 < 10; $i1++) { 
+						for ($i2=0; $i2 < 10; $i2++) { 
+							for ($i3=0; $i3 < 10; $i3++) { 
+								for ($i4=0; $i4 < 10; $i4++) { 
+									for ($i5=0; $i5 < 10; $i5++) { 
+										for ($i6=0; $i6 < 10; $i6++) { 
+											if(($i1+$i2+$i3)==($i4+$i5+$i6)){
+												echo "$i1$i2$i3$i4$i5$i6 ";
+												$count++;
+
+											}
+
+											$sum = 0;
+											for ($i=0; $i < 100; $i++) { 
+												$sum+=$i;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					echo "Всього щасливих квитків $count";
+				}
+				$start = mktime();
+				luckyTicket();
+				$end = mktime();
+				$time = $end - $start;
+
+				echo "Функція luckyTicket виконувалась $time мілісекунд";
+				//my_print_r($arAnimals);
+			
+
 
 
 			?>
