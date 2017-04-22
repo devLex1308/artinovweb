@@ -18,6 +18,11 @@
 		<div id="content">
 			<h1>ООП</h1>
 			<?php
+
+				ini_set('error_reporting', E_ALL);
+				ini_set('display_errors', 1);
+				ini_set('display_startup_errors', 1);
+
 				$car = [];
 				$car["brend"]="audi";
 				$car["FuilVolume"] = 50;
@@ -50,13 +55,26 @@
 				// $distanse = $car1["FuilVolume"]/$car1["FuilPer100Km"]*100;
 				// echo "Автомобіль {$car1["brend"]} може проїхати $distanse км";
 
-				class Car
-				{
-					public $brend;
+				class Transport{
+					private $brend;
 					public $FuilVolume;
 					public $FuilPer100Km;
 					public $color;
+					
+					public function carDistanse(){
+						$distanse = $this->FuilVolume/$this->FuilPer100Km*100;
+						echo "Автомобіль {$this->brend} може проїхати $distanse км<br>";
+					}
 
+					public function test(){
+						echo "Це метод test з класу Transport <br/>";
+					}
+
+				}
+
+				class Car extends Transport
+				{
+	
 					public function __construct(
 												$brend,
 												$FuilVolume,
@@ -70,14 +88,14 @@
 						echo "Створено об`єкт класу Car<br>";
 					}
 
+					public function test(){
+						echo "Перевизначили метод<br>";
+					}
+
 					// public function __destruct(){
 					// 	echo "Видалено об`єкт класу Car<br>";
 					// }
 
-					public function carDistanse(){
-						$distanse = $this->FuilVolume/$this->FuilPer100Km*100;
-						echo "Автомобіль {$this->brend} може проїхати $distanse км<br>";
-					}
 				}
 
 				function my_print_r($array){
@@ -109,12 +127,8 @@
 				my_print_r($carOpel);
 				$carOpel->carDistanse();
 
-				class Lorry
+				class Lorry extends Transport
 				{
-					public $brend;
-					public $FuilVolume;
-					public $FuilPer100Km;
-					public $color;
 					public $load;
 					public $coutAxis;
 					const LORRYWEIGHT = 5000;
@@ -132,18 +146,35 @@
 						echo "Створено об`єкт класу Car<br>";
 					}
 
-					// public function __destruct(){
-					// 	echo "Видалено об`єкт класу Car<br>";
-					// }
-
-					public function carDistanse(){
-						$distanse = $this->FuilVolume/$this->FuilPer100Km*100;
-						echo "Автомобіль {$this->brend} може проїхати $distanse км<br>";
+					public function test(){
+						//echo "Це метод test з класу Transport <br/>";
+						parent::test();
+						echo "Вивожу ще одну стрічку<br>";
 					}
+
 
 					public function axisWeight(){
 						$axisWeight = ($this->LORRYWEIGHT+$this->load)/$this->coutAxis;
 						echo "Автомобіль {$this->brend} має максимальне навантаження на вісь $axisWeight кг<br>";
+					}
+				}
+
+				class Bus extends Transport{
+					public $volume;
+
+					public function __construct(
+												$brend,
+												$FuilVolume,
+												$FuilPer100Km,
+												$color,
+												$volume
+												){
+						$this->brend=$brend;
+						$this->FuilVolume=$FuilVolume;
+						$this->FuilPer100Km=$FuilPer100Km;
+						$this->color=$color;
+						$this->volume = $volume;
+						echo "Створено об`єкт класу Bus<br>";
 					}
 				}
 
@@ -154,6 +185,41 @@
 				my_print_r($carKamaz);
 				$carKamaz->carDistanse();
 				$carKamaz->axisWeight();
+
+				$busIkarus = new Bus("Ікарус",500,25,"Білий",40);
+				my_print_r($busIkarus);
+				$busIkarus->carDistanse();
+
+				$carLada->test();
+				$carKamaz->test();
+				$busIkarus->test();
+
+				//$tt = new Transport();
+				
+				$carLada->brend = "Zaz";
+
+				my_print_r($carLada);
+
+				class A{
+					private $a="Привіт";
+					protected $b="Щось є";
+					public $c = "Ура";
+				}
+
+				class B extends A{
+
+					public function getA(){
+						echo $this->a;
+					}
+				}
+
+				$b = new B;
+
+				//echo $b->a;
+				//echo $b->b;
+				echo $b->c;
+				$b->getA();
+
 
 			?>
 
