@@ -1,10 +1,11 @@
 <?php
 
 class Transport{
-	private $brend;
+	protected $brend = "не визначено";
 	public $FuilVolume;
 	public $FuilPer100Km;
 	public $color;
+	public $power = 200;
 	
 	public function carDistanse(){
 		$distanse = $this->FuilVolume/$this->FuilPer100Km*100;
@@ -13,6 +14,10 @@ class Transport{
 
 	public function test(){
 		echo "Це метод test з класу Transport <br/>";
+	}
+
+	public static function SayHello(){
+		echo "Hello";
 	}
 
 }
