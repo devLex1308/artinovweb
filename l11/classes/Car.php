@@ -1,5 +1,5 @@
 <?php
-class Car extends Transport{
+class Car extends Transport implements Drive,Fly{
 	public static $count=0;
 	public $objectCount = 0;
 
@@ -14,6 +14,8 @@ class Car extends Transport{
 		$this->FuilPer100Km=$FuilPer100Km;
 		$this->color=$color;
 		echo "Створено об`єкт класу Car<br>";
+
+		self::$count++;
 	}
 
 	public function printCount(){
@@ -33,6 +35,28 @@ class Car extends Transport{
 		echo "Перевизначили метод<br>";
 	}
 
+	public function my_constant(){
+		parent::constant();
+		echo "Цей метод можна змінити!<br>";
+	}
+
+	public function go(){
+		echo "Ми рухаємось вперід";
+	}
+
+	public function stop(){
+		echo "Ми зупиняємось";
+	}
+
+	public function up(){
+		echo "Ми взлітаєм";
+	}
+
+	public function down(){
+		echo "Ми сідаєм";
+	}
+
+	public function  test2(){}
 	// public function __destruct(){
 	// 	echo "Видалено об`єкт класу Car<br>";
 	// }
