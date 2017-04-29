@@ -1,0 +1,15 @@
+.division{
+	background: green;
+	/*height: 50px;*/
+}
+.col{
+	background: gold;
+	height: 50px;
+	border: 2px solid black;
+}
+.content{
+	background: grey;
+}
+.side-bar{
+	background: gold;
+}
