@@ -1,0 +1,9 @@
+.division{
+	background: green;
+	height: 50px;
+}
+.col{
+	background: gold;
+	height: 50px;
+	border: solid black;
+}
