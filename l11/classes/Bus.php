@@ -8,7 +8,7 @@ class Bus extends Transport{
 								$FuilVolume,
 								$FuilPer100Km,
 								$color,
-								$volume,
+								$volume
 								){
 		$this->brend=$brend;
 		$this->FuilVolume=$FuilVolume;

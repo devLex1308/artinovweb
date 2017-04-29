@@ -1,6 +1,6 @@
 <?php
 
-class Transport{
+abstract class Transport{
 	protected $brend = "не визначено";
 	public $FuilVolume;
 	public $FuilPer100Km;
@@ -18,6 +18,11 @@ class Transport{
 
 	public static function SayHello(){
 		echo "Hello";
+	}
+
+	final public function constant(){
+
+		echo "Цей метод не можна змінити!<br>";
 	}
 
 }
