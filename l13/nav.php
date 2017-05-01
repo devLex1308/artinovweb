@@ -3,7 +3,7 @@
 	<a href="">Реєстрація</a>
 	<a href="authorization.php">Авторизація</a>
 	<a href="createStation.php">Створення зупинки</a>
-	<a href="">Редагування зупинки</a>
+	<a href="editStation.php">Редагування зупинки</a>
 	<a href="">Видалення зупинки</a>
-	<a href="">Редашування юзера</a>
+	<a href="editUsers.php">Редагування юзера</a>
 </nav>
