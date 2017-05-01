@@ -13,3 +13,9 @@
 .side-bar{
 	background: gold;
 }
+body{
+	padding-top:60px;
+}
+table {
+	border:black;
+}
