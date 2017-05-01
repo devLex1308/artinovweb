@@ -12,9 +12,7 @@ class User
 	}
 
 	public function actionIndex(){
-		require ROOT."/views/header.php";
 		echo "Сторінка виводу всіх користувачів";
-		require ROOT."/views/footer.php";
 		return true;
 	}
 
