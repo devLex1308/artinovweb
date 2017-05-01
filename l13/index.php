@@ -1,24 +1,9 @@
-﻿<!DOCTYPE html>
-<html>
-	<head>
-			<meta charset="UTF-8">
-			<link rel="stylesheet" type="text/css" href="css/style.css">
-			<script src="js/main.js"></script>
-			<title>
-					Реєстрація
-			</title>
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="index.html">Головна</a>
-			</nav>
-		</header>
+﻿<?php
+	require_once "header.php";
+?>
 		<div class="content">
-			
+			<h1>Main Page</h1>
 		</div>
-		<footer>
-			
-		</footer>		
-	</body>
-</html>
+<?php
+	require_once "footer.php";
+?>
