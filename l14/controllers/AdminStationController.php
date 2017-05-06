@@ -29,8 +29,8 @@ class AdminStationController
 		return true;
 	}
 
-	public function actionDelete(){
-		$title = "Видалення зупинки";
+	public function actionDelete($id){
+		$title = "Видалення зупинки $id";
 		require_once ROOT."/views/admin/AdminStationDelete.php";
 		return true;
 	}
