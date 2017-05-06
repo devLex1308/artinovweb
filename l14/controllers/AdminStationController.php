@@ -12,22 +12,26 @@ class AdminStationController
 	}
 
 	public function actionIndex(){
-		echo "Сторінка виводу всіх зупинка";
+		$title = "Вивід всіх зупинок";
+		require_once ROOT."/views/admin/AdminStationIndex.php";
 		return true;
 	}
 
 	public function actionCreate(){
-		echo "Сторінка створення зупинки";
+		$title = "Створення зупинки";
+		require_once ROOT."/views/admin/AdminStationCreate.php";
 		return true;
 	}
 
 	public function actionEdit($id){
-		echo "Сторінка редагування зупинки № $id";
+		$title = "Редагування зупинки $id";
+		require_once ROOT."/views/admin/AdminStationEdit.php";
 		return true;
 	}
 
 	public function actionDelete(){
-		echo "Сторінка видалення зупинки";
+		$title = "Видалення зупинки";
+		require_once ROOT."/views/admin/AdminStationDelete.php";
 		return true;
 	}
 }
