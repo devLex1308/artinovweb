@@ -9,12 +9,16 @@
 			<th>Редагувати</th>
 			<th>Видалити</th>
 		</tr>
-		<tr>
-			<td>14</td>
-			<td>Площа перемоги</td>
-			<td><a href="<?php echo LOCALPATH;?>/admin/station/edit/14">Редагувати</a></td>
-			<td><a href="<?php echo LOCALPATH;?>/admin/station/delete/14">Видалити</a></td>
-		</tr>
+		<?php
+			//print_r($stations);
+			foreach ($stations as $key => $station) {?>
+				<tr>
+					<td><?php echo $station['id']; ?></td>
+					<td><?php echo $station['name']; ?></td>
+					<td><a href="<?php echo LOCALPATH;?>/admin/station/edit/<?php echo $station['id']; ?>">Редагувати</a></td>
+					<td><a href="<?php echo LOCALPATH;?>/admin/station/delete/<?php echo $station['id']; ?>">Видалити</a></td>
+				</tr>	
+			<?}?>
 	</table>
 
 <?php

@@ -18,10 +18,8 @@ class Station{
 		
 		# MySQL через PDO_MYSQL  
 			
-		echo "Test";	
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
 	
-			
 			$sql = '
 				INSERT INTO station
 					SET
@@ -45,14 +43,32 @@ class Station{
 			$query->bindParam(":map_x", 	$map_x, 	PDO::PARAM_STR);
 			$query->bindParam(":map_y", 	$map_y, 	PDO::PARAM_STR);
 			$query->bindParam(":latitude", 	$latitude, 	PDO::PARAM_STR);
-			$query->bindParam(":longitude", $longitude, 	PDO::PARAM_STR);
+			$query->bindParam(":longitude", $longitude, PDO::PARAM_STR);
 			
 			$query->execute();
 
-			//PDO::errorInfo();
+	}
 
-			echo "Test";
+	public static function getAllStations(){
+
+		$host = 'localhost';
+		$dbname = 'goto';
+		$user = 'root';
+		$pass = '';
 		
+		# MySQL через PDO_MYSQL  
+			
+		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
 
+		$sql = '
+				SELECT id,name 
+				FROM station
+			';
+			
+		$query = $DBH->prepare($sql);
+		
+		$query->execute();
+		
+		return $query->fetchAll();
 	}
 }
