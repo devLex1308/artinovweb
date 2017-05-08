@@ -10,15 +10,7 @@ class Station{
 										$latitude,
 										$longitude
 										){
-		//echo "Викликали модель";
-		$host = 'localhost';
-		$dbname = 'goto';
-		$user = 'root';
-		$pass = '';
-		
-		# MySQL через PDO_MYSQL  
-			
-		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
+		$DBH = Db::getConnection(); 
 	
 			$sql = '
 				INSERT INTO station
@@ -50,15 +42,10 @@ class Station{
 	}
 
 	public static function getAllStations(){
-
-		$host = 'localhost';
-		$dbname = 'goto';
-		$user = 'root';
-		$pass = '';
 		
 		# MySQL через PDO_MYSQL  
 			
-		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
+		$DBH = Db::getConnection(); 
 
 		$sql = '
 				SELECT id,name 
@@ -68,7 +55,7 @@ class Station{
 		$query = $DBH->prepare($sql);
 		
 		$query->execute();
-		
+
 		return $query->fetchAll();
 	}
 }

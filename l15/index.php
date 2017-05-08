@@ -7,7 +7,8 @@
 				ini_set('display_startup_errors', 1);
 				define('ROOT', dirname(__FILE__));
 				define('LOCALPATH',"/l15");
-				include_once "classes/Router.php";
+				require_once "classes/Db.php";
+				require_once "classes/Router.php";
 				$router = new Router();
 				$router->run();
 

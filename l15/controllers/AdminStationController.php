@@ -22,6 +22,11 @@ class AdminStationController
 		$title = "Створення зупинки";
 		if(isset($_POST['createStation'])){
 
+			//ДЗ виправити предачу данних в метод createStation
+			// Не передавати масив $_POST на пряму, поробити перевірки на вхідні дані
+			// Створити масив $errors в який записувати всі помилки
+			// У відображенні AdminStationCreate перед формою зробити перевірку чи цей масив є пустим і якщо не пустий то списком вивести всі помилки
+			$arrayStation = [];
 
 			Station::createStation(
 									$_POST['name'],
