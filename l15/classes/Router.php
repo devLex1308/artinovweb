@@ -48,9 +48,8 @@ class Router
 					break;
 				}
 
-}
+			}
 		}
 	}
-
 }
 
