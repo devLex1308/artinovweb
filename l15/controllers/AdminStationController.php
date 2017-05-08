@@ -44,7 +44,22 @@ class AdminStationController
 	}
 
 	public function actionEdit($id){
-		$title = "Редагування зупинки $id";
+		if(isset($_POST['editStation'])){
+			Station::editStation(
+									$id,
+									$_POST['name'],
+									$_POST['description'],
+									$_POST['is_real'],
+									$_POST['neighboring_stop'],
+									$_POST['map_x'],
+									$_POST['map_y'],
+									$_POST['latitude'],
+									$_POST['longitude']
+								);
+		}
+
+		$title = "Редагування зупинки";
+		$station = Station::getStationById($id);
 		require_once ROOT."/views/admin/AdminStationEdit.php";
 		return true;
 	}
