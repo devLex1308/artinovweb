@@ -66,6 +66,9 @@ class AdminStationController
 
 	public function actionDelete($id){
 		$title = "Видалення зупинки $id";
+
+		Station::deleteStationById($id);
+		header("Location: ".LOCALPATH."admin/station");
 		require_once ROOT."/views/admin/AdminStationDelete.php";
 		return true;
 	}

@@ -123,4 +123,23 @@ class Station{
 			$query->execute();
 
 	}
+
+	public static function deleteStationById($id){
+		
+		# MySQL через PDO_MYSQL  
+			
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+				DELETE  
+				FROM station
+				WHERE id = :id
+			';
+			
+		$query = $DBH->prepare($sql);
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+		
+		$query->execute();
+
+	}
 }
