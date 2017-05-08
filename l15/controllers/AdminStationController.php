@@ -13,6 +13,7 @@ class AdminStationController
 
 	public function actionIndex(){
 		$title = "Вивід всіх зупинок";
+		$stations = Station::getAllStations();
 		require_once ROOT."/views/admin/AdminStationIndex.php";
 		return true;
 	}
@@ -20,6 +21,8 @@ class AdminStationController
 	public function actionCreate(){
 		$title = "Створення зупинки";
 		if(isset($_POST['createStation'])){
+
+
 			Station::createStation(
 									$_POST['name'],
 									$_POST['description'],
