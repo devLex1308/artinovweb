@@ -19,4 +19,10 @@ return array(
 	'admin/category/edit/([0-9]+)' => 'AdminCategory/edit/$1',
 	'admin/category/delete/([0-9]+)' => 'AdminCategory/delete/$1',
 	'admin/category' => 'AdminCategory/index',
+
+	'admin/user/create' => 'AdminUser/create',
+	'admin/user/edit/([0-9]+)' => 'AdminUser/edit/$1',
+	'admin/user/delete/([0-9]+)' => 'AdminUser/delete/$1',
+	'admin/articles' => 'AdminUser/articles',
+	'admin/users' => 'AdminUser/index',
 	);
