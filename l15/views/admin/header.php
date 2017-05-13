@@ -41,6 +41,22 @@
                 <li><a href="<?php echo LOCALPATH;?>/admin/station/create">Створити</a></li>
               </ul>
             </li>
+
+            <li class="dropdown">
+              <a href="<?php echo LOCALPATH;?>/admin/route" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Маршрути <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo LOCALPATH;?>/admin/route">Всі</a></li>
+                <li><a href="<?php echo LOCALPATH;?>/admin/route/create">Створити</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="<?php echo LOCALPATH;?>/admin/category" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Категорії <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?php echo LOCALPATH;?>/admin/category">Всі</a></li>
+                <li><a href="<?php echo LOCALPATH;?>/admin/category/create">Створити</a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
