@@ -176,4 +176,24 @@ class User{
 		return false;
 
 	}
+
+
+	public static function isUserAuthorization($login,$pass){
+		$DBH = Db::getConnection();
+
+		$sql = '
+				SELECT id,fio,login
+				FROM user
+				WHERE login=:login AND pass=:pass
+				';
+		$md5 = md5($pass);
+		echo $md5;
+		$query = $DBH->prepare($sql);
+		$query->bindParam(":login", $login, PDO::PARAM_STR);
+		$query->bindParam(":pass", $md5, PDO::PARAM_STR);
+
+		$query->execute();
+		return $query->fetch();
+
+	}
 }

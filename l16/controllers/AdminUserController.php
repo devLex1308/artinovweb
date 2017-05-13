@@ -144,4 +144,29 @@ class AdminUserController {
 		require_once ROOT."/views/admin/AdminUserDelete.php";
 		return true;
 	}
+
+	public function actionAuthorization(){
+		$title = "Авторизація";
+		if(isset($_POST['Authorization'])){
+			print_r($_POST);
+			$user = User::isUserAuthorization($_POST['login'],$_POST['pass']);
+			print_r($user);
+			if(!empty($user)){
+				$_SESSION['login'] = $user['login'];
+				$_SESSION['user_id'] = $user['id'];
+			}
+		}
+
+		require_once ROOT."/views/admin/AdminUserAuthorization.php";
+		return true;
+	}
+
+	public static function actionLogout(){
+		$title = "Вихід";
+		unset($_SESSION['login']);
+		unset($_SESSION['user_id']);
+
+		require_once ROOT."/views/admin/AdminUserAuthorization.php";
+		return true;
+	}
 }

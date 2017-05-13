@@ -66,6 +66,20 @@
               </ul>
             </li>
           </ul>
+          <?php
+            if(isset($_SESSION["login"])){?>
+            <ul>
+               <li>Привіт <?php echo $_SESSION["login"]; ?></li>
+               <li><a href="<?php echo LOCALPATH.'/admin/logout'; ?>">Вихід</a></li>
+            </ul>
+          <?php
+          }else{ ?>
+             <ul>
+               <li><a href="<?php echo LOCALPATH.'/admin/authorization'; ?>">Увійти</a></li>
+            </ul>
+          <?php }
+          ?>
+          
         </div><!--/.nav-collapse -->
       </div>
     </nav>
