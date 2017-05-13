@@ -1,9 +1,10 @@
 <?php
+require_once ROOT."/models/Route.php";
 require_once ROOT."/models/Station.php";
 /**
 * 
 */
-class AdminRouteController 
+class AdminRouteController
 {
 	
 	function __construct()
@@ -12,9 +13,9 @@ class AdminRouteController
 	}
 
 	public function actionIndex(){
-		$title = "Вивід всіх зупинок";
-		$stations = Station::getAllStations();
-		require_once ROOT."/views/admin/AdminStationIndex.php";
+		$title = "Вивід всіх маршрутів";
+		$routers = Route::getAllRoutes();
+		require_once ROOT."/views/admin/AdminRouteIndex.php";
 		return true;
 	}
 
@@ -22,23 +23,22 @@ class AdminRouteController
 		$title = "Створення маршруту";
 		$countStation = 30;
 		$stations = Station::getAllStations();
-		if(isset($_POST['createStation'])){
-
+		if(isset($_POST['createRoute'])){
 			//ДЗ виправити предачу данних в метод createStation
 			// Не передавати масив $_POST на пряму, поробити перевірки на вхідні дані
 			// Створити масив $errors в який записувати всі помилки
 			// У відображенні AdminStationCreate перед формою зробити перевірку чи цей масив є пустим і якщо не пустий то списком вивести всі помилки
-			$arrayStation = [];
+			$arrayRouter = [];
 
-			Station::createStation(
-									$_POST['name'],
-									$_POST['description'],
-									$_POST['is_real'],
-									$_POST['neighboring_stop'],
-									$_POST['map_x'],
-									$_POST['map_y'],
-									$_POST['latitude'],
-									$_POST['longitude']
+			Route::createRoute(
+									$_POST['name_start'],
+									$_POST['name_end'],
+									$_POST['number'],
+									$_POST['carriage_id'],
+									$_POST['id_stations_start'],
+									$_POST['id_stations_end'],
+									$_POST['delta_time_start'],
+									$_POST['delta_time_end']
 								);
 		}
 		require_once ROOT."/views/admin/AdminRouteCreate.php";
@@ -46,32 +46,53 @@ class AdminRouteController
 	}
 
 	public function actionEdit($id){
-		if(isset($_POST['editStation'])){
-			Station::editStation(
+		if(isset($_POST['editRoute'])){
+			Route::editRoute(
 									$id,
-									$_POST['name'],
-									$_POST['description'],
-									$_POST['is_real'],
-									$_POST['neighboring_stop'],
-									$_POST['map_x'],
-									$_POST['map_y'],
-									$_POST['latitude'],
-									$_POST['longitude']
+									$_POST['name_start'],
+									$_POST['name_end'],
+									$_POST['number'],
+									$_POST['carriage_id'],
+									$_POST['id_stations_start'],
+									$_POST['id_stations_end'],
+									$_POST['delta_time_start'],
+									$_POST['delta_time_end']
 								);
 		}
 
-		$title = "Редагування зупинки";
-		$station = Station::getStationById($id);
-		require_once ROOT."/views/admin/AdminStationEdit.php";
+		$title = "Редагування маршруту";
+		$route = Route::getRouteById($id);
+		require_once ROOT."/views/admin/AdminRouteEdit.php";
+		return true;
+	}
+
+    public function actionFill($id){
+		$stations_route = Route::getAllStationsRoute($id);
+    	$stations = Route::getAllStations($id);
+		if(isset($_POST['fillRoute'])){
+            $station_id=$_POST['station_id'];
+			Route::fillRoute(
+							 $id,
+				             $station_id
+				            );
+			$stations = Route::getAllStations($id);
+			$stations_route = Route::getAllStationsRoute($id);
+		}
+        if(isset($_POST['outFill'])){
+       	//header("Location: ".LOCALPATH."admin/station");
+		}
+		$title = "Заповнення маршруту";
+
+		require ROOT."/views/admin/AdminRouteFill.php";
 		return true;
 	}
 
 	public function actionDelete($id){
-		$title = "Видалення зупинки $id";
+		$title = "Видалення маршруту $id";
 
-		Station::deleteStationById($id);
-		header("Location: ".LOCALPATH."admin/station");
-		require_once ROOT."/views/admin/AdminStationDelete.php";
+		Route::deleteRouteById($id);
+		header("Location: ".LOCALPATH."admin/route");
+		//require_once ROOT."/views/admin/AdminRouteDelete.php";
 		return true;
 	}
 }

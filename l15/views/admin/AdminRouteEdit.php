@@ -67,10 +67,10 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="typeform" value="createRoute">
+                <input type="hidden" name="typeform" value="editRoute">
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
-                        <input name="createRoute" type="submit" class="btn btn-warning">
+                        <input name="editRoute" type="submit" class="btn btn-warning">
                     </div>
                 </div>
             </form>
