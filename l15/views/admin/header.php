@@ -59,9 +59,9 @@
             </li>
 
             <li class="dropdown">
-              <a href="<?php echo LOCALPATH;?>/admin/user" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Користувачі <span class="caret"></span></a>
+              <a href="<?php echo LOCALPATH;?>/admin/users" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Користувачі <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo LOCALPATH;?>/admin/user">Всі</a></li>
+                <li><a href="<?php echo LOCALPATH;?>/admin/users">Всі</a></li>
                 <li><a href="<?php echo LOCALPATH;?>/admin/user/create">Створити</a></li>
               </ul>
             </li>
