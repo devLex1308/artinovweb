@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Трв 06 2017 р., 21:38
+-- Час створення: Трв 08 2017 р., 21:36
 -- Версія сервера: 5.5.50
 -- Версія PHP: 5.6.23
 
@@ -54,7 +54,17 @@ CREATE TABLE IF NOT EXISTS `station` (
   `map_y` double NOT NULL,
   `latitude` double NOT NULL,
   `longitude` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `station`
+--
+
+INSERT INTO `station` (`id`, `name`, `description`, `is_real`, `neighboring_stop`, `map_x`, `map_y`, `latitude`, `longitude`) VALUES
+(1, 'ddd', 'ff', 0, 'df', 0, 0, 0, 0),
+(2, 'Друга зупинка', '', 0, 'іва', 0, 0, 0, 0),
+(3, 'Театральна 4', '', 0, '', 1, 2, 3, 4),
+(4, 'Універмаг', '', 0, 'іва', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -185,7 +195,7 @@ ALTER TABLE `route`
 -- AUTO_INCREMENT для таблиці `station`
 --
 ALTER TABLE `station`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблиці `timetable`
 --
@@ -220,25 +230,25 @@ ALTER TABLE `route`
 -- Обмеження зовнішнього ключа таблиці `timetable`
 --
 ALTER TABLE `timetable`
-  ADD CONSTRAINT `timetable_ibfk_5` FOREIGN KEY (`station_id`) REFERENCES `station` (`id`),
   ADD CONSTRAINT `timetable_ibfk_1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`),
   ADD CONSTRAINT `timetable_ibfk_2` FOREIGN KEY (`time_route_start_id`) REFERENCES `time_route_start` (`id`),
   ADD CONSTRAINT `timetable_ibfk_3` FOREIGN KEY (`carriage_id`) REFERENCES `type_carriage` (`id`),
-  ADD CONSTRAINT `timetable_ibfk_4` FOREIGN KEY (`route_id`) REFERENCES `route` (`id`);
+  ADD CONSTRAINT `timetable_ibfk_4` FOREIGN KEY (`route_id`) REFERENCES `route` (`id`),
+  ADD CONSTRAINT `timetable_ibfk_5` FOREIGN KEY (`station_id`) REFERENCES `station` (`id`);
 
 --
 -- Обмеження зовнішнього ключа таблиці `time_route_start`
 --
 ALTER TABLE `time_route_start`
-  ADD CONSTRAINT `time_route_start_ibfk_2` FOREIGN KEY (`depo`) REFERENCES `station` (`id`),
-  ADD CONSTRAINT `time_route_start_ibfk_1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`);
+  ADD CONSTRAINT `time_route_start_ibfk_1` FOREIGN KEY (`transport_id`) REFERENCES `transport` (`id`),
+  ADD CONSTRAINT `time_route_start_ibfk_2` FOREIGN KEY (`depo`) REFERENCES `station` (`id`);
 
 --
 -- Обмеження зовнішнього ключа таблиці `transport`
 --
 ALTER TABLE `transport`
-  ADD CONSTRAINT `transport_ibfk_2` FOREIGN KEY (`route_id`) REFERENCES `route` (`id`),
-  ADD CONSTRAINT `transport_ibfk_1` FOREIGN KEY (`carriage_id`) REFERENCES `type_carriage` (`id`);
+  ADD CONSTRAINT `transport_ibfk_1` FOREIGN KEY (`carriage_id`) REFERENCES `type_carriage` (`id`),
+  ADD CONSTRAINT `transport_ibfk_2` FOREIGN KEY (`route_id`) REFERENCES `route` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
