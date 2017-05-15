@@ -146,6 +146,9 @@ class AdminUserController {
 	}
 
 	public function actionAuthorization(){
+
+		die("Увас немає прав доступу!");
+
 		$title = "Авторизація";
 		if(isset($_POST['Authorization'])){
 			print_r($_POST);
