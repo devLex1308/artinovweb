@@ -38,6 +38,7 @@
 		?>
     </table>
 </div>
+<script src="<?php echo LOCALPATH; ?>/views/js/tools.js"></script>
 <?php
 	require_once ROOT."/views/admin/footer.php";
 ?>
