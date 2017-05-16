@@ -203,7 +203,7 @@ WHERE orders.eventid='".$_GET['show']."'");
 			
 			$id = 1;
 
-			$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+			$query->bindParam(":id", $_POST[$id], 	PDO::PARAM_INT);
 			
 			$query->execute();
 
