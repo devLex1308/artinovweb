@@ -46,8 +46,9 @@ class AdminRouteController
 	}
 
 	public function actionEdit($id){
+		print_r($_POST);
 		if(isset($_POST['editRoute'])){
-			Route::editRoute(
+			/*Route::editRoute(
 									$id,
 									$_POST['name_start'],
 									$_POST['name_end'],
@@ -57,7 +58,7 @@ class AdminRouteController
 									$_POST['id_stations_end'],
 									$_POST['delta_time_start'],
 									$_POST['delta_time_end']
-								);
+								);*/
 		}
 
 		$title = "Редагування маршруту";

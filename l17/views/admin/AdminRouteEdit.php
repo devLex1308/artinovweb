@@ -28,7 +28,9 @@
                         <input type="text" class="form-control" id="name" name="number" placeholder="Ввести назву" required>
                     </div>
                 </div>
-
+                <div class="alert-warning">
+                    Зробити випадаючим списком
+                </div>
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">carriage_id</label>
                     <div class="col-sm-9">
@@ -39,33 +41,184 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">id_stations_start</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="name" name="id_stations_start" placeholder="Ввести назву" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Рух за прямим маршрутом</h2>
+                        <table class="table">
+                            <tr>
+                                <th>№</th>
+                                <th>Зупинка</th>
+                                <th>Різниця часу</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <select name="id_stations_start[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_start[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <select name="id_stations_start[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_start[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <select name="id_stations_start[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_start[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <select name="id_stations_start[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_start[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    <select name="id_stations_start[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_start[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+
+                        </table>
+                        <button>
+                            Додати ще одну зупинку
+                        </button>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Рух за зворотнім маршрутом</h2>
+                        <table class="table">
+                            <tr>
+                                <th>№</th>
+                                <th>Зупинка</th>
+                                <th>Різниця часу</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <select name="id_stations_end[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_end[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <select name="id_stations_end[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_end[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <select name="id_stations_end[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_end[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <select name="id_stations_end[]" class="form-control">
+                                        <option value="1">Зупинка 1</option>
+                                        <option value="2">Зупинка 2</option>
+                                        <option value="3">Зупинка 3</option>
+                                        <option value="4">Зупинка 4</option>
+                                        <option value="5">Зупинка 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="delta_time_end[]">
+                                </td>
+                                <td><button>X</button></td>
+                            </tr>
+                        </table>
+                        <button>
+                            Додати ще одну зупинку
+                        </button>
+
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">id_stations_end</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="name" name="id_stations_end" placeholder="Ввести назву" required>
-                    </div>
-                </div>
-
-                 <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">delta_time_start</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="name" name="delta_time_start" placeholder="Ввести назву" required>
-                    </div>
-                </div>
-
-                 <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label">delta_time_end</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="name" name="delta_time_end" placeholder="Ввести назву" required>
-                    </div>
-                </div>
 
                 <input type="hidden" name="typeform" value="editRoute">
                 <div class="form-group">
