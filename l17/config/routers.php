@@ -26,4 +26,9 @@ return array(
 	'admin/users' => 'AdminUser/index',
 	'admin/authorization' => 'AdminUser/authorization',
 	'admin/logout' => 'AdminUser/logout',
+
+    'admin/transport/create' => 'AdminTransport/create',
+    'admin/transport/edit/([0-9]+)' => 'AdminTransport/edit/$1',
+    'admin/transport/delete/([0-9]+)' => 'AdminTransport/delete/$1',
+    'admin/transport' => 'AdminTransport/index'
 	);

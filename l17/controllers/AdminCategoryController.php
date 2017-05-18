@@ -22,12 +22,6 @@ class AdminCategoryController
 		$title = "Створення категорії транспорту";
 		if(isset($_POST['createCategory'])){
 
-			//ДЗ виправити предачу данних в метод createStation
-			// Не передавати масив $_POST на пряму, поробити перевірки на вхідні дані
-			// Створити масив $errors в який записувати всі помилки
-			// У відображенні AdminStationCreate перед формою зробити перевірку чи цей масив є пустим і якщо не пустий то списком вивести всі помилки
-			$arrayStation = [];
-
 			Category::createCategory(
 									$_POST['name']
 									);
@@ -45,7 +39,7 @@ class AdminCategoryController
 		}
 
 		$title = "Редагування категорії транспорту";
-		$categories = Category::getCategoryById($id);
+		$categorie = Category::getCategoryById($id);
 		require_once ROOT."/views/admin/AdminCategoryEdit.php";
 		return true;
 	}

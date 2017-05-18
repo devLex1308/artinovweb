@@ -7,16 +7,18 @@
 			<th>id</th>
 			<th>Назва</th>
 			<th>Вид транспорту</th>
+			<th>Маршрут</th>
 			<th>Редагувати</th>
 			<th>Видалити</th>
 		</tr>
 		<?php
-			//print_r($stations);
 			foreach ($transports as $key => $transport) { ?>
 				<tr>
 					<td><?php echo $transport['id']; ?></td>
 					<td><?php echo $transport['name']; ?></td>
 					<td><?php echo $transport['carriage_id']; ?></td>
+					<td><?php echo $transport['route_id']; ?></td>
+
 					<td><a href="<?php echo LOCALPATH;?>/admin/transport/edit/<?php echo $transport['id']; ?>">Редагувати</a></td>
 					<td><a href="<?php echo LOCALPATH;?>/admin/transport/delete/<?php echo $transport['id']; ?>">Видалити</a></td>
 				</tr>	

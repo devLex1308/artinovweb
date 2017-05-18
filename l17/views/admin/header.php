@@ -65,6 +65,13 @@
                 <li><a href="<?php echo LOCALPATH;?>/admin/user/create">Створити</a></li>
               </ul>
             </li>
+              <li class="dropdown">
+                  <a href="<?php echo LOCALPATH;?>/admin/transport" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Транспорт <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="<?php echo LOCALPATH;?>/admin/transport">Весь транспорт</a></li>
+                      <li><a href="<?php echo LOCALPATH;?>/admin/transport/create">Створити</a></li>
+                  </ul>
+              </li>
           </ul>
           <?php
             if(isset($_SESSION["login"])){?>

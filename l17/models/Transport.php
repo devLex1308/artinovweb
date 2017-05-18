@@ -23,24 +23,24 @@ class Transport{
             }
         }
 	}
-	public static function getAllCarriage(){
+	public static function getAllTransport(){
 		# MySQL через PDO_MYSQL
 		$DBH = Db::getConnection();
 		$sql = '
 				SELECT id,name 
-				FROM type_carriage
+				FROM transport
 			';
 			
 		$query = $DBH->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();
 	}
-	public static function getCarriageById($id){
+	public static function getTrasportById($id){
 		# MySQL через PDO_MYSQL
 		$DBH = Db::getConnection();
 		$sql = '
 				SELECT * 
-				FROM type_carriage
+				FROM transport
 				WHERE id = :id
 			';
 			
@@ -49,13 +49,13 @@ class Transport{
 		$query->execute();
 		return $query->fetch();
 	}
-	public static function editCarriage(
+	public static function editTransport(
 										$id,	
 										$name
 										){
 		$DBH = Db::getConnection();
 			$sql = '
-				UPDATE type_carriage
+				UPDATE transport
 					SET
 						name=:name
 					WHERE id = :id
@@ -67,12 +67,12 @@ class Transport{
 			$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
 			$query->execute();
 	}
-	public static function deleteCarriageById($id){
+	public static function deleteTransportById($id){
 		# MySQL через PDO_MYSQL
 		$DBH = Db::getConnection();
 		$sql = '
 				DELETE  
-				FROM type_carriage
+				FROM transport
 				WHERE id = :id
 			';
 			
