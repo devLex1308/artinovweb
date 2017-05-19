@@ -8,6 +8,7 @@
 			<th>id</th>
 			<th>Назва</th>
 	    	<th>Тип транспорту</th>
+	    	<th>Зупинки</th>
 			<th>Редагувати</th>
 			<th>Заповнення маршруту</th>
 			<th>Видалити</th>
@@ -20,6 +21,7 @@
 					<td><?php echo $router['id']; ?></td>
 					<td><?php echo $router['number']." ".$router['name_start']."-".$router['name_end']; ?></td>
 					<td><?=$carriage_name[$key]['name']; ?></td>
+		    		<td><a href="<?php echo LOCALPATH; ?>/route/<?=$router['id'] ?>">Зупинки</a></td>
 					<td><a href="<?php echo LOCALPATH; ?>/admin/route/edit/<?=$router['id']; ?>">Редагувати</a></td>
 					<td><a href="<?php echo LOCALPATH; ?>/admin/route/fill/<?=$router['id']; ?>">Заповнити маршрут</a></td>
 					<td><a href="<?php echo LOCALPATH; ?>/admin/route/delete/<?=$router['id']; ?>">Видалити</a></td>

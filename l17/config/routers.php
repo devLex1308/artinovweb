@@ -1,6 +1,10 @@
 <?php
 
 return array(
+
+	'index.php' => 'Index/index',
+	'index' => 'Index/index',
+	'general' => 'Index/index',
 	
 	'admin/station/create' => 'AdminStation/create',
 	'admin/station/edit/([0-9]+)' => 'AdminStation/edit/$1',
@@ -14,6 +18,7 @@ return array(
 	'admin/route/([0-9]+)' => 'AdminRoute/index/$1',
 	'admin/route/fill/([0-9]+)' => 'AdminRoute/fill/$1',
 	'admin/route' => 'AdminRoute/index',
+	'route/([0-9]+)' => 'Route/index/$1',
 
 	'admin/category/create' => 'AdminCategory/create',
 	'admin/category/edit/([0-9]+)' => 'AdminCategory/edit/$1',

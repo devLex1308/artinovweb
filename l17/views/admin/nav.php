@@ -12,7 +12,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="<?php echo LOCALPATH;?>/">Home</a></li>
 
 				<li class="dropdown">
 					<a href="<?php echo LOCALPATH;?>/admin/station" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Зупинки <span class="caret"></span></a>

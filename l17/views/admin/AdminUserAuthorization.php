@@ -38,6 +38,7 @@ input::-webkit-inner-spin-button {
 		</div>
 		
 	</form>
+	<div><a href="<?php echo LOCALPATH; ?>/">Або зареєструйтеся</a></div>
 </center>
 <?php
 	require_once ROOT."/views/admin/footer.php";

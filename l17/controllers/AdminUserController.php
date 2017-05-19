@@ -195,9 +195,9 @@ class AdminUserController {
 		unset($_SESSION['login']);
 		unset($_SESSION['user_id']);
 		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/authorization"
+           window.location = "'.LOCALPATH.'/"
       	</script>';
-		require_once ROOT."/views/admin/AdminUserAuthorization.php";
+		// require_once ROOT."/views/admin/AdminUserAuthorization.php";
 		return true;
 	}
 }

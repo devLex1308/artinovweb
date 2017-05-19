@@ -9,6 +9,10 @@ class Router
 	public function run(){
 
 		$uri = $_SERVER['REQUEST_URI'];
+		$dir = strrchr(substr($uri, 1), "/");
+		if($dir == "/"){
+			$uri .= "index";
+		}
 		$i = 0;
 		foreach ($this->routes as $uriPattern => $path) {
 			$i++;
