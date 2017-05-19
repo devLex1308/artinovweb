@@ -1,8 +1,6 @@
 <?php
 class Category{
-	public static function createCategory(	
-										$name
-										){
+	public static function createCategory($name){
 		$DBH = Db::getConnection(); 
 	
 			$sql = '
@@ -20,9 +18,6 @@ class Category{
 	}
 
 	public static function getAllCategories(){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
@@ -38,9 +33,6 @@ class Category{
 	}
 
 	public static function getCategoryById($id){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
@@ -81,9 +73,6 @@ class Category{
 	}
 
 	public static function deleteCategoryById($id){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '

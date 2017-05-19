@@ -10,7 +10,6 @@
 			<th>Видалити</th>
 		</tr>
 		<?php
-			//print_r($stations);
 			foreach ($stations as $key => $station) {?>
 				<tr>
 					<td><?php echo $station['id']; ?></td>
@@ -23,9 +22,9 @@
 
 <?php
 
-	if($countPage>1){
+	if($countPage > 1){
 		echo "<ul class='pagination'>";
-		for ($i=1; $i <= $countPage; $i++) { 
+		for ($i = 1; $i <= $countPage; $i++) { 
 			if($page==$i){
 				echo "<li class='active'><a href='".LOCALPATH."/admin/station/$i' >$i</a></li>";
 			}else{
@@ -38,4 +37,3 @@
 
   require_once ROOT."/views/admin/footer.php";
 ?>
-

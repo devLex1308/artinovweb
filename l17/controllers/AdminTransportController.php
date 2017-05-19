@@ -1,23 +1,22 @@
 <?php
 require_once ROOT."/models/Transport.php";
-/**
-* 
-*/
-class AdminTransportController
-{
-	function __construct()
-	{
-		
-	}
+class AdminTransportController{
+	function __construct(){}
+	
 	public function actionIndex(){
 		$title = "Вивід вcього транспорту";
 		$transports = Transport::getAllTransport();
+		$routes = Transport::getAllRoutes();
+		$carriages = Transport::getAllTypeCarriage();
+
 		require_once ROOT."/views/admin/AdminTransportIndex.php";
 		return true;
 	}
 
 	public function actionCreate(){
 		$title = "Створення нового транспорту";
+		$routes = Transport::getAllRoutes();
+		$carriages = Transport::getAllTypeCarriage();
         if(isset($_POST['createTransport'])){
 
             Transport::createTransport(
@@ -32,15 +31,20 @@ class AdminTransportController
 	}
 
 	public function actionEdit($id){
+		$transport = Transport::getTrasportById($id);
+		$routes = Transport::getAllRoutes();
+		$carriages = Transport::getAllTypeCarriage();
 		if(isset($_POST['editTransport'])){
 			Transport::editTransport(
-									$id,
-									$_POST['name']
-								);
+										$id,
+										$_POST['name'],
+										$_POST['description'],
+										$_POST['carriage_id'],
+										$_POST['route_id']
+									);
 		}
 
 		$title = "Редагування транспорту";
-		$transport = Transport::getTrasportById($id);
 		require_once ROOT."/views/admin/AdminTransportEdit.php";
 		return true;
 	}
@@ -49,7 +53,9 @@ class AdminTransportController
 		$title = "Видалення транспорту $id";
 
 		Transport::deleteTransportById($id);
-		header("Location: ".LOCALPATH."admin/transport");
+		echo '<script type="text/javascript">
+           window.location = "'.LOCALPATH.'/admin/users"
+      	</script>';
 		require_once ROOT."/views/admin/AdminTransportDelete.php";
 		return true;
 	}

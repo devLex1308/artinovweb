@@ -30,8 +30,8 @@ input::-webkit-inner-spin-button {
 		</div>
 
 		<div class="form-group">
-			<label>Введіть Пароль:</label>
-	    	<input class="form-control" type="text" name="pass" placeholder="pass" value="<?php echo $user['pass']; ?>" required>
+			<label>Введіть новий пароль Пароль, або ж залиште це поле пустим:</label>
+	    	<input class="form-control" type="text" name="pass" placeholder="pass">
 		</div>
 
 		<div class="form-group">

@@ -4,17 +4,15 @@ class Router
 	private $routes;
 	function __construct(){
 		$this->routes = require(ROOT."/config/routers.php");
-		//print_r($this->routes);
 	}
 
 	public function run(){
 
 		$uri = $_SERVER['REQUEST_URI'];
+		$i = 0;
 		foreach ($this->routes as $uriPattern => $path) {
-
+			$i++;
 			if(preg_match("~$uriPattern~", $uri)) {
-
-				//print_r($matches);
 				
 				$internalRoute = preg_replace("~$uriPattern~", $path, $uri);
 
@@ -26,12 +24,9 @@ class Router
 				$controllerName = array_shift($segments).'Controller';
 				$controllerName = ucfirst($controllerName);
 
-				
-
 				$actionName = 'action'.ucfirst(array_shift($segments));
 
 				$parameters = $segments;
-
 
 				$controllerFile = ROOT . '/controllers/' .$controllerName. '.php';
 
@@ -40,14 +35,15 @@ class Router
 				}
 
 				$controllerObject = new $controllerName;
-				/*$result = $controllerObject->$actionName($parameters); - OLD VERSION */
-				/*$result = call_user_func(array($controllerObject, $actionName), $parameters);*/
 				$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 				
 				if ($result != null) {
 					break;
 				}
-
+			} elseif(count($this->routes) == $i){
+				require_once(ROOT."/controllers/Page.php");
+				$object = new Page();
+				$object->actionClassNotFound();
 			}
 		}
 	}

@@ -10,7 +10,6 @@
 			<th>Видалити</th>
 		</tr>
 		<?php
-			//print_r($stations);
 			foreach ($categories as $key => $category) {?>
 				<tr>
 					<td><?php echo $category['id']; ?></td>

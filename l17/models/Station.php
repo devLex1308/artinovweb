@@ -45,11 +45,9 @@ class Station{
 	}
 
 	public static function getAllStations($page = 1){
-		
-		# MySQL через PDO_MYSQL 
 		$stationOnPage = self::stationOnPage;
 
-		$start = ($page-1)*$stationOnPage;
+		$start = ($page - 1) * $stationOnPage;
 			
 		$DBH = Db::getConnection(); 
 
@@ -69,10 +67,21 @@ class Station{
 		return $query->fetchAll();
 	}
 
+	public static function getAllStation(){
+		 
+		$DBH = Db::getConnection();
+
+		$sql = '
+				SELECT id, name
+				FROM station
+				';
+
+		$query = $DBH->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}	
+
 	public static function getStationById($id){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
@@ -135,9 +144,6 @@ class Station{
 	}
 
 	public static function deleteStationById($id){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
@@ -154,13 +160,10 @@ class Station{
 	}
 
 	public static function getPaginationInfo(){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT COUNT(id) as "count" 
+				SELECT COUNT(id) as count 
 				FROM station
 			';
 			
@@ -171,5 +174,13 @@ class Station{
 		return $query->fetch();
 	}
 
-
+	public static function getLengthField($field){
+		$DBH = Db::getConnection();
+		// Перевірка максимальної можливої довжини поля
+		$q = $DBH->prepare("DESCRIBE station");
+		$q->execute();
+		$table_users = $q->fetchAll(PDO::FETCH_UNIQUE);
+		$text = $table_users[$field][0];
+		return substr(substr(strrchr($text, '('), 1), 0, -1);
+	}
 }
