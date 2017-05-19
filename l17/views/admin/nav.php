@@ -54,6 +54,14 @@
 					</ul>
 				</li>
 
+				<li class="dropdown">
+					<a href="<?php echo LOCALPATH;?>/admin/article" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Статті <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="<?php echo LOCALPATH;?>/admin/article">Всі</a></li>
+						<li><a href="<?php echo LOCALPATH;?>/admin/article/create">Створити</a></li>
+					</ul>
+				</li>
+
 				<?php
 				if(isset($_SESSION['login'])){
 					?>

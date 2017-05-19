@@ -36,5 +36,10 @@ return array(
     'admin/transport/create' => 'AdminTransport/create',
     'admin/transport/edit/([0-9]+)' => 'AdminTransport/edit/$1',
     'admin/transport/delete/([0-9]+)' => 'AdminTransport/delete/$1',
-    'admin/transport' => 'AdminTransport/index'
+    'admin/transport' => 'AdminTransport/index',
+
+	'admin/article/create' => 'AdminArticle/create',
+	'admin/article/edit/([0-9]+)' => 'AdminArticle/edit/$1',
+	'admin/article/delete/([0-9]+)' => 'AdminArticle/delete/$1',
+	'admin/article' => 'AdminArticle/index'
 	);
