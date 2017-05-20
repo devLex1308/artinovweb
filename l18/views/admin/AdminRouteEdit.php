@@ -159,7 +159,7 @@ require_once ROOT."/views/admin/header.php";
                                 </tr>
 
                             </table>
-                            <button>
+                            <button id="addStation1">
                                 Додати ще одну зупинку
                             </button>
 
@@ -173,7 +173,6 @@ require_once ROOT."/views/admin/header.php";
                                     <th>Різниця часу</th>
                                     <th></th>
                                 </tr>
-                                <tr>
                                     <td>1</td>
                                     <td>
                                         <select class="form-control" name="id_stations_end[]" required>
@@ -265,9 +264,7 @@ require_once ROOT."/views/admin/header.php";
             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
         </div>
     </div>
-
-
-
+    <script src="<?php echo LOCALPATH; ?>/views/js/routeEdit.js"></script>
     <?php
     require_once ROOT."/views/admin/footer.php";
     ?>
