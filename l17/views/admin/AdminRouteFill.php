@@ -14,7 +14,7 @@
               $select = "";
               $select .= "<select name='station_id'>";
               foreach ($stations as $key => $station) {
-              $select .= "<option value='{$station['id']}'>{$station['name']}</option>";
+                $select .= "<option value='{$station['id']}'>{$station['name']}</option>";
               }
               $select .= "</select>";
 
