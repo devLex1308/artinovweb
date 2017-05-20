@@ -5,7 +5,6 @@ class Db
 	public static function getConnection()
 	{
 		if(!empty(self::$dbc)){
-
 			return self::$dbc;
 		}
 		

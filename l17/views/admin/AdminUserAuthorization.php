@@ -34,10 +34,11 @@ input::-webkit-inner-spin-button {
 	    	<input class="form-control" type="password" name="pass" placeholder="pass" required>
 		</div>
 		<div class="form-group">
-			<button type="submit" name="Authorization" class="btn btn-default">Увійти</button>
+			<button type="submit" name="authorization" class="btn btn-default">Увійти</button>
 		</div>
 		
 	</form>
+	<div><a href="<?php echo LOCALPATH; ?>/">Або зареєструйтеся</a></div>
 </center>
 <?php
 	require_once ROOT."/views/admin/footer.php";

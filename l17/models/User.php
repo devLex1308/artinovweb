@@ -2,15 +2,15 @@
 class User{
 	
 	public static function createUser(
-		$login,
-		$pass,
-		$email,
-		$fio,
-		$phone,
-		$birthday,
-		$gender,
-		$time_registered
-		){
+										$login,
+										$pass,
+										$email,
+										$fio,
+										$phone,
+										$birthday,
+										$gender,
+										$time_registered
+									){
 
 		$DBH = Db::getConnection(); 
 
@@ -74,15 +74,15 @@ class User{
 	}
 
 	public static function editUser(
-		$id,
-		$login,
-		$pass,
-		$email,
-		$fio,
-		$phone,
-		$birthday,
-		$gender
-		){
+										$id,
+										$login,
+										$pass,
+										$email,
+										$fio,
+										$phone,
+										$birthday,
+										$gender
+									){
 
 		$DBH = Db::getConnection(); 
 
@@ -99,11 +99,49 @@ class User{
 				WHERE id = :id
 		';
 		
+		$md5 = md5($pass);
 		$query = $DBH->prepare($sql);
 
 		$query->bindParam(":id", $id, PDO::PARAM_INT);
 		$query->bindParam(":login", $login, PDO::PARAM_STR);
-		$query->bindParam(":pass", $pass, PDO::PARAM_STR);
+		$query->bindParam(":pass", $md5, PDO::PARAM_STR);
+		$query->bindParam(":email", $email, PDO::PARAM_STR);
+		$query->bindParam(":fio", $fio, PDO::PARAM_STR);
+		$query->bindParam(":phone", $phone, PDO::PARAM_STR);
+		$query->bindParam(":birthday", $birthday, PDO::PARAM_STR);
+		$query->bindParam(":gender", $gender, PDO::PARAM_BOOL);
+
+		$query->execute();
+	}
+
+	public static function editUserWithoutPass(
+										$id,
+										$login,
+										$email,
+										$fio,
+										$phone,
+										$birthday,
+										$gender
+									){
+
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+			UPDATE user
+				SET
+					login=:login,
+					email=:email,
+					fio=:fio,
+					phone=:phone,
+					birthday=:birthday,
+					gender=:gender
+				WHERE id = :id
+		';
+		
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":id", $id, PDO::PARAM_INT);
+		$query->bindParam(":login", $login, PDO::PARAM_STR);
 		$query->bindParam(":email", $email, PDO::PARAM_STR);
 		$query->bindParam(":fio", $fio, PDO::PARAM_STR);
 		$query->bindParam(":phone", $phone, PDO::PARAM_STR);
@@ -131,8 +169,8 @@ class User{
 	}
 
 	public static function getLengthField($field){
-		$DBH = Db::getConnection();
 		// Перевірка максимальної можливої довжини поля
+		$DBH = Db::getConnection();
 		$q = $DBH->prepare("DESCRIBE user");
 		$q->execute();
 		$table_users = $q->fetchAll(PDO::FETCH_UNIQUE);
@@ -174,11 +212,9 @@ class User{
 			if($email['email'] == $new_email) return true;
 		}
 		return false;
-
 	}
 
-
-	public static function isUserAuthorization($login,$pass){
+	public static function isUserAuthorization($login, $pass){
 		$DBH = Db::getConnection();
 
 		$sql = '
@@ -187,7 +223,6 @@ class User{
 				WHERE login=:login AND pass=:pass
 				';
 		$md5 = md5($pass);
-		echo $md5;
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":login", $login, PDO::PARAM_STR);
 		$query->bindParam(":pass", $md5, PDO::PARAM_STR);

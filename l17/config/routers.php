@@ -1,6 +1,10 @@
 <?php
 
 return array(
+
+	'index.php' => 'Index/index',
+	'index' => 'Index/index',
+	'general' => 'Index/index',
 	
 	'admin/station/create' => 'AdminStation/create',
 	'admin/station/edit/([0-9]+)' => 'AdminStation/edit/$1',
@@ -12,7 +16,9 @@ return array(
 	'admin/route/edit/([0-9]+)' => 'AdminRoute/edit/$1',
 	'admin/route/delete/([0-9]+)' => 'AdminRoute/delete/$1',
 	'admin/route/([0-9]+)' => 'AdminRoute/index/$1',
+	'admin/route/fill/([0-9]+)' => 'AdminRoute/fill/$1',
 	'admin/route' => 'AdminRoute/index',
+	'route/([0-9]+)' => 'Route/index/$1',
 
 	'admin/category/create' => 'AdminCategory/create',
 	'admin/category/edit/([0-9]+)' => 'AdminCategory/edit/$1',
@@ -27,9 +33,14 @@ return array(
 	'admin/authorization' => 'AdminUser/authorization',
 	'admin/logout' => 'AdminUser/logout',
 
-	'admin/transport/create' => 'AdminTransport/create',
-	'admin/transport/edit/([0-9]+)' => 'AdminTransport/edit/$1',
-	'admin/transport/delete/([0-9]+)' => 'AdminTransport/delete/$1',
-	'admin/transport/([0-9]+)' => 'AdminTransport/index/$1',
-	'admin/transport' => 'AdminTransport/index'
+
+    'admin/transport/create' => 'AdminTransport/create',
+    'admin/transport/edit/([0-9]+)' => 'AdminTransport/edit/$1',
+    'admin/transport/delete/([0-9]+)' => 'AdminTransport/delete/$1',
+    'admin/transport' => 'AdminTransport/index',
+
+	'admin/article/create' => 'AdminArticle/create',
+	'admin/article/edit/([0-9]+)' => 'AdminArticle/edit/$1',
+	'admin/article/delete/([0-9]+)' => 'AdminArticle/delete/$1',
+	'admin/article' => 'AdminArticle/index'
 	);

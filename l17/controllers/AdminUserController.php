@@ -117,16 +117,29 @@ class AdminUserController {
 			}
 
 			if (empty($errors)){
-				User::editUser(
-					$id,
-					$_POST['login'],
-					$_POST['pass'],
-					$_POST['email'],
-					$_POST['fio'],
-					$_POST['phone'],
-					$_POST['birthday'],
-					$is_gender
-				);
+				
+				if(!empty($_POST['pass'])){
+					User::editUser(
+						$id,
+						$_POST['login'],
+						$_POST['pass'],
+						$_POST['email'],
+						$_POST['fio'],
+						$_POST['phone'],
+						$_POST['birthday'],
+						$is_gender
+					);
+				} else {
+					User::editUserWithoutPass(
+						$id,
+						$_POST['login'],
+						$_POST['email'],
+						$_POST['fio'],
+						$_POST['phone'],
+						$_POST['birthday'],
+						$is_gender
+					);
+				}
 			}
 		}
 		$user = User::getUserById($id);
@@ -135,7 +148,14 @@ class AdminUserController {
 	}
 
 	public function actionDelete($id){
-		$title = "Видалення маршруту <b>№ $id</b>";
+		if(!isset($_SESSION['login'])){
+			require_once ROOT."/views/admin/header.php";
+			echo "<center><h1> Увас немає прав доступу! </h1></center>";
+			require_once ROOT."/views/admin/footer.php";
+			die();
+		}
+
+		$title = "Виддалення Користувача";
 		User::deleteUserById($id);
 		require_once ROOT."/views/admin/AdminUserDelete.php";
 		echo '<script type="text/javascript">
@@ -147,16 +167,21 @@ class AdminUserController {
 
 	public function actionAuthorization(){
 
-		die("Увас немає прав доступу!");
+		$errors = [];
 
 		$title = "Авторизація";
-		if(isset($_POST['Authorization'])){
-			print_r($_POST);
-			$user = User::isUserAuthorization($_POST['login'],$_POST['pass']);
-			print_r($user);
+		if(isset($_POST['authorization'])){
+			$user = User::isUserAuthorization($_POST['login'], $_POST['pass']);
 			if(!empty($user)){
 				$_SESSION['login'] = $user['login'];
 				$_SESSION['user_id'] = $user['id'];
+				echo '<script type="text/javascript">
+		           window.location = "'.LOCALPATH.'/admin/users"
+		      	</script>';
+			} elseif (User::isLogin($_POST['login'])){
+				$errors[] = "Невірно введений пароль!";
+			} else {
+				$errors[] = "Користувача з таким логіном не існує!";
 			}
 		}
 
@@ -165,11 +190,14 @@ class AdminUserController {
 	}
 
 	public static function actionLogout(){
-		$title = "Вихід";
+		$title = "Ви успішно вийшли";
+
 		unset($_SESSION['login']);
 		unset($_SESSION['user_id']);
-
-		require_once ROOT."/views/admin/AdminUserAuthorization.php";
+		echo '<script type="text/javascript">
+           window.location = "'.LOCALPATH.'/"
+      	</script>';
+		// require_once ROOT."/views/admin/AdminUserAuthorization.php";
 		return true;
 	}
 }

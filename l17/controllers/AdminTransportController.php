@@ -1,27 +1,29 @@
 <?php
 require_once ROOT."/models/Transport.php";
-/**
-* 
-*/
-class AdminTransportController
-{
-	function __construct()
-	{
-		
-	}
+class AdminTransportController{
+	function __construct(){}
+	
 	public function actionIndex(){
 		$title = "Вивід вcього транспорту";
-		$carriages = Carriage::getAllCarriage();
-		require_once ROOT."/views/admin/AdminCarriageIndex.php";
+		$transports = Transport::getAllTransport();
+		$routes = Transport::getAllRoutes();
+		$carriages = Transport::getAllTypeCarriage();
+
+		require_once ROOT."/views/admin/AdminTransportIndex.php";
 		return true;
 	}
 
 	public function actionCreate(){
 		$title = "Створення нового транспорту";
+		$routes = Transport::getAllRoutes();
+		$carriages = Transport::getAllTypeCarriage();
         if(isset($_POST['createTransport'])){
 
-            Carriage::createCarriage(
-                $_POST['name']
+            Transport::createTransport(
+                $_POST['name'],
+                $_POST['description'],
+                $_POST['carriage_id'],
+                $_POST['route_id']
             );
         }
 		require_once ROOT."/views/admin/AdminTransportCreate.php";
@@ -29,25 +31,32 @@ class AdminTransportController
 	}
 
 	public function actionEdit($id){
-		if(isset($_POST['editCarriage'])){
-			Carriage::editCarriage(
-									$id,
-									$_POST['name']
-								);
+		$transport = Transport::getTrasportById($id);
+		$routes = Transport::getAllRoutes();
+		$carriages = Transport::getAllTypeCarriage();
+		if(isset($_POST['editTransport'])){
+			Transport::editTransport(
+										$id,
+										$_POST['name'],
+										$_POST['description'],
+										$_POST['carriage_id'],
+										$_POST['route_id']
+									);
 		}
 
 		$title = "Редагування транспорту";
-		$carriage = Carriage::getCarriageById($id);
-		require_once ROOT."/views/admin/AdminCarriageEdit.php";
+		require_once ROOT."/views/admin/AdminTransportEdit.php";
 		return true;
 	}
 
 	public function actionDelete($id){
 		$title = "Видалення транспорту $id";
 
-		Carriage::deleteCarriageById($id);
-		header("Location: ".LOCALPATH."admin/carriage");
-		require_once ROOT."/views/admin/AdminCarriageDelete";
+		Transport::deleteTransportById($id);
+		echo '<script type="text/javascript">
+           window.location = "'.LOCALPATH.'/admin/users"
+      	</script>';
+		require_once ROOT."/views/admin/AdminTransportDelete.php";
 		return true;
 	}
 }
