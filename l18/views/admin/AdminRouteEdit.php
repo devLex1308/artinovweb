@@ -60,14 +60,14 @@ require_once ROOT."/views/admin/header.php";
                     <div class="row">
                         <div class="col-md-6">
                             <h2>Рух за прямим маршрутом</h2>
-                            <table class="table">
+                            <table class="table" id="forwardDirection">
                                 <tr>
                                     <th>№</th>
                                     <th>Зупинка</th>
                                     <th>Різниця часу</th>
                                     <th></th>
                                 </tr>
-                                <tr>
+                                <tr id="stationsDirect">
                                     <td>1</td>
                                     <td>
                                         <select class="form-control" name="id_stations_start[]" required>
@@ -83,7 +83,7 @@ require_once ROOT."/views/admin/header.php";
                                     <td>
                                         <input type="text" class="form-control" name="delta_time_start[]">
                                     </td>
-                                    <td><button>X</button></td>
+                                    <td><button class="deleteStation">X</button></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
@@ -101,7 +101,7 @@ require_once ROOT."/views/admin/header.php";
                                     <td>
                                         <input type="text" class="form-control" name="delta_time_start[]">
                                     </td>
-                                    <td><button>X</button></td>
+                                    <td><button class="deleteStation">X</button></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
@@ -119,7 +119,7 @@ require_once ROOT."/views/admin/header.php";
                                     <td>
                                         <input type="text" class="form-control" name="delta_time_start[]">
                                     </td>
-                                    <td><button>X</button></td>
+                                    <td><button class="deleteStation">X</button></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
@@ -137,7 +137,7 @@ require_once ROOT."/views/admin/header.php";
                                     <td>
                                         <input type="text" class="form-control" name="delta_time_start[]">
                                     </td>
-                                    <td><button>X</button></td>
+                                    <td><button class="deleteStation">X</button></td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
@@ -155,7 +155,7 @@ require_once ROOT."/views/admin/header.php";
                                     <td>
                                         <input type="text" class="form-control" name="delta_time_start[]">
                                     </td>
-                                    <td><button>X</button></td>
+                                    <td><button class="deleteStation">X</button></td>
                                 </tr>
 
                             </table>
