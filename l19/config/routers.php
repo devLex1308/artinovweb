@@ -26,11 +26,13 @@ return array(
 	'admin/category' => 'AdminCategory/index',
 
 	'admin/user/create' => 'AdminUser/create',
+	'registration' => 'AdminUser/create',
 	'admin/user/edit/([0-9]+)' => 'AdminUser/edit/$1',
 	'admin/user/delete/([0-9]+)' => 'AdminUser/delete/$1',
 	'admin/articles' => 'AdminUser/articles',
 	'admin/users' => 'AdminUser/index',
 	'admin/authorization' => 'AdminUser/authorization',
+	'authorization' => 'AdminUser/authorization',
 	'admin/logout' => 'AdminUser/logout',
 
     'admin/transport/create' => 'AdminTransport/create',

@@ -21,7 +21,9 @@
                         <td><a href="<?php echo LOCALPATH;?>/admin/station/edit/<?php echo $station['id']; ?>">Редагувати</a></td>
                         <td><a href="<?php echo LOCALPATH;?>/admin/station/delete/<?php echo $station['id']; ?>">Видалити</a></td>
                     </tr>
-                <?}?>
+                <?php
+                }
+                ?>
             </table>
             <?php
             if($countPage > 1){
