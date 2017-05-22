@@ -6,11 +6,11 @@ $(document).ready(function(){
 	});
 
 	var bounds = [[0,0], [1920,1066]];
-	var image = L.imageOverlay('map.svg', bounds).addTo(map);
+	//var image = L.imageOverlay('map.svg', bounds).addTo(map);
 
 	map.fitBounds(bounds);
 
-	var marker = L.marker([ 100, 100]).addTo(map);
+	var marker = L.marker([ 1, 1]).addTo(map);
 
 	var coor = marker.getLatLng();
 });
