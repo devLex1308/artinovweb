@@ -1,12 +1,16 @@
 $(document).ready(function(){
+  console.log("sds");
 	$("#addStation1").click(function(e){
 		e.preventDefault();
+
 		var html ="<tr>" + $("#stationsDirect").html()+"</tr>";
 		$("#forwardDirection").append(html);
-
+        console.log(html);
 		addActionDeleteStation();
+        $( "#forwardDirection select:last-child" ).combobox();
 	});
 
+  $( "#forwardDirection select" ).combobox();
 	addActionDeleteStation();
 
 	$.ajax(
@@ -22,7 +26,7 @@ function addActionDeleteStation(){
 	});
 }
 
-$( function() {
+
     $.widget( "custom.combobox", {
       _create: function() {
         this.wrapper = $( "<span>" )
@@ -152,6 +156,4 @@ $( function() {
         this.element.show();
       }
     });
- 
-    $( "#forwardDirection select" ).combobox();
-  } );
+
