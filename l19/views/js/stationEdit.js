@@ -6,7 +6,10 @@ $(document).ready(function(){
 	});
 
 	var bounds = [[0,0], [1920,1066]];
-	//var image = L.imageOverlay('map.svg', bounds).addTo(map);
+	var LOCALPATH = $("#LOCALPATH").val();
+	var mapUrl = LOCALPATH+"/views/css/images/map.svg";
+	console.log(mapUrl);
+	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
 
 	map.fitBounds(bounds);
 

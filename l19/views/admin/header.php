@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
+  <input type="hidden" name = "LOCALPATH" id="LOCALPATH" value="<?php echo LOCALPATH;?>">
   <header>
     <?php
     require("nav.php");
