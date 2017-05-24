@@ -1,0 +1,600 @@
+@font-face{
+	font-family: "Head";
+	src: url("../fonts/MyriadPro-Regular.otf");
+}
+
+@font-face{
+	font-family: "Head-Bold";
+	src: url("../fonts/MyriadPro-Semibold.otf");
+}
+
+html{
+	/*max-width: 1360px;*/
+	max-height: 1610px;
+}
+
+body{
+	padding-top: 15px;
+	background-color: #f0f1f3;
+	text-align: center;
+}
+
+/*HEAD*/
+.head{
+	padding-left: 5%;
+	padding-right: 5%;
+	color: #4d4d4d;
+	font-family: "Head";
+	padding-bottom: 10px;
+}
+
+.block{
+
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover { 
+    text-decoration: none;
+   } 
+
+/*LOGO*/
+.logo-img{
+	padding-left: 14px;
+	min-height: 40px;
+	min-width: 100px;
+}
+
+.logo img{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.logo{
+	min-height: 40px;
+	max-height: 67px;
+}
+
+.logo-txt{
+	height: 100%;
+	font-size: 8px;
+}
+
+.col-xs-1{
+	width: 77px;
+	position: inherit;
+    margin-top: 5.2%;
+    margin-left: -11%;
+}
+
+.head-pic-2{
+	width: 100%;
+	padding-left: 67px;
+}
+
+/*LOGIN*/
+.login{
+	margin-top: 2%;
+}
+
+.login-txt{
+	padding-top: 3%;
+	padding-right: 12px;
+	text-align: right;
+	font-size: 12px;
+}
+
+/*IMAGES*/
+.part-images{
+	margin: 0;
+	padding-top: 7px;
+}
+
+.head-image img{
+	padding-right: 5%;
+	padding-left: 8%;
+	width: 90%;
+}
+
+.head-pic-1 img{
+	width: 9%;
+	position: absolute;
+}
+
+.head-pic-2 img{
+	margin-top: 200px;
+	width: 100%;
+	max-width: 72px;
+}
+
+.gen .col-sm-3{
+	width: 360px;
+}
+
+/*CONTENT*/
+.content{
+	width: 100%;
+	background-image: url(../images/fon.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.general{
+	max-height: 514px;
+	width: 450px;
+}
+
+.col-sm-3{
+	max-width: 63px;
+}
+
+.general-text{
+	margin: auto;
+	font-size: 24px;
+	font-family: Head-Bold;
+	color: white;
+}
+
+.text{
+	margin-top: -5%;
+	font-size: 12px;
+	font-family: "Head";
+	color: white;
+}
+
+.news{
+	background-image: url(../images/fon-1.png);
+	background-repeat: no-repeat;
+	background-size: inherit;
+	width: 100%;
+}
+
+.content-all{
+	padding-top: 8%;
+	max-height: 600px;
+}
+
+.transport{
+	margin: 3% 0%;
+}
+
+.t{
+	margin: 0 7%;
+}
+
+.t2 img{
+	margin-left: 15px;
+}
+
+.txt-1{
+	margin-top: 70px;
+}
+
+.txt-1 a{
+	font-size: 14px;
+	font-family: "Head";
+	color: black;
+}
+
+.txt-2{
+	font-size: 12px;
+	font-family: "Head";
+	color: white;
+}
+
+.setting, .txt-2 a{
+	color: orange;
+	text-decoration: underline
+}
+
+label > input{
+	visibility: hidden;
+	position: absolute;
+}
+label > input + img{
+	cursor:pointer;
+}
+
+.rez{
+	color: #29abe2;
+	font-family: Verdana;
+	font-size: 12px;
+	top: 10px;
+	position: relative;
+	display: block;
+}
+
+.tram-txt{
+	color: #fbb03b;
+}
+
+.input-station{
+	width: 74% !important;
+	padding-bottom: 10px; 
+}
+
+.is{
+	margin-top: 40px;
+	width: 100%;
+}
+
+.go{
+	margin-left: 5%;
+	height: 34px;
+	width: 110px;
+	color: #4d4d4d;
+	font-family: "Head-Bold";
+	font-size: 12px;
+	border: 0px;
+	max-width: 80px;
+	border-radius: 20px;
+	background-color: #fbb03b;
+}
+
+.t3{
+	top: 19px;
+}
+
+.col-xs-2{
+	width: 217px;
+}
+
+.general{
+	max-width: 450px;
+}
+
+.col-lg-2{
+	max-width: 143px;
+}
+
+.head, .block{
+	width: 884px;
+}
+
+.col-lg-2{
+	max-width: 143px;
+}
+
+.slider{
+	margin-top: 2%;
+	margin-bottom: 6%;
+	max-height: 510px;
+	padding-top: 9%;
+	padding-bottom: 5%;
+}
+
+#footer{
+	font-size: 10px;
+	font-family: "Head";
+	color: white;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	max-height: 200px;
+}
+
+@media (max-width: 1200px) {
+
+	.col-lg-2{
+		max-width: 43px;
+	}
+
+	.col-xs-2{
+		width: 217px;
+	}
+
+	.is{
+		margin: 6% 2px;
+		width: 100%;
+	}
+	.content-all {
+    	padding-top: 9%;
+	}
+}
+
+@media (min-width: 991px) and (max-width: 993px) {
+	.head{
+		width: 884px;
+	}
+}
+
+@media (max-width: 992px) {
+
+	.col-xs-2{
+		width: 150px;
+	}
+
+	.cont, .block{
+		width: 100%;
+	}
+
+	.t{
+		margin: 0px 7%;
+	}
+
+	.col-xs-1{
+	    margin-top: 4.2%;
+	    margin-left: -6%;
+	}
+
+	.content-all {
+    	padding-top: 14%;
+	}
+}
+
+@media (min-width: 882px) and (max-width: 992px) {
+	.head{
+		width: inherit;
+	}
+
+	.logo img{
+		max-height: 90%;
+	}
+}
+
+@media (min-width: 767px) and (max-width: 882px){
+	.head{
+		width: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	.general{
+		max-width: 100%;
+	}
+
+	.t{
+		margin: 0 0%;
+	}
+
+	.t1 img{
+		width: 91%;
+	}
+
+	.t2 img{
+		width: 76%;
+	}
+
+	.t3 img{
+		margin-top: -3px;
+		width: 97%;
+	}
+
+	.general-text{
+		font-size: 100%;
+	}
+
+	.text{
+		padding-top: 2%;
+		font-size: 70%;
+	}
+
+	.go{
+		margin: 0;
+		margin-right: 10%;
+		margin-top: 10px;
+	}
+
+	.input-station{
+		width: 88% !important;
+	}
+
+	.is{
+		margin: 8% 15px;
+		width: 100%;
+	}
+
+	.head{
+		width: 100%;
+	}
+
+	.col-xs-8{
+		width: 80%
+	}
+
+	.transport {   
+		margin: 10% 0%;
+		padding-right: 8%;
+	}
+
+	.txt-1 {
+		margin-top: 0px;
+	}
+
+	.head-pic-2 {
+		padding-left: 0; 
+	}
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+	
+	.col-xs-2{
+		width: 10%;
+		padding: 0;
+	}
+
+	.col-xs-1{
+	    margin-top: 5.3%;
+	    margin-left: -4%;
+	}
+}
+
+@media (max-width: 480px) {
+
+	.head-pic-2 {
+		padding-left: 0; 
+	}
+
+	.head-pic-2 img{
+	    position: absolute;
+	    top: -113%;
+	    left: 0%;
+    	width: 35%;
+	}
+
+	.col-xs-1 {
+    	margin-top: 10.2%;
+    	margin-left: -13%;
+	}
+
+	.col-xs-2 {
+		width: -1%;
+	}
+
+	.col-xs-8 {
+		width: 100%;
+	}
+
+	.t{
+	    margin: 0px -20px;
+	}
+
+	.t1 img{
+		width: 65%;
+	}
+
+	.t2 img{
+		width: 54%;
+	}
+
+	.t3 img{
+		margin-top: -12px;
+		width: 66%;
+	}
+
+	.general-text{
+		font-size: 12px;
+	}
+
+	.input-station{
+    	width: 90% !important;
+	}
+
+	.is{
+	    margin: 11% 7%;
+	}
+
+	.text{
+		margin-top: -18px;
+		font-size: 10px;
+	}
+
+	.transport {
+		width: 100%;
+	    margin: 0px 0%;
+	    margin-top: 6%;
+	}
+
+	.go {
+		margin-right: 10%;
+		margin-top: 10px;
+	}
+
+	.rez{
+		font-size: 85%;
+	}
+
+	.txt-1 {
+		margin-top: -15px;
+	}
+
+	.txt-1 a {
+		font-size: 9px;
+	}
+
+	.txt-2 {
+		margin-top: -12;
+		font-size: 9px;
+	}
+
+	p{
+		margin: 0;
+	}
+}
+
+
+
+
+
+/*
+    these are just the default styles used in the Cycle2 demo pages.  
+    you can use these styles or any others that you wish.
+    */
+
+
+    /* set border-box so that percents can be used for width, padding, etc (personal preference) */
+    .cycle-slideshow, .cycle-slideshow * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+
+    .cycle-slideshow { width: 45%; min-width: 200px; max-width: 500px; margin: 10px auto; padding: 0; position: relative;
+    	background: url(http://malsup.github.com/images/spinner.gif) 50% 50% no-repeat;
+
+    }
+
+    /* slideshow images (for most of the demos, these are the actual "slides") */
+    .cycle-slideshow img { 
+    /* 
+    some of these styles will be set by the plugin (by default) but setting them here
+    helps avoid flash-of-unstyled-content
+    */
+    position: absolute; top: 0; left: 0;
+    width: 100%; padding: 0; display: block;
+}
+
+/* in case script does not load */
+.cycle-slideshow img:first-child {
+	position: static; z-index: 100;
+}
+
+/* pager */
+.cycle-pager { 
+	text-align: center; width: 100%; z-index: 500; position: absolute; top: 10px; overflow: hidden;
+}
+.cycle-pager span { 
+	font-family: arial; font-size: 50px; width: 16px; height: 16px; 
+	display: inline-block; color: #ddd; cursor: pointer; 
+}
+.cycle-pager span.cycle-pager-active { color: #D69746;}
+.cycle-pager > * { cursor: pointer;}
+
+
+/* caption */
+.cycle-caption { position: absolute; color: white; bottom: 15px; right: 15px; z-index: 700; }
+
+
+/* overlay */
+.cycle-overlay { 
+	font-family: tahoma, arial;
+	position: absolute; bottom: 0; width: 100%; z-index: 600;
+	background: black; color: white; padding: 15px; opacity: .5;
+}
+
+
+/* prev / next links */
+.cycle-prev, .cycle-next { position: absolute; top: 0; width: 30%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 100%; cursor: pointer; }
+.cycle-prev { left: 0;  background: url(http://malsup.github.com/images/left.png) 50% 50% no-repeat;}
+.cycle-next { right: 0; background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;}
+.cycle-prev:hover, .cycle-next:hover { opacity: .7; filter: alpha(opacity=70) }
+
+.disabled { opacity: .5; filter:alpha(opacity=50); }
+
+
+/* display paused text on top of paused slideshow */
+.cycle-paused:after {
+	content: 'Paused'; color: white; background: black; padding: 10px;
+	z-index: 500; position: absolute; top: 10px; right: 10px;
+	border-radius: 10px;
+	opacity: .5; filter: alpha(opacity=50);
+}
+
+/* 
+    media queries 
+    some style overrides to make things more pleasant on mobile devices
+    */
+
+    @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+    	.cycle-slideshow { width: 200px;}
+    	.cycle-overlay { padding: 4px }
+    	.cycle-caption { bottom: 4px; right: 4px }
+    }
