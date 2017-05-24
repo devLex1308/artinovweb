@@ -40,26 +40,6 @@ require_once ROOT."/views/admin/header.php";
             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 create-station">
                 <h1 class="text-center"><?php echo $title; ?></h1>
-                <table  class="hide">
-                <tr id="stationsDirect">
-                    <td>1</td>
-                    <td>
-                        <select class="form-control" name="id_stations_start[]" required>
-                            <?php
-                            if(!empty($stations)){
-                                foreach ($stations as $key => $station) {
-                                    echo "<option "; echo " value=".$station['id'].">".$station['name']."</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" name="delta_time_start[]">
-                    </td>
-                    <td><button class="deleteStation">X</button></td>
-                </tr>
-                </table>
                 <form class="form-horizontal" role="form" method="post">
                     <div class="form-group">
                         <label for="name" class="col-sm-3 control-label">name_start</label>
@@ -71,7 +51,7 @@ require_once ROOT."/views/admin/header.php";
                     <div class="form-group">
                         <label for="name" class="col-sm-3 control-label">name_end</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" name="name_start" value="<?php echo $route['name_end']; ?>" placeholder="Ввести назву" required>
+                            <input type="text" class="form-control" id="name" name="name_end" value="<?php echo $route['name_end']; ?>" placeholder="Ввести назву" required>
                         </div>
                     </div>
 
@@ -108,6 +88,7 @@ require_once ROOT."/views/admin/header.php";
                                 </tr>
                                 <?php
                                     $routeStations = explode(",",$route['id_stations_start']);
+                                    $routeDelta_time_start = explode(",",$route['delta_time_start']);
                                     $i = 1;
                                     foreach($routeStations as $stationId){
                                 ?>
@@ -119,14 +100,14 @@ require_once ROOT."/views/admin/header.php";
                                             <?php
                                             if(!empty($stations)){
                                                 foreach ($stations as $key => $station) {
-                                                    echo "<option "; if($station['id'] == $stationId) echo "selected"; echo " value=".$station['id'].">".$station['name']."</option>";
+                                                    echo "<option "; if($station['id'] == $stationId){ echo "selected";} echo " value=".$station['id'].">".$station['name']."</option>";
                                                 }
                                             }
                                             ?>
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" name="delta_time_start[]">
+                                        <input type="text" class="form-control" name="delta_time_start[]" value="<?php echo  $routeDelta_time_start[$i-1]; ?>">
                                     </td>
                                     <td><button class="deleteStation">X</button></td>
                                 </tr>
@@ -240,6 +221,27 @@ require_once ROOT."/views/admin/header.php";
             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
         </div>
     </div>
+
+<table  class="hide">
+    <tr id="stationsDirect">
+        <td>1</td>
+        <td>
+            <select class="form-control" name="id_stations_start[]" required>
+                <?php
+                if(!empty($stations)){
+                    foreach ($stations as $key => $station) {
+                        echo "<option "; echo " value=".$station['id'].">".$station['name']."</option>";
+                    }
+                }
+                ?>
+            </select>
+        </td>
+        <td>
+            <input type="text" class="form-control" name="delta_time_start[]">
+        </td>
+        <td><button class="deleteStation">X</button></td>
+    </tr>
+</table>
     <script src="<?php echo LOCALPATH; ?>/views/js/routeEdit.js"></script>
     <?php
     require_once ROOT."/views/admin/footer.php";

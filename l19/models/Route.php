@@ -132,6 +132,7 @@ class Route{
 	}
 
 	public static function editRoute(
+										$id,
 										$name_start,
 										$name_end,
 										$number,
@@ -141,7 +142,7 @@ class Route{
 										$delta_time_start,
 										$delta_time_end
 									){
-	
+
 		$DBH = Db::getConnection(); 
 	
 			$sql = '
@@ -149,7 +150,7 @@ class Route{
 					SET
 						name_start=:name_start,
 						name_end=:name_end,
-						`number`=:`number`,
+						`number`=:number,
 						carriage_id=:carriage_id,
 						id_stations_start=:id_stations_start,
 						id_stations_end=:id_stations_end,
@@ -164,13 +165,15 @@ class Route{
 			$query->bindParam(":name_start", $name_start, 	PDO::PARAM_STR);
 			$query->bindParam(":name_end", $name_end, 	PDO::PARAM_STR);
 			$query->bindParam(":number", 	$number, 	PDO::PARAM_STR);
-			$query->bindParam(":carriage_id", $carriage_id, 	PDO::PARAM_INT);
+			$query->bindParam(":carriage_id",$carriage_id, 	PDO::PARAM_STR);
 			$query->bindParam(":id_stations_start", $id_stations_start, 	PDO::PARAM_STR);
 			$query->bindParam(":id_stations_end", 	$id_stations_end, 	PDO::PARAM_STR);
 			$query->bindParam(":delta_time_start", 	$delta_time_start, 	PDO::PARAM_STR);
 			$query->bindParam(":delta_time_end", $delta_time_end, PDO::PARAM_STR);
+			$query->bindParam(":id", $id, PDO::PARAM_INT);
 			
 			$query->execute();
+			//print_r($query->errorInfo());
 	}
 
 	public static function fillRoute(

@@ -64,14 +64,6 @@ class AdminRouteController {
 
 	public function actionEdit($id){
 		$title = "Редагування маршруту";
-		echo "<pre>";
-		print_r($_POST);
-		echo "</pre>";
-		$route = Route::getRouteById($id);
-		$id_stations_start = explode(",", $route['id_stations_start']);
-		$id_stations_end = explode(",", $route['id_stations_end']);
-		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
 
 		if(isset($_POST['editRoute'])){
 
@@ -81,39 +73,34 @@ class AdminRouteController {
 				$errors[] = "Макс.: <b>".Route::getLengthField('number')."</b>. Ви ввели: <b>".strlen($_POST['number'])."</b> символів у поле <b>number</b>.";
 			}
 
-			foreach ($stations as $key => $station) {
-				if($station['id'] == $_POST['id_name_start']) {
-					$name_start = $station['name'];
-				}
-			}
-
-			foreach ($stations as $key => $station) {
-				if($station['id'] == $_POST['id_name_end']) {
-					$name_end = $station['name'];
-				}
-			}
-
-			if ($name_start == $name_end) {
-				$errors[] = "Ви вибрали 2 однакових зупинки: <b>".$name_start."</b>. та <b>".$name_end."</b>.";
-			}
 
 			$id_stations_start_edit = implode(",", $_POST['id_stations_start']);
 			$id_stations_end_edit = implode(",", $_POST['id_stations_end']);
+			$delta_time_start = implode(",",$_POST['delta_time_start']);
+			$delta_time_end = implode(",",$_POST['delta_time_end']);
 
 			if (empty($errors)){
 				Route::editRoute(
 					$id,
-					$name_start,
-					$name_end,
+					$_POST['name_start'],
+					$_POST['name_end'],
 					$_POST['number'],
 					$_POST['carriage_id'],
 					$id_stations_start_edit,
 					$id_stations_end_edit,
-					$_POST['delta_time_start'],
-					$_POST['delta_time_end']
+					$delta_time_start,
+					$delta_time_end
 				);
 			}
 		}
+
+		$route = Route::getRouteById($id);
+		$id_stations_start = explode(",", $route['id_stations_start']);
+		$id_stations_end = explode(",", $route['id_stations_end']);
+		$carriages = Route::getAllTypeCarriage();
+		$stations = Route::getAllStations();
+
+
 		require_once ROOT."/views/admin/AdminRouteEdit.php";
 		return true;
 	}
