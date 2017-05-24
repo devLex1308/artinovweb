@@ -1,7 +1,7 @@
 <?php
 class Station{
 	
-	const stationOnPage = 6; 
+	const stationOnPage =20;
 
 	public static function createStation(	
 										$name,

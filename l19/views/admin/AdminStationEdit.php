@@ -18,12 +18,6 @@
             }
         }
     ?>
-        <style>
-            #map{
-                min-height: 400px;
-            }
-        </style>
-
         <div class="form-group">
             <label>Введіть назву нової зупинки:</label>
             <input class="form-control" type="text" name="name" placeholder="name" value="<?php echo $station['name']; ?>" required>
@@ -65,12 +59,12 @@
             </select>
         </div>
         <div id="map"></div>
-        <div class="form-group">
+        <div class="form-group hide">
             <label>Додайте Координату X на карті схемі:</label>
             <input class="form-control" type="number" name="map_x" placeholder="map_x(25,2123)" step="0.0001" value="<?php echo $station['map_x']; ?>" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group hide">
             <label>Додайте Координату Y на карті схемі:</label>
             <input class="form-control" type="number" name="map_y" placeholder="map_y(45,1113)" step="0.0001" value="<?php echo $station['map_y']; ?>" required>
         </div>

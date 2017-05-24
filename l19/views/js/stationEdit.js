@@ -13,7 +13,23 @@ $(document).ready(function(){
 
 	map.fitBounds(bounds);
 
-	var marker = L.marker([ 1, 1]).addTo(map);
+	var lat = $("input[name='map_x']").val();
+	var lng = $("input[name='map_y']").val();
 
-	var coor = marker.getLatLng();
+	if(!lat){lat = 970;}
+	if(!lng){lng = 640;}
+
+	var marker = L.marker([lat,lng],
+		{draggable: true}
+	).addTo(map);
+
+
+	marker.on('dragend', function(){
+		var xy = this.getLatLng();
+		console.log("x="+xy.lat+" y="+xy.lng);
+		$("input[name='map_x']").val(xy.lat);
+		$("input[name='map_y']").val(xy.lng);
+
+	});
+
 });

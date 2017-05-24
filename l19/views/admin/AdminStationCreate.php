@@ -1,6 +1,9 @@
 <?php
     require_once ROOT."/views/admin/header.php";
 ?>
+    <script src="<?php echo LOCALPATH; ?>/views/js/leaflet.js"></script>
+    <link rel="stylesheet" href="<?php echo LOCALPATH; ?>/views/css/leaflet.css">
+    <script src="<?php echo LOCALPATH; ?>/views/js/stationEdit.js"></script>
 <center>
     <h1><?php echo $title; ?></h1>
 
@@ -44,13 +47,13 @@
                 ?>
             </select>
         </div>
-
-        <div class="form-group">
+        <div id="map"></div>
+        <div class="form-group hide">
             <label>Додайте Координату X на карті схемі:</label>
             <input class="form-control" type="number" name="map_x" placeholder="map_x(25,2123)" step="0.0001" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group hide">
             <label>Додайте Координату Y на карті схемі:</label>
             <input class="form-control" type="number" name="map_y" placeholder="map_y(45,1113)" step="0.0001" required>
         </div>

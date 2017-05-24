@@ -25,12 +25,12 @@ $(document).ready(function() {
 
 
 
- 	marker2 = L.marker([1050,530],
+ 	marker = L.marker([1050,530],
 	 				{draggable: true}
 	 			).addTo(map);
 
 
-	marker2.on('dragend', function(){
+	marker.on('dragend', function(){
 		var xy = this.getLatLng();
 		console.log("x="+xy.lat+" y="+xy.lng);
 		$("input[name='map_x']").val(xy.lat);

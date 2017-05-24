@@ -7873,7 +7873,7 @@ L.Layer.include({
  * @example
  *
  * ```js
- * L.layerGroup([marker1, marker2])
+ * L.layerGroup([marker1, marker])
  * 	.addLayer(polyline)
  * 	.addTo(map);
  * ```
@@ -8038,7 +8038,7 @@ L.layerGroup = function (layers) {
  * @example
  *
  * ```js
- * L.featureGroup([marker1, marker2, polyline])
+ * L.featureGroup([marker1, marker, polyline])
  * 	.bindPopup('Hello world!')
  * 	.on('click', function() { alert('Clicked on a member of the group!'); })
  * 	.addTo(map);
