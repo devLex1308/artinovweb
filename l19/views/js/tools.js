@@ -93,39 +93,39 @@ console.log("Test");
 // console.log(user);
 // console.log(user.name);
 
-$(document).ready(function(){
-	//$(".table").css({"background":"red","border":"2px solid green"});
-	var i = 0;
-	var htmltd = $("td");
-	htmltd.click(function(){
+// $(document).ready(function(){
+// 	//$(".table").css({"background":"red","border":"2px solid green"});
+// 	var i = 0;
+// 	var htmltd = $("td");
+// 	htmltd.click(function(){
 		
-		console.log($(this).css("background-color"));
-		 if($(this).css("background-color")=="rgb(255, 0, 0)"){
-		 	$(this).css({"background-color":"","display":"block","position":"absolute"}).animate({"left":"50px"},2000).animate({"top":"50px"},2000);
-		 	//$(this).removeClass("active");
-		 }else{
-		 	$(this).css({"background-color":"red"});
-		 	//$(this).addClass("active");
-		 }
-		//var html = $(this).html();
-		$(this).html($(this).html()+i);
-		//console.log(html);
-		$(this).toggleClass("testClass");
-		$(this).attr("id");
-		i++;
-	});
+// 		console.log($(this).css("background-color"));
+// 		 if($(this).css("background-color")=="rgb(255, 0, 0)"){
+// 		 	$(this).css({"background-color":"","display":"block","position":"absolute"}).animate({"left":"50px"},2000).animate({"top":"50px"},2000);
+// 		 	//$(this).removeClass("active");
+// 		 }else{
+// 		 	$(this).css({"background-color":"red"});
+// 		 	//$(this).addClass("active");
+// 		 }
+// 		//var html = $(this).html();
+// 		$(this).html($(this).html()+i);
+// 		//console.log(html);
+// 		$(this).toggleClass("testClass");
+// 		$(this).attr("id");
+// 		i++;
+// 	});
 
-	i = 0;
-	htmltd.each(function(){
-		$(this).html($(this).html()+" "+i);
-		i++;
-	});
-	// var table = $(".table").html();
-	// console.log(table);
-	// $(".table").remove();
-	// setTimeout(function(){
-	// 	//$(".table").show();
-	// 	$(".table-responsive").html(table);
-	// },3000);
+// 	i = 0;
+// 	htmltd.each(function(){
+// 		$(this).html($(this).html()+" "+i);
+// 		i++;
+// 	});
+// 	// var table = $(".table").html();
+// 	// console.log(table);
+// 	// $(".table").remove();
+// 	// setTimeout(function(){
+// 	// 	//$(".table").show();
+// 	// 	$(".table-responsive").html(table);
+// 	// },3000);
 
-});
+// });

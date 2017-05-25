@@ -1,9 +1,7 @@
 <?php
-require_once ROOT."/models/Transport.php";
-class AdminTransportController{
-	function __construct(){}
-	
+class AdminTransportController{	
 	public function actionIndex(){
+		User::checkAdmin();
 		$title = "Вивід вcього транспорту";
 		$transports = Transport::getAllTransport();
 		$routes = Transport::getAllRoutes();
@@ -14,6 +12,7 @@ class AdminTransportController{
 	}
 
 	public function actionCreate(){
+		User::checkAdmin();
 		$title = "Створення нового транспорту";
 		$routes = Transport::getAllRoutes();
 		$carriages = Transport::getAllTypeCarriage();
@@ -31,7 +30,8 @@ class AdminTransportController{
 	}
 
 	public function actionEdit($id){
-		$transport = Transport::getTrasportById($id);
+		$transport = Transport::getTra
+		User::checkAdmin();sportById($id);
 		$routes = Transport::getAllRoutes();
 		$carriages = Transport::getAllTypeCarriage();
 		if(isset($_POST['editTransport'])){
@@ -50,6 +50,7 @@ class AdminTransportController{
 	}
 
 	public function actionDelete($id){
+		User::checkAdmin();
 		$title = "Видалення транспорту $id";
 
 		Transport::deleteTransportById($id);
