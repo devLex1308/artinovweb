@@ -30,8 +30,8 @@ class AdminTransportController{
 	}
 
 	public function actionEdit($id){
-		$transport = Transport::getTra
-		User::checkAdmin();sportById($id);
+		$transport = Transport::getTrasportById($id);
+		User::checkAdmin();
 		$routes = Transport::getAllRoutes();
 		$carriages = Transport::getAllTypeCarriage();
 		if(isset($_POST['editTransport'])){
