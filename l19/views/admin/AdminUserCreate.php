@@ -65,12 +65,20 @@ input::-webkit-inner-spin-button {
 		    </div>
 		</div>
 
+		<span class="button-checkbox">
+			<b>Права адміна:</b>
+			<button type="button" class="btn" data-color="primary">Адмін</button>
+			<input type="checkbox" name="admin" class="hidden"/>
+		</span>
+		<br><br>
+
 		<div class="form-group">
 			<button type="submit" name="createUser" class="btn btn-default">Створити Користувача</button>
 		</div>
 		
 	</form>
 </center>
+<script src="<?php echo LOCALPATH; ?>/template/js/checkbox.js"></script>
 <?php
 	require_once ROOT."/views/admin/footer.php";
 ?>
