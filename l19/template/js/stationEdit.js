@@ -2,7 +2,7 @@ $(document).ready(function(){
 	var map = L.map('map', {
 	    crs: L.CRS.Simple,
 	    minZoom: -0.55,
-		maxZoom: 3
+		maxZoom: 4
 	});
 
 	var bounds = [[0,0], [1066,1920]];
