@@ -29,10 +29,11 @@ class User{
 				role=:role
 		';
 		
+		$md5 = md5($pass);
 		$query = $DBH->prepare($sql);
 
 		$query->bindParam(":login", $login, PDO::PARAM_STR);
-		$query->bindParam(":pass", $pass, PDO::PARAM_STR);
+		$query->bindParam(":pass", $md5, PDO::PARAM_STR);
 		$query->bindParam(":email", $email, PDO::PARAM_STR);
 		$query->bindParam(":fio", $fio, PDO::PARAM_STR);
 		$query->bindParam(":phone", $phone, PDO::PARAM_STR);

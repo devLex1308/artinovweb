@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	var map = L.map('map', {
 	    crs: L.CRS.Simple,
-	    inZoom: -2,
+	    minZoom: -2,
 		maxZoom: 3
 	});
 
-	var bounds = [[0,0], [1920,1066]];
+	var bounds = [[0,0], [1066,1920]];
 	var LOCALPATH = $("#LOCALPATH").val();
-	var mapUrl = LOCALPATH+"/template/images/map.svg";
+	var mapUrl = LOCALPATH + "/template/images/map.svg";
 	console.log(mapUrl);
 	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
 
@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 	marker.on('dragend', function(){
 		var xy = this.getLatLng();
-		console.log("x="+xy.lat+" y="+xy.lng);
+		console.log("x=" + xy.lat+" y=" + xy.lng);
 		$("input[name='map_x']").val(xy.lat);
 		$("input[name='map_y']").val(xy.lng);
 	});
