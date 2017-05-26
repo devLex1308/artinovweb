@@ -108,7 +108,7 @@ require_once ROOT."/views/admin/header.php";
                                         <td>
                                             <input type="text" class="form-control delta-time" value="<?=$delta_time_start_prev[$count - 1]?>" name="delta_time_start_<?=$count?>" required>
                                         </td>
-                                        <td><button class="deleteStation">X</button></td>
+                                        <td><button class="deleteStation btn btn-danger glyphicon glyphicon-remove"></button></td>
                                     </tr>
                                     <?php
                                 }
@@ -116,11 +116,9 @@ require_once ROOT."/views/admin/header.php";
                             }
                             ?>
                         </table>
-                        <button id="addStation1">
-                            Додати ще одну зупинку
+                        <button id="addStation1" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку">
                         </button>
-                        <button id="calculateTime1" style="float: right;">
-                            Автоматичний розрахунок часу
+                        <button id="calculateTime1" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу">
                         </button>
                     </div>
                     <div class="col-md-6">
@@ -154,18 +152,16 @@ require_once ROOT."/views/admin/header.php";
                                         <td>
                                             <input type="text" class="form-control delta-time" value="<?=$delta_time_end_prev[$count - 1]?>" name="delta_time_end_<?=$count?>" required>
                                         </td>
-                                        <td><button class="deleteStation">X</button></td>
+                                        <td><button class="deleteStation btn btn-danger glyphicon glyphicon-remove"></button></td>
                                     </tr>
                                     <?php
                                 }
                             }
                             ?>
                         </table>
-                        <button id="addStation2">
-                            Додати ще одну зупинку
+                        <button id="addStation2" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку">
                         </button>
-                        <button id="calculateTime2" style="float: right;">
-                            Автоматичний розрахунок часу
+                        <button id="calculateTime2" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу">
                         </button>
 
                     </div>
@@ -173,7 +169,7 @@ require_once ROOT."/views/admin/header.php";
                 <br>
                 <div class="form-group" align="center">
                     <div class="col-sm-offset-0">
-                        <input name="editRoute" type="submit" class="btn btn-warning">
+                        <input name="editRoute" type="submit" class="btn btn-warning" value="Відправити">
                     </div>
                 </div>
             </form>

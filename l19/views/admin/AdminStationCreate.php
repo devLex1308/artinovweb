@@ -69,7 +69,7 @@ if(!empty($errors)){
             </div>
 
             <div class="form-group">
-                <button type="submit" name="createStation" class="btn btn-default">Створити Зупинку</button>
+                <button type="submit" name="createStation" class="btn btn-success">Створити зупинку</button>
             </div>
         </div>
         <div class="col-xs-1 col-sm-1 col-lg-1"></div>

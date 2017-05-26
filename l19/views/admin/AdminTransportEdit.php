@@ -88,7 +88,7 @@ function inputTimeRouteStart($array,$id_name){
                 <input type="hidden" name="typeform" value="editTransport">
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
-                        <input name="editTransport" type="submit" value="Зберегти" class="btn btn-warning">
+                        <input name="editTransport" type="submit" value="Зберегти" class="btn btn-success">
                     </div>
                 </div>
             </form>

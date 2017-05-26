@@ -82,7 +82,7 @@ if(!empty($errors)){
 			</div>
 
 			<div class="form-group">
-				<button type="submit" name="editStation" class="btn btn-default">Редагувати Зупинку</button>
+				<button type="submit" name="editStation" class="btn btn-success">Редагувати зупинку</button>
 			</div>
 		</div>
 		<div class="col-xs-1 col-sm-1 col-lg-1"></div>
