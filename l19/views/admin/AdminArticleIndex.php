@@ -16,7 +16,6 @@
                         <th>Видалити</th>
                     </tr>
                     <?php
-                    //print_r($stations);
                     foreach ($articles as $key => $article) {?>
                         <tr>
                             <td><?php echo $article['id']; ?></td>

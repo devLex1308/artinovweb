@@ -1,5 +1,6 @@
 <?php
 class AdminUserController {
+
 	public function actionIndex(){
 		User::checkAdmin();
 		$title = "Вивід усіх користувачів";
@@ -47,6 +48,14 @@ class AdminUserController {
 			} else {
 				$is_gender = 0;
 			}
+
+			if(!empty($_POST['admin'])){
+				if($_POST['admin'] == 'on') {
+					$is_admin = 1;
+				}
+			} else {
+				$is_admin = 0;
+			}
 			
 			if(User::isLogin($_POST['login'])){
 				$errors[] = "Такий логін уже існує: <b>".$_POST['login']."</b>.";
@@ -68,7 +77,8 @@ class AdminUserController {
 					$_POST['phone'],
 					$_POST['birthday'],
 					$is_gender,
-					$time_registered
+					$time_registered,
+					$is_admin
 				);
 			}
 		}
@@ -79,7 +89,6 @@ class AdminUserController {
 	public function actionEdit($id){
 		User::checkAdmin();
 		$title = "Редагування користувача:";
-
 		if(isset($_POST['editUser'])){
 
 			$errors = [];
@@ -116,6 +125,14 @@ class AdminUserController {
 				$is_gender = 0;
 			}
 
+			if(!empty($_POST['admin'])){
+				if($_POST['admin'] == 'on') {
+					$is_admin = 1;
+				}
+			} else {
+				$is_admin = 0;
+			}
+
 			if (empty($errors)){
 				
 				if(!empty($_POST['pass'])){
@@ -127,7 +144,8 @@ class AdminUserController {
 						$_POST['fio'],
 						$_POST['phone'],
 						$_POST['birthday'],
-						$is_gender
+						$is_gender,
+						$is_admin
 					);
 				} else {
 					User::editUserWithoutPass(
@@ -137,7 +155,8 @@ class AdminUserController {
 						$_POST['fio'],
 						$_POST['phone'],
 						$_POST['birthday'],
-						$is_gender
+						$is_gender,
+						$is_admin
 					);
 				}
 			}

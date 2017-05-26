@@ -1,13 +1,18 @@
 $(document).ready(function(){
 	var map = L.map('map', {
 	    crs: L.CRS.Simple,
+<<<<<<< HEAD:l19/views/js/stationEdit.js
 	    minZoom: -1,
 			maxZoom: 4
+=======
+	    minZoom: -2,
+		maxZoom: 3
+>>>>>>> e104474d81ab0904873aaad2b07e8311d067f5d9:l19/template/js/stationEdit.js
 	});
 
 	var bounds = [[0,0], [1920,1066]];
 	var LOCALPATH = $("#LOCALPATH").val();
-	var mapUrl = LOCALPATH+"/views/css/images/map.svg";
+	var mapUrl = LOCALPATH + "/template/images/map.svg";
 	console.log(mapUrl);
 	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
 
@@ -23,15 +28,12 @@ $(document).ready(function(){
 		{draggable: true}
 	).addTo(map);
 
-
 	marker.on('dragend', function(){
 		var xy = this.getLatLng();
-		console.log("x="+xy.lat+" y="+xy.lng);
+		console.log("x=" + xy.lat+" y=" + xy.lng);
 		$("input[name='map_x']").val(xy.lat);
 		$("input[name='map_y']").val(xy.lng);
-
 	});
-
 });
 
 

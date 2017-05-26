@@ -1,9 +1,9 @@
 <?php
     require_once ROOT."/views/admin/header.php";
 ?>
-    <script src="<?php echo LOCALPATH; ?>/views/js/leaflet.js"></script>
-    <link rel="stylesheet" href="<?php echo LOCALPATH; ?>/views/css/leaflet.css">
-    <script src="<?php echo LOCALPATH; ?>/views/js/stationEdit.js"></script>
+    <script src="<?php echo LOCALPATH; ?>/template/js/leaflet.js"></script>
+    <link rel="stylesheet" href="<?php echo LOCALPATH; ?>/template/css/leaflet.css">
+    <script src="<?php echo LOCALPATH; ?>/template/js/stationEdit.js"></script>
 <center>
     <h1><?php echo $title; ?></h1>
 

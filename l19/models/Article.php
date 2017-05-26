@@ -1,5 +1,6 @@
 <?php
 class Article{
+	
 	public static function createArticle(	
 										$name,
 										$description,
@@ -10,34 +11,31 @@ class Article{
 										){
 		$DBH = Db::getConnection(); 
 	
-			$sql = '
-				INSERT INTO article
-					SET
-						name=:name,
-						description=:description,
-						context=:context,
-						user_id=:user_id,
-						category_id=:category_id,
-						time_create=:time_create
-			';
-			
-			$query = $DBH->prepare($sql);
+		$sql = '
+			INSERT INTO article
+				SET
+					name=:name,
+					description=:description,
+					context=:context,
+					user_id=:user_id,
+					category_id=:category_id,
+					time_create=:time_create
+		';
+		
+		$query = $DBH->prepare($sql);
 
-			$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
-			$query->bindParam(":description", $description, 	PDO::PARAM_STR);
-			$query->bindParam(":context", 	$context, 	PDO::PARAM_STR);
-			$query->bindParam(":user_id", 		$user_id, 	PDO::PARAM_INT);
-			$query->bindParam(":category_id", 	$category_id, 	PDO::PARAM_INT);
-			$query->bindParam(":time_create", 	$time_create, 	PDO::PARAM_STR);
-			
-			$query->execute();
+		$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
+		$query->bindParam(":description", $description, 	PDO::PARAM_STR);
+		$query->bindParam(":context", 	$context, 	PDO::PARAM_STR);
+		$query->bindParam(":user_id", 		$user_id, 	PDO::PARAM_INT);
+		$query->bindParam(":category_id", 	$category_id, 	PDO::PARAM_INT);
+		$query->bindParam(":time_create", 	$time_create, 	PDO::PARAM_STR);
+		
+		$query->execute();
 
 	}
 
 	public static function getAllArticles(){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
@@ -53,9 +51,6 @@ class Article{
 	}
 
 	public static function getArticleById($id){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
@@ -84,37 +79,33 @@ class Article{
 	
 		$DBH = Db::getConnection(); 
 	
-			$sql = '
-				UPDATE station
-					SET
-						name=:name,
-						description=:description,
-						context=:context,
-						user_id=:user_id,
-						category_id=:category_id,
-						time_edit=:time_edit,
-					WHERE id = :id
+		$sql = '
+			UPDATE station
+				SET
+					name=:name,
+					description=:description,
+					context=:context,
+					user_id=:user_id,
+					category_id=:category_id,
+					time_edit=:time_edit,
+				WHERE id = :id
 
-			';
-			
-			$query = $DBH->prepare($sql);
+		';
+		
+		$query = $DBH->prepare($sql);
 
-			$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
-			$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
-			$query->bindParam(":description", $description, 	PDO::PARAM_STR);
-			$query->bindParam(":context", 	$context, 	PDO::PARAM_STR);
-			$query->bindParam(":user_id", 		$user_id, 	PDO::PARAM_INT);
-			$query->bindParam(":category_id", 	$category_id, 	PDO::PARAM_INT);
-			$query->bindParam(":time_edit", 	$time_edit, 	PDO::PARAM_STR);
-			
-			$query->execute();
-
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+		$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
+		$query->bindParam(":description", $description, 	PDO::PARAM_STR);
+		$query->bindParam(":context", 	$context, 	PDO::PARAM_STR);
+		$query->bindParam(":user_id", 		$user_id, 	PDO::PARAM_INT);
+		$query->bindParam(":category_id", 	$category_id, 	PDO::PARAM_INT);
+		$query->bindParam(":time_edit", 	$time_edit, 	PDO::PARAM_STR);
+		
+		$query->execute();
 	}
 
 	public static function deleteArticleById($id){
-		
-		# MySQL через PDO_MYSQL  
-			
 		$DBH = Db::getConnection(); 
 
 		$sql = '
@@ -127,6 +118,5 @@ class Article{
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
 		
 		$query->execute();
-
 	}
 }

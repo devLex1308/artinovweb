@@ -1,5 +1,6 @@
 <?php
 class Category{
+	
 	public static function createCategory($name){
 		$DBH = Db::getConnection(); 
 	

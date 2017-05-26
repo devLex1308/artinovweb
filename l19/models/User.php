@@ -9,7 +9,8 @@ class User{
 										$phone,
 										$birthday,
 										$gender,
-										$time_registered
+										$time_registered,
+										$role
 									){
 
 		$DBH = Db::getConnection(); 
@@ -24,19 +25,22 @@ class User{
 				phone=:phone,
 				birthday=:birthday,
 				gender=:gender,
-				time_registered=:time_registered
+				time_registered=:time_registered,
+				role=:role
 		';
 		
+		$md5 = md5($pass);
 		$query = $DBH->prepare($sql);
 
 		$query->bindParam(":login", $login, PDO::PARAM_STR);
-		$query->bindParam(":pass", $pass, PDO::PARAM_STR);
+		$query->bindParam(":pass", $md5, PDO::PARAM_STR);
 		$query->bindParam(":email", $email, PDO::PARAM_STR);
 		$query->bindParam(":fio", $fio, PDO::PARAM_STR);
 		$query->bindParam(":phone", $phone, PDO::PARAM_STR);
 		$query->bindParam(":birthday", $birthday, PDO::PARAM_STR);
 		$query->bindParam(":gender", $gender, PDO::PARAM_BOOL);
 		$query->bindParam(":time_registered", $time_registered, PDO::PARAM_STR);
+		$query->bindParam(":role", $role, PDO::PARAM_BOOL);
 		
 		$query->execute();
 	}
@@ -81,7 +85,8 @@ class User{
 										$fio,
 										$phone,
 										$birthday,
-										$gender
+										$gender,
+										$role
 									){
 
 		$DBH = Db::getConnection(); 
@@ -95,7 +100,8 @@ class User{
 					fio=:fio,
 					phone=:phone,
 					birthday=:birthday,
-					gender=:gender
+					gender=:gender,
+					role=:role
 				WHERE id = :id
 		';
 		
@@ -110,6 +116,7 @@ class User{
 		$query->bindParam(":phone", $phone, PDO::PARAM_STR);
 		$query->bindParam(":birthday", $birthday, PDO::PARAM_STR);
 		$query->bindParam(":gender", $gender, PDO::PARAM_BOOL);
+		$query->bindParam(":role", $role, PDO::PARAM_BOOL);
 
 		$query->execute();
 	}
@@ -121,7 +128,8 @@ class User{
 										$fio,
 										$phone,
 										$birthday,
-										$gender
+										$gender,
+										$role
 									){
 
 		$DBH = Db::getConnection(); 
@@ -134,7 +142,8 @@ class User{
 					fio=:fio,
 					phone=:phone,
 					birthday=:birthday,
-					gender=:gender
+					gender=:gender,
+					role=:role
 				WHERE id = :id
 		';
 		
@@ -147,6 +156,7 @@ class User{
 		$query->bindParam(":phone", $phone, PDO::PARAM_STR);
 		$query->bindParam(":birthday", $birthday, PDO::PARAM_STR);
 		$query->bindParam(":gender", $gender, PDO::PARAM_BOOL);
+		$query->bindParam(":role", $role, PDO::PARAM_BOOL);
 
 		$query->execute();
 	}
@@ -240,6 +250,9 @@ class User{
         }
        
 
+		// echo '<script type="text/javascript">
+  //          window.location = "'.LOCALPATH.'/admin/authorization"
+  //     	</script>';
         //header("Location: /user/login");
     }
 
@@ -260,12 +273,20 @@ class User{
         // Отримуєм про нього інформацію
         $user = User::getUserById($userId);
 
-
         // Якщо це "admin", to пускаем його адмінку
         if ($user['role'] == 1) {
             return true;
         }
 
+        ?>
+        <script type="text/javascript">
+        alert("ПОМИЛКА, недостатньо прав. Ви не являєтеся адміном, для виконання таких операцій!!!");
+		</script>
+        <?php
+
+		echo '<script type="text/javascript">
+           window.location = "'.LOCALPATH.'/admin/authorization"
+      	</script>';
         // Інакше завершуєм виконання
         die('Access denied');
     }

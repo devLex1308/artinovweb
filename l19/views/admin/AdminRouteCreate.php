@@ -226,7 +226,7 @@ require_once ROOT."/views/admin/header.php";
 	</div>
 </div>
 
-<script src="<?php echo LOCALPATH; ?>/views/js/routeEdit.js"></script>    
+<script src="<?php echo LOCALPATH; ?>/template/js/routeEdit.js"></script>    
 <?php
 require_once ROOT."/views/admin/footer.php";
 ?>
