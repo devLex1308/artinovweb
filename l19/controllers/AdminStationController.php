@@ -1,9 +1,8 @@
 <?php
-require_once ROOT."/models/Station.php";
 class AdminStationController {
-	function __construct(){}
 
 	public function actionIndex($page=1){
+		User::checkAdmin();
 		$title = "Вивід всіх зупинок";
 
 		$countStation = Station::getPaginationInfo();
@@ -18,6 +17,7 @@ class AdminStationController {
 	}
 
 	public function actionCreate(){
+		User::checkAdmin();
 		$title = "Створення зупинки";
 		$stations = Station::getAllStation();
 		if(isset($_POST['createStation'])){
@@ -88,6 +88,7 @@ class AdminStationController {
 	}
 
 	public function actionEdit($id){
+		User::checkAdmin();
 		$title = "Редагування зупинки";
 		$stations = Station::getAllStation();
 
@@ -162,6 +163,7 @@ class AdminStationController {
 	}
 
 	public function actionDelete($id){
+		User::checkAdmin();
 		$title = "Видалення зупинки $id";
 
 		Station::deleteStationById($id);

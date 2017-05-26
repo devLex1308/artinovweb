@@ -1,9 +1,8 @@
 <?php
-require_once ROOT."/models/Route.php";
 class RouteController {
-	function __construct() {}
 
 	public function actionIndex($id){
+		User::checkAdmin();
 		$title = "Вивід усіх зупинок даного маршруту, та час";
 		$route = Route::getRouteById($id);
 		$all_start = Route::getAllIdStationsStart();
@@ -34,6 +33,7 @@ class RouteController {
 	}
 
 	public function actionEdit($id){
+		User::checkAdmin();
 		$title = "Редагування маршруту";
 		$route = Route::getRouteById($id);
 		$id_stations_start = explode(",", $route['id_stations_start']);

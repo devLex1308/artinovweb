@@ -1,8 +1,5 @@
 <?php
-// require_once ROOT."/models/User.php";
 class AdminUserController {
-	function __construct() {}
-
 	public function actionIndex(){
 		User::checkAdmin();
 		$title = "Вивід усіх користувачів";
@@ -12,6 +9,7 @@ class AdminUserController {
 	}
 
 	public function actionCreate(){
+		User::checkAdmin();
 		$title = "Створення користувача";
 
 		if(isset($_POST['createUser'])){
@@ -79,6 +77,7 @@ class AdminUserController {
 	}
 
 	public function actionEdit($id){
+		User::checkAdmin();
 		$title = "Редагування користувача:";
 
 		if(isset($_POST['editUser'])){
@@ -149,6 +148,7 @@ class AdminUserController {
 	}
 
 	public function actionDelete($id){
+		User::checkAdmin();
 		if(!isset($_SESSION['login'])){
 			require_once ROOT."/views/admin/header.php";
 			echo "<center><h1> Увас немає прав доступу! </h1></center>";

@@ -1,9 +1,8 @@
 <?php
-require_once ROOT."/models/Category.php";
 class AdminCategoryController {
-	function __construct() {}
 
 	public function actionIndex(){
+		User::checkAdmin();
 		$title = "Вивід всіх категорій транспорту";
 		$categories = Category::getAllCategories();
 		require_once ROOT."/views/admin/AdminCategoryIndex.php";
@@ -11,6 +10,7 @@ class AdminCategoryController {
 	}
 
 	public function actionCreate(){
+		User::checkAdmin();
 		$title = "Створення категорії транспорту";
 		if(isset($_POST['createCategory'])){
 			Category::createCategory($_POST['name']);
@@ -20,6 +20,7 @@ class AdminCategoryController {
 	}
 
 	public function actionEdit($id){
+		User::checkAdmin();
 		if(isset($_POST['editCategory'])){
 			Category::editCategory($id, $_POST['name']);
 		}
@@ -31,6 +32,7 @@ class AdminCategoryController {
 	}
 
 	public function actionDelete($id){
+		User::checkAdmin();
 		$title = "Видалення категорії транспорту $id";
 
 		Category::deleteCategoryById($id);

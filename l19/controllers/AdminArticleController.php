@@ -1,9 +1,8 @@
 <?php
-require_once ROOT."/models/Article.php";
 class AdminArticleController {
-	function __construct(){}
-
+	
 	public function actionIndex(){
+		User::checkAdmin();
 		$title = "Вивід всіх статей";
 		$articles = Article::getAllArticles();
 		require_once ROOT."/views/admin/AdminArticleIndex.php";
@@ -11,6 +10,7 @@ class AdminArticleController {
 	}
 
 	public function actionCreate(){
+		User::checkAdmin();
 		$title = "Створення статті";
 		if(isset($_POST['createArticle'])){
 
@@ -34,6 +34,7 @@ class AdminArticleController {
 	}
 
 	public function actionEdit($id){
+		User::checkAdmin();
 		if(isset($_POST['editArticle'])){
 			Article::editArticle(
 									$id,
@@ -53,6 +54,7 @@ class AdminArticleController {
 	}
 
 	public function actionDelete($id){
+		User::checkAdmin();
 		$title = "Видалення статті $id";
 
 		Article::deleteArticleById($id);
