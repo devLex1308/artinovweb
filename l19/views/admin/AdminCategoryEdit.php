@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="name" maxlength="20" class="col-sm-3 control-label">Введіть назву категорії</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo $categories['name'];?>" required>
+                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $categories['name'];?>" required>
                     </div>
                 </div>   
                 

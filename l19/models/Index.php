@@ -2,15 +2,15 @@
 class Index{
 	
 	public static function createUser(
-		$login,
-		$pass,
-		$email,
-		$fio,
-		$phone,
-		$birthday,
-		$gender,
-		$time_registered
-		){
+										$login,
+										$pass,
+										$email,
+										$fio,
+										$phone,
+										$birthday,
+										$gender,
+										$time_registered
+									){
 
 		$DBH = Db::getConnection(); 
 
@@ -74,15 +74,15 @@ class Index{
 	}
 
 	public static function editUser(
-		$id,
-		$login,
-		$pass,
-		$email,
-		$fio,
-		$phone,
-		$birthday,
-		$gender
-		){
+										$id,
+										$login,
+										$pass,
+										$email,
+										$fio,
+										$phone,
+										$birthday,
+										$gender
+									){
 
 		$DBH = Db::getConnection(); 
 
@@ -174,7 +174,6 @@ class Index{
 			if($email['email'] == $new_email) return true;
 		}
 		return false;
-
 	}
 
 
@@ -194,6 +193,5 @@ class Index{
 
 		$query->execute();
 		return $query->fetch();
-
 	}
 }

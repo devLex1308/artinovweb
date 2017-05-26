@@ -26,7 +26,7 @@ class AdminCategoryController {
 		}
 
 		$title = "Редагування категорії транспорту";
-		$categorie = Category::getCategoryById($id);
+		$categories = Category::getCategoryById($id);
 		require_once ROOT."/views/admin/AdminCategoryEdit.php";
 		return true;
 	}
@@ -36,6 +36,9 @@ class AdminCategoryController {
 		$title = "Видалення категорії транспорту $id";
 
 		Category::deleteCategoryById($id);
+		echo '<script type="text/javascript">
+           window.location = "'.LOCALPATH.'/admin/category"
+      	</script>';
 		require_once ROOT."/views/admin/AdminCategoryDelete.php";
 		return true;
 	}
