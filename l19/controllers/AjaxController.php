@@ -1,7 +1,5 @@
 <?php
-
 class AjaxController{
-
 	public function actionIndex(){
 		$title = "Ajax";
 		$aStation = Station::getAllStations();

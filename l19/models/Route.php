@@ -1,7 +1,7 @@
 <?php
 class Route{
 	
-	const routeOnPage = 6; 
+	const routeOnPage = 20; 
 
 	public static function createRoute(	
 										$name_start,
@@ -142,7 +142,7 @@ class Route{
 										$delta_time_start,
 										$delta_time_end
 									){
-
+		
 		$DBH = Db::getConnection(); 
 	
 			$sql = '
@@ -162,6 +162,7 @@ class Route{
 			
 			$query = $DBH->prepare($sql);
 
+			$query->bindParam(":id", $id, PDO::PARAM_INT);
 			$query->bindParam(":name_start", $name_start, 	PDO::PARAM_STR);
 			$query->bindParam(":name_end", $name_end, 	PDO::PARAM_STR);
 			$query->bindParam(":number", 	$number, 	PDO::PARAM_STR);
@@ -170,7 +171,6 @@ class Route{
 			$query->bindParam(":id_stations_end", 	$id_stations_end, 	PDO::PARAM_STR);
 			$query->bindParam(":delta_time_start", 	$delta_time_start, 	PDO::PARAM_STR);
 			$query->bindParam(":delta_time_end", $delta_time_end, PDO::PARAM_STR);
-			$query->bindParam(":id", $id, PDO::PARAM_INT);
 			
 			$query->execute();
 			//print_r($query->errorInfo());
