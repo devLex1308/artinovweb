@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var map = L.map('map', {
 	    crs: L.CRS.Simple,
-	    minZoom: -2,
+	    minZoom: -0.55,
 		maxZoom: 3
 	});
 
