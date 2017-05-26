@@ -5,7 +5,7 @@ $(document).ready(function(){
 		maxZoom: 3
 	});
 
-	var bounds = [[0,0], [1066,1920]];
+	var bounds = [[0,0], [1920,1066]];
 	var LOCALPATH = $("#LOCALPATH").val();
 	var mapUrl = LOCALPATH + "/template/images/map.svg";
 	console.log(mapUrl);
