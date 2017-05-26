@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 	var bounds = [[0,0], [1920,1066]];
 	var LOCALPATH = $("#LOCALPATH").val();
-	var mapUrl = LOCALPATH+"/views/css/images/map.svg";
+	var mapUrl = LOCALPATH+"/template/images/map.svg";
 	console.log(mapUrl);
 	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
 
@@ -23,15 +23,12 @@ $(document).ready(function(){
 		{draggable: true}
 	).addTo(map);
 
-
 	marker.on('dragend', function(){
 		var xy = this.getLatLng();
 		console.log("x="+xy.lat+" y="+xy.lng);
 		$("input[name='map_x']").val(xy.lat);
 		$("input[name='map_y']").val(xy.lng);
-
 	});
-
 });
 
 

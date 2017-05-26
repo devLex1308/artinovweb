@@ -5,4 +5,3 @@
 <?php
   require_once ROOT."/views/admin/footer.php";
 ?>
-
