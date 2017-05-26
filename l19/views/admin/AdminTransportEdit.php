@@ -37,13 +37,11 @@ function inputTimeRouteStart($array,$id_name){
     <?php
 }
 ?>
-    <a href=></a>
-<h1><?php echo $title; echo " ".$transport['name'] ?></h1>
+<h1 class="text-center"><?php echo $title; echo " </br>".$transport['name'] ?></h1>
 <div class="container">
     <div class="row">
         <div class="col-xs-1 col-sm-1 col-md-2 col-lg-3"></div>
         <div class="col-xs-10 col-sm-10 col-md-8 col-lg-6 create-transport">
-            <h1 class="text-center"><?php echo $title; ?></h1>
             <form class="form-horizontal" role="form" method="post">
                 <div class="form-group">
                     <label for="name" class="col-sm-4 control-label">Назва транспорту</label>
@@ -93,20 +91,20 @@ function inputTimeRouteStart($array,$id_name){
                 </div>
             </form>
         </div>
-        <div class="col-xs-10 col-sm-10 col-md-8 col-lg-12 create-transport">
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
+        <div class="col-xs-12 col-sm-10 col-md-6 col-lg-12 create-transport">
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-3">
                 <h2 class="text-center">Час відправлення за прямим маршрутом</h2>
                 <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartDirect,"timeStartDirect"); ?></h4>
             </div>
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-3">
                 <h2 class="text-center">Час відправлення за зворотнім маршрутом</h2>
                 <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartRevert,"timeStartRevert"); ?></h4>
             </div>
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
+            <div class="col-xs-10 col-sm-6 col-md-5 col-lg-3">
                 <h2 class="text-center">Час відправлення за прямим маршрутом у вихідний</h2>
                 <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartDirectRest,"timeStartDirectRest"); ?></h4>
             </div>
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-3">
                 <h2 class="text-center">Час відправлення за зворотнім маршрутом у вихідний</h2>
                 <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartRevertRest,"timeStartRevertRest"); ?></h4>
             </div>

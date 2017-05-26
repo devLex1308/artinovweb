@@ -1,7 +1,6 @@
 <?php
 	require_once ROOT."/views/admin/header.php";
 ?>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -33,8 +32,8 @@
                                     <td><?=$user['birthday']; ?></td>
                                     <td><?=$user['gender']; ?></td>
                                     <td><?=$user['time_registered']; ?></td>
-                                    <td><a href="<?php echo LOCALPATH; ?>/admin/user/edit/<?=$user['id'] ?>">Редагувати</a></td>
-                                    <td><a href="<?php echo LOCALPATH; ?>/admin/user/delete/<?=$user['id'] ?>">Видалити</a></td>
+                                    <td><a href="<?php echo LOCALPATH; ?>/admin/user/edit/<?=$user['id'] ?>"><span class="custom glyphicon glyphicon-pencil text-center"></a></td>
+                                    <td><a href="<?php echo LOCALPATH; ?>/admin/user/delete/<?=$user['id'] ?>"><span class="custom glyphicon glyphicon-trash text-center"></a></td>
                                 </tr>
                                 <?php
                             }
