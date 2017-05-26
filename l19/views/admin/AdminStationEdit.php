@@ -42,7 +42,7 @@
 
         <div class="form-group">
             <label>Утримуючи клавішу <b>Shift</b> Виберіть сусідні зупинки або зв`язані:</label>
-            <select class="form-control" size="5" name="neighboring_stop[]" multiple>
+            <select class="form-control" size="5" name="neighboring_stop[]" multiple required>
                 <?php
                 if(!empty($stations)){
                     foreach ($stations as $key => $station_edit) {
@@ -59,12 +59,12 @@
             </select>
         </div>
         <div id="map"></div>
-        <div class="form-group">
+        <div class="form-group hide">
             <label>Додайте Координату X на карті схемі:</label>
             <input class="form-control" type="number" name="map_x" placeholder="map_x(25,2123)" step="0.0001" value="<?php echo $station['map_x']; ?>" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group hide">
             <label>Додайте Координату Y на карті схемі:</label>
             <input class="form-control" type="number" name="map_y" placeholder="map_y(45,1113)" step="0.0001" value="<?php echo $station['map_y']; ?>" required>
         </div>
