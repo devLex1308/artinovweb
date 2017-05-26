@@ -44,5 +44,6 @@ return array(
 	'admin/article/edit/([0-9]+)' => 'AdminArticle/edit/$1',
 	'admin/article/delete/([0-9]+)' => 'AdminArticle/delete/$1',
 	'admin/article' => 'AdminArticle/index',
+	
 	'ajax' => 'Ajax/index'
 	);

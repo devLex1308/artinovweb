@@ -1,9 +1,8 @@
 <?php
-require_once ROOT."/models/Route.php";
 class AdminRouteController {
-	function __construct(){}
 
 	public function actionIndex($page = 1){
+		User::checkAdmin();
 		$title = "Вивід усіх маршрутів";
 		$routes = Route::getAllRoute($page);
 		$carriage_name = Route::getTypeCarriageById($routes);
@@ -17,10 +16,11 @@ class AdminRouteController {
 	}
 
 	public function actionCreate(){
+		User::checkAdmin();
 		$title = "Створення маршруту";
-		$countStation = 30;
 		$carriages = Route::getAllTypeCarriage();
 		$stations = Route::getAllStations();
+		$Allroute = Route::getAllRoute();
 
 		if(isset($_POST['createRoute'])){
 
@@ -30,40 +30,125 @@ class AdminRouteController {
 				$errors[] = "Макс.: <b>".Route::getLengthField('number')."</b>. Ви ввели: <b>".strlen($_POST['number'])."</b> символів у поле <b>number</b>.";
 			}
 
-			if(Route::getLengthField('name_start') < strlen($_POST['name_start'])){
-				$errors[] = "Макс.: <b>".Route::getLengthField('name_start')."</b>. Ви ввели: <b>".strlen($_POST['name_start'])."</b> символів у поле <b>name_start</b>.";
-			}
-
-			if(Route::getLengthField('name_end') < strlen($_POST['name_end'])){
-				$errors[] = "Макс.: <b>".Route::getLengthField('name_end')."</b>. Ви ввели: <b>".strlen($_POST['name_end'])."</b> символів у поле <b>name_end</b>.";
-			}
-
 			if ($_POST['name_start'] == $_POST['name_end']) {
-				$errors[] = "Ви ввели 2 однакових назви маршрутів: <b>".$_POST['name_start']."</b>. та <b>".$_POST['name_end']."</b>.";
+				$errors[] = "Ви ввели однакову назву для початку та кінця маршруту: <b>".$_POST['name_start']."</b>. та <b>".$_POST['name_end']."</b>.";
+			}
+			
+			$id_stations_start = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~id_stations_start_~", $key)){	
+					$id_stations_start[] = $value;
+				}
 			}
 
-			$id_stations_start = implode(",", $_POST['id_stations_start']);
-			$id_stations_end = implode(",", $_POST['id_stations_end']);
+			$id_stations_end = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~id_stations_end_~", $key)){	
+					$id_stations_end[] = $value;
+				}
+			}
+			
+			$delta_time_start = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~delta_time_start_~", $key)){	
+					$delta_time_start[] = $value;
+				}
+			}
+			
+			$delta_time_end = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~delta_time_end_~", $key)){	
+					$delta_time_end[] = $value;
+				}
+			}
+
+			foreach ($id_stations_start as $key1 => $station1) {
+				foreach ($id_stations_start as $key2 => $station2) {
+					if($station1 == $station2 && $key1 != $key2){
+						$errors[] = "Рух за прямим маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
+						break 2;
+					}
+				}
+			}
+
+			foreach ($id_stations_end as $key1 => $station1) {
+				foreach ($id_stations_end as $key2 => $station2) {
+					if($station1 == $station2 && $key1 != $key2){
+						$errors[] = "Рух за зворотнім маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
+						echo $station1." ".$station2;
+						break 2;
+					}
+				}
+			}
+
+			$id_stations_start_create = implode(",", $id_stations_start);
+			$id_stations_end_create = implode(",", $id_stations_end);
+
+			$delta_time_start_create = implode(",", $delta_time_start);
+			$delta_time_end_create = implode(",", $delta_time_end);
 
 			if (empty($errors)){
 				Route::createRoute(
-										$_POST['name_start'],
-										$_POST['name_end'],
-										$_POST['number'],
-										$_POST['carriage_id'],
-										$id_stations_start,
-										$id_stations_end,
-										$_POST['delta_time_start'],
-										$_POST['delta_time_end']
-									);
+					$_POST['name_start'],
+					$_POST['name_end'],
+					$_POST['number'],
+					$_POST['carriage_id'],
+					$id_stations_start_create,
+					$id_stations_end_create,
+					$delta_time_start_create,
+					$delta_time_end_create
+					);
+			} else {
+				$route_z = [
+				'id',
+				'id',
+				$_POST['name_start'],
+				$_POST['name_start'],
+				$_POST['name_end'],
+				$_POST['name_end'],
+				$_POST['number'],
+				$_POST['number'],
+				$_POST['carriage_id'],
+				$_POST['carriage_id'],
+				$id_stations_start_create,
+				$id_stations_start_create,
+				$id_stations_end_create,
+				$id_stations_end_create,
+				$delta_time_start_create,
+				$delta_time_start_create,
+				$delta_time_end_create,
+				$delta_time_end_create
+				];
+				$route = Route::getRouteById($Allroute[0]['id']);
+				$route_up = [];
+				$count = 0;
+				foreach ($route as $key => $value) {
+					$route_up[$key] = $route_z[$count];
+					$count++;
+				}
 			}
+		}
+		if(isset($route_up)) {
+			$route = $route_up;
+
+			$id_stations_start_prev = explode(",", $route['id_stations_start']);
+			$id_stations_end_prev = explode(",", $route['id_stations_end']);
+
+			$delta_time_start_prev = explode(",", $route['delta_time_start']);
+			$delta_time_end_prev = explode(",", $route['delta_time_end']);
 		}
 		require_once ROOT."/views/admin/AdminRouteCreate.php";
 		return true;
 	}
 
 	public function actionEdit($id){
+		User::checkAdmin();
 		$title = "Редагування маршруту";
+
+		$route = Route::getRouteById($id);
+
+		$carriages = Route::getAllTypeCarriage();
+		$stations = Route::getAllStations();
 
 		if(isset($_POST['editRoute'])){
 
@@ -73,11 +158,61 @@ class AdminRouteController {
 				$errors[] = "Макс.: <b>".Route::getLengthField('number')."</b>. Ви ввели: <b>".strlen($_POST['number'])."</b> символів у поле <b>number</b>.";
 			}
 
+			if ($_POST['name_start'] == $_POST['name_end']) {
+				$errors[] = "Ви ввели однакову назву для початку та кінця маршруту: <b>".$_POST['name_start']."</b>. та <b>".$_POST['name_end']."</b>.";
+			}
+			
+			$id_stations_start = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~id_stations_start_~", $key)){	
+					$id_stations_start[] = $value;
+				}
+			}
 
-			$id_stations_start_edit = implode(",", $_POST['id_stations_start']);
-			$id_stations_end_edit = implode(",", $_POST['id_stations_end']);
-			$delta_time_start = implode(",",$_POST['delta_time_start']);
-			$delta_time_end = implode(",",$_POST['delta_time_end']);
+			$id_stations_end = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~id_stations_end_~", $key)){	
+					$id_stations_end[] = $value;
+				}
+			}
+			
+			$delta_time_start = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~delta_time_start_~", $key)){	
+					$delta_time_start[] = $value;
+				}
+			}
+			
+			$delta_time_end = [];
+			foreach ($_POST as $key => $value) {
+				if(preg_match("~delta_time_end_~", $key)){	
+					$delta_time_end[] = $value;
+				}
+			}
+
+			foreach ($id_stations_start as $key1 => $station1) {
+				foreach ($id_stations_start as $key2 => $station2) {
+					if($station1 == $station2 && $key1 != $key2){
+						$errors[] = "Рух за прямим маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
+						break 2;
+					}
+				}
+			}
+
+			foreach ($id_stations_end as $key1 => $station1) {
+				foreach ($id_stations_end as $key2 => $station2) {
+					if($station1 == $station2 && $key1 != $key2){
+						$errors[] = "Рух за зворотнім маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
+						break 2;
+					}
+				}
+			}
+
+			$id_stations_start_edit = implode(",", $id_stations_start);
+			$id_stations_end_edit = implode(",", $id_stations_end);
+
+			$delta_time_start_edit = implode(",", $delta_time_start);
+			$delta_time_end_edit = implode(",", $delta_time_end);
 
 			if (empty($errors)){
 				Route::editRoute(
@@ -88,55 +223,88 @@ class AdminRouteController {
 					$_POST['carriage_id'],
 					$id_stations_start_edit,
 					$id_stations_end_edit,
-					$delta_time_start,
-					$delta_time_end
-				);
+					$delta_time_start_edit,
+					$delta_time_end_edit
+					);
+			} else {
+				$route_z = [
+				$id,
+				$id,
+				$_POST['name_start'],
+				$_POST['name_start'],
+				$_POST['name_end'],
+				$_POST['name_end'],
+				$_POST['number'],
+				$_POST['number'],
+				$_POST['carriage_id'],
+				$_POST['carriage_id'],
+				$id_stations_start_edit,
+				$id_stations_start_edit,
+				$id_stations_end_edit,
+				$id_stations_end_edit,
+				$delta_time_start_edit,
+				$delta_time_start_edit,
+				$delta_time_end_edit,
+				$delta_time_end_edit
+				];
+				$route_up = [];
+				$count = 0;
+				foreach ($route as $key => $value) {
+					$route_up[$key] = $route_z[$count];
+					$count++;
+				}
 			}
 		}
+		if(isset($route_up)) {
+			$route = $route_up;
+		} else {
+			$route = Route::getRouteById($id);
+		}
+		
+		$id_stations_start_prev = explode(",", $route['id_stations_start']);
+		$id_stations_end_prev = explode(",", $route['id_stations_end']);
 
-		$route = Route::getRouteById($id);
-		$id_stations_start = explode(",", $route['id_stations_start']);
-		$id_stations_end = explode(",", $route['id_stations_end']);
-		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
-
+		$delta_time_start_prev = explode(",", $route['delta_time_start']);
+		$delta_time_end_prev = explode(",", $route['delta_time_end']);
 
 		require_once ROOT."/views/admin/AdminRouteEdit.php";
 		return true;
 	}
 
-    public function actionFill($id){
+	public function actionFill($id){
+		User::checkAdmin();
 		$stations_route = Route::getAllStationsRoute($id);
-    	$stations = Route::getAllStationsById($id);
+		$stations = Route::getAllStationsById($id);
 		if(isset($_POST['fillRoute'])){
-            $station_id=$_POST['station_id'];
+			$station_id=$_POST['station_id'];
 			Route::fillRoute(
-							 $id,
-				             $station_id
-				            );
+				$id,
+				$station_id
+				);
 			$stations = Route::getAllStationsById($id);
 			$stations_route = Route::getAllStationsRoute($id);
 		}
-        if(isset($_POST['outFill'])){
-       		echo '<script type="text/javascript">
-         	  window.location = "'.LOCALPATH.'/admin/station"
-      			</script>';
-		}
-		$title = "Заповнення маршруту";
-
-		require ROOT."/views/admin/AdminRouteFill.php";
-		return true;
+		if(isset($_POST['outFill'])){
+			echo '<script type="text/javascript">
+			window.location = "'.LOCALPATH.'/admin/station"
+		</script>';
 	}
+	$title = "Заповнення маршруту";
 
-	public function actionDelete($id){
-		$title = "Видалення маршруту $id";
+	require ROOT."/views/admin/AdminRouteFill.php";
+	return true;
+}
 
-		Route::deleteRouteById($id);
-		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/route"
-      	</script>';
-		require_once ROOT."/views/admin/AdminRouteDelete.php";
-		return true;
-	}
+public function actionDelete($id){
+	User::checkAdmin();
+	$title = "Видалення маршруту $id";
+
+	Route::deleteRouteById($id);
+	echo '<script type="text/javascript">
+	window.location = "'.LOCALPATH.'/admin/route"
+</script>';
+require_once ROOT."/views/admin/AdminRouteDelete.php";
+return true;
+}
 }
 

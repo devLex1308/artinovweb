@@ -1,9 +1,5 @@
 ﻿<?php
 class Page{
-	
-	function __construct(){
-		
-	}
 
 	public function actionClassNotFound(){
 		$title = "404 Not Found <br> Така сторінка незнайдена =/";
