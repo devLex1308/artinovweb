@@ -1,16 +1,11 @@
 $(document).ready(function(){
 	var map = L.map('map', {
 	    crs: L.CRS.Simple,
-<<<<<<< HEAD:l19/views/js/stationEdit.js
-	    minZoom: -1,
-			maxZoom: 4
-=======
-	    minZoom: -2,
-		maxZoom: 3
->>>>>>> e104474d81ab0904873aaad2b07e8311d067f5d9:l19/template/js/stationEdit.js
+	    minZoom: -0.55,
+		maxZoom: 4
 	});
 
-	var bounds = [[0,0], [1920,1066]];
+	var bounds = [[0,0], [1066,1920]];
 	var LOCALPATH = $("#LOCALPATH").val();
 	var mapUrl = LOCALPATH + "/template/images/map.svg";
 	console.log(mapUrl);
