@@ -47,7 +47,7 @@ return array(
 	
 	'ajax' => 'Ajax/index',
 
-	'admin/timeroutestart/edit/([0-9]+)' => 'AdminTimeRoute/edit/$1'
-	'admin/timeroutestart/delete/([0-9]+)' => 'AdminTimeRoute/delete/$1'
+	// 'admin/timeroutestart/edit/([0-9]+)' => 'AdminTimeRoute/edit/$1'
+	// 'admin/timeroutestart/delete/([0-9]+)' => 'AdminTimeRoute/delete/$1'
 
 	);

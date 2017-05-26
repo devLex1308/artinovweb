@@ -4,12 +4,14 @@ function inputTimeRouteStart($array,$id_name){
     ?>
     <style type="text/css">
     .inputTimeRouteStart{
-        display:block;
-        text-align: center;
+        display:block; 
+        text-align: right;     
     }
-    .save{
-        display: block; 
-    }
+    .btn{
+        /* display: block; */
+        text-align: right;
+        right:0px;
+    }      
     </style>
     <form class="form-horizontal" role="form" method="post" id="<?php echo $id_name; ?>">
         <div class="time">
@@ -21,13 +23,13 @@ function inputTimeRouteStart($array,$id_name){
         echo "<span class = 'inputTimeRouteStart'>";
             echo $i.". <input type='time' name='time_start[{$TimeStartDirect['id']}]' value='{$TimeStartDirect['time_start']}'>";
             echo "<a href='".LOCALPATH."/admin/timeroutestart/edit/{$TimeStartDirect['id']}''>$pencil </a>";
-            echo "<a href='".LOCALPATH."/admin/timeroutestart/edit/{$TimeStartDirect['id']}''>$delete </a>";
+            echo "<a href='".LOCALPATH."/admin/timeroutestart/delete/{$TimeStartDirect['id']}''>$delete </a>";
         echo "</span>";
         $i++;
     }?>
         </div>
-        <button name="createTimeStart" type="submit" value="<?php echo $id_name; ?>" id="create<?php echo ucfirst($id_name);?>" class="btn btn-success glyphicon glyphicon-plus "></button>
-        <button type="submit" name="action" value="saveTimeRouteStart" class="btn btn-warning save">Зберегти</button>
+        <button name="createTimeStart" type="submit" value="<?php echo $id_name; ?>" id="create<?php echo ucfirst($id_name);?>" class="btn btn-success glyphicon glyphicon-plus"></button>
+        <button type="submit" name="action" value="saveTimeRouteStart" class="btn btn-warning glyphicon glyphicon-ok"></button>
     </form>
     <!-- <form class="form-horizontal" role="form" method="post">
         <button name="createTimeStart" type="submit" value="<?php echo $id_name; ?>" id="create<?php echo ucfirst($id_name);?>" class="btn btn-warning glyphicon glyphicon-plus"></button>
@@ -92,21 +94,21 @@ function inputTimeRouteStart($array,$id_name){
             </form>
         </div>
         <div class="col-xs-10 col-sm-10 col-md-8 col-lg-12 create-transport">
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-6">
+            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
                 <h2 class="text-center">Час відправлення за прямим маршрутом</h2>
-                <?php inputTimeRouteStart($aTimeStartDirect,"timeStartDirect"); ?>
+                <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartDirect,"timeStartDirect"); ?></h4>
             </div>
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-6">
+            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
                 <h2 class="text-center">Час відправлення за зворотнім маршрутом</h2>
-                <?php inputTimeRouteStart($aTimeStartRevert,"timeStartRevert"); ?>
+                <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartRevert,"timeStartRevert"); ?></h4>
             </div>
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-6">
+            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
                 <h2 class="text-center">Час відправлення за прямим маршрутом у вихідний</h2>
-                <?php inputTimeRouteStart($aTimeStartDirectRest,"timeStartDirectRest"); ?>
+                <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartDirectRest,"timeStartDirectRest"); ?></h4>
             </div>
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-6">
-                <h2 class="text-center col-lg-12">Час відправлення за зворотнім маршрутом у вихідний</h2>
-                <?php inputTimeRouteStart($aTimeStartRevertRest,"timeStartRevertRest"); ?>
+            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-3">
+                <h2 class="text-center">Час відправлення за зворотнім маршрутом у вихідний</h2>
+                <h4 class="text-center"><?php inputTimeRouteStart($aTimeStartRevertRest,"timeStartRevertRest"); ?></h4>
             </div>
         </div>
     </div>
