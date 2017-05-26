@@ -61,4 +61,20 @@ class TimeRouteStart{
 
 		return$query->fetchAll(PDO::FETCH_ASSOC);
 	}
+
+	public static function deleteTimeRouteById($id){
+		
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+				DELETE  
+				FROM time_route_start
+				WHERE id = :id
+			';
+			
+		$query = $DBH->prepare($sql);
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+		
+		$query->execute();
+	}
 }

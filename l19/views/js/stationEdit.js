@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	var map = L.map('map', {
 	    crs: L.CRS.Simple,
-	    inZoom: -2,
-		maxZoom: 3
+	    minZoom: -1,
+			maxZoom: 4
 	});
 
 	var bounds = [[0,0], [1920,1066]];

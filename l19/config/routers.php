@@ -35,15 +35,19 @@ return array(
 	'authorization' => 'AdminUser/authorization',
 	'admin/logout' => 'AdminUser/logout',
 
-    'admin/transport/create' => 'AdminTransport/create',
-    'admin/transport/edit/([0-9]+)' => 'AdminTransport/edit/$1',
-    'admin/transport/delete/([0-9]+)' => 'AdminTransport/delete/$1',
-    'admin/transport' => 'AdminTransport/index',
+  'admin/transport/create' => 'AdminTransport/create',
+  'admin/transport/edit/([0-9]+)' => 'AdminTransport/edit/$1',
+  'admin/transport/delete/([0-9]+)' => 'AdminTransport/delete/$1',
+  'admin/transport' => 'AdminTransport/index',
 
 	'admin/article/create' => 'AdminArticle/create',
 	'admin/article/edit/([0-9]+)' => 'AdminArticle/edit/$1',
 	'admin/article/delete/([0-9]+)' => 'AdminArticle/delete/$1',
 	'admin/article' => 'AdminArticle/index',
 	
-	'ajax' => 'Ajax/index'
+	'ajax' => 'Ajax/index',
+
+	'admin/timeroutestart/edit/([0-9]+)' => 'AdminTimeRoute/edit/$1'
+	'admin/timeroutestart/delete/([0-9]+)' => 'AdminTimeRoute/delete/$1'
+
 	);
