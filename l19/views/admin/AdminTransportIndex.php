@@ -33,8 +33,8 @@
                             }
                             ?></td>
 
-                            <td><a href="<?php echo LOCALPATH;?>/admin/transport/edit/<?php echo $transport['id']; ?>">Редагувати</a></td>
-                            <td><a href="<?php echo LOCALPATH;?>/admin/transport/delete/<?php echo $transport['id']; ?>">Видалити</a></td>
+                            <td><a href="<?php echo LOCALPATH;?>/admin/transport/edit/<?php echo $transport['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></a></td>
+                            <td><a href="<?php echo LOCALPATH;?>/admin/transport/delete/<?php echo $transport['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></a></td>
                         </tr>
                     <?php } ?>
             </table>

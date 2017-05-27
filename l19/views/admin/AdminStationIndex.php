@@ -14,12 +14,15 @@
                     <th>Видалити</th>
                 </tr>
                 <?php
-                foreach ($stations as $key => $station) {?>
+                foreach ($stations as $key => $station) {
+                    $edit = '<span class="custom glyphicon glyphicon-pencil"></span>';
+                    $delete = '<span class="custom  glyphicon glyphicon-trash" aria-hidden="true"></span>';
+                    ?>
                     <tr>
                         <td><?php echo $station['id']; ?></td>
                         <td><?php echo $station['name']; ?></td>
-                        <td><a href="<?php echo LOCALPATH;?>/admin/station/edit/<?php echo $station['id']; ?>">Редагувати</a></td>
-                        <td><a href="<?php echo LOCALPATH;?>/admin/station/delete/<?php echo $station['id']; ?>">Видалити</a></td>
+                        <td><a href="<?php echo LOCALPATH;?>/admin/station/edit/<?php echo $station['id']; ?>"><?=$edit?></a></td>
+                        <td><a href="<?php echo LOCALPATH;?>/admin/station/delete/<?php echo $station['id']; ?>"><?=$delete?></a></td>
                     </tr>
                 <?php
                 }
@@ -44,12 +47,4 @@
         </div>
         <div class="col-xs-1 col-sm-1 col-md-2 col-lg-1"></div>
     </div>
-
 </div>
-
-
-
-
-
-
-

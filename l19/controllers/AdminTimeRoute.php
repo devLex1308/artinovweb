@@ -1,38 +1,9 @@
 <?php
-class AdminTransportController{	
-	
-	public function actionIndex(){
+class AdminTimeRouteController{	
+
+public function actionEdit($id){
+		$routeStart = Transport::getTrasportById($id);
 		User::checkAdmin();
-		$title = "Вивід вcього транспорту";
-		$transports = Transport::getAllTransport();
-		$routes = Transport::getAllRoutes();
-		$carriages = Transport::getAllTypeCarriage();
-
-		require_once ROOT."/views/admin/AdminTransportIndex.php";
-		return true;
-	}
-
-	public function actionCreate(){
-		User::checkAdmin();
-		$title = "Створення нового транспорту";
-		$routes = Transport::getAllRoutes();
-		$carriages = Transport::getAllTypeCarriage();
-        if(isset($_POST['createTransport'])){
-
-            Transport::createTransport(
-                $_POST['name'],
-                $_POST['description'],
-                $_POST['carriage_id'],
-                $_POST['route_id']
-            );
-        }
-		require_once ROOT."/views/admin/AdminTransportCreate.php";
-		return true;
-	}
-
-	public function actionEdit($id){
-		User::checkAdmin();
-		$transport = Transport::getTrasportById($id);
 		$routes = Transport::getAllRoutes();
 		$carriages = Transport::getAllTypeCarriage();
 		if(isset($_POST['editTransport'])){

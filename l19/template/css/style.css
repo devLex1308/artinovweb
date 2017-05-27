@@ -5,3 +5,8 @@ body{
  #map{
      min-height: 400px;
  }
+ 
+ .custom{
+        display: block;
+        text-align: center;
+    }

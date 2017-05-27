@@ -6,6 +6,7 @@ $(document).ready(function(){
     e.preventDefault();
     $("#forwardDirection").append(forwardDirection);
     update_count_number_forwardDirection(true);
+    addActionDeleteStation();
     $( "#forwardDirection select:last-child" ).combobox();
   });
 
@@ -18,6 +19,7 @@ $(document).ready(function(){
     $("#backDirection").append(back);
     addActionDeleteStation();
     update_count_number_backDirection(true);
+    addActionDeleteStation();
     $( "#backDirection select:last-child" ).combobox();
   });
 

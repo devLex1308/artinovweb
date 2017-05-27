@@ -8,9 +8,7 @@
         <div class="col-xs-10 col-sm-10 col-md-8 col-lg-6 create-station">
             <h1 class="text-center"><?php echo $title; ?></h1>
             <form class="form-horizontal" role="form" method="post">
-
             <?php 
-         
               $select = "";
               $select .= "<select name='station_id'>";
               foreach ($stations as $key => $station) {
@@ -26,7 +24,6 @@
                       <input name="fillRoute" type="submit" value="Занести зупинку до маршруту" class="btbtn-warning">
                   </div>
               </div>
-
             <?php                
               echo '<table border="1">';
               echo '<thead>';
@@ -55,9 +52,6 @@
         <div class="col-xs-1 col-sm-1 col-md-2 col-lg-3"></div>
     </div>
 </div>
-
-
-
 <?php
   require_once ROOT."/views/admin/footer.php";
 ?>

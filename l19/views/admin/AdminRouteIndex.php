@@ -24,10 +24,10 @@
                                 <td><?php echo $router['id']; ?></td>
                                 <td><?php echo $router['number']." ".$router['name_start']."-".$router['name_end']; ?></td>
                                 <td><?=$carriage_name[$key]['name']; ?></td>
-                                <td><a href="<?php echo LOCALPATH; ?>/route/<?=$router['id'] ?>">Зупинки</a></td>
-                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/edit/<?=$router['id']; ?>">Редагувати</a></td>
-                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/fill/<?=$router['id']; ?>">Заповнити маршрут</a></td>
-                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/delete/<?=$router['id']; ?>">Видалити</a></td>
+                                <td><a href="<?php echo LOCALPATH; ?>/route/<?=$router['id'] ?>"><span class="custom glyphicon glyphicon-map-marker text-center"></a></td>
+                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/edit/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></a></td>
+                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/fill/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-edit text-center"></a></td>
+                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/delete/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></a></td>
                             </tr>
                             <?php
                         }

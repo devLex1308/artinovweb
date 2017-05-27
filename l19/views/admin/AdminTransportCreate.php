@@ -50,7 +50,7 @@ require_once ROOT."/views/admin/header.php";
                 <input type="hidden" name="typeform" value="createTransport">
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
-                        <input name="createTransport" type="submit" class="btn btn-warning">
+                        <input name="createTransport" type="submit" class="btn btn-success" value="Відправити">
                     </div>
                 </div>
             </form>

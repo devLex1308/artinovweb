@@ -1,6 +1,5 @@
 <?php
 class AdminTransportController{	
-	
 	public function actionIndex(){
 		User::checkAdmin();
 		$title = "Вивід вcього транспорту";
@@ -31,8 +30,8 @@ class AdminTransportController{
 	}
 
 	public function actionEdit($id){
-		User::checkAdmin();
 		$transport = Transport::getTrasportById($id);
+		User::checkAdmin();
 		$routes = Transport::getAllRoutes();
 		$carriages = Transport::getAllTypeCarriage();
 		if(isset($_POST['editTransport'])){

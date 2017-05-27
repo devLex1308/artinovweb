@@ -1,5 +1,5 @@
 <?php
-class AdminRouteController {
+class AdminRouteController{
 
 	public function actionIndex($page = 1){
 		User::checkAdmin();
@@ -275,6 +275,7 @@ class AdminRouteController {
 		User::checkAdmin();
 		$stations_route = Route::getAllStationsRoute($id);
 		$stations = Route::getAllStationsById($id);
+
 		if(isset($_POST['fillRoute'])){
 			$station_id=$_POST['station_id'];
 			Route::fillRoute(
@@ -284,27 +285,28 @@ class AdminRouteController {
 			$stations = Route::getAllStationsById($id);
 			$stations_route = Route::getAllStationsRoute($id);
 		}
+
 		if(isset($_POST['outFill'])){
 			echo '<script type="text/javascript">
 			window.location = "'.LOCALPATH.'/admin/station"
 		</script>';
+		}
+
+		$title = "Заповнення маршруту";
+
+		require ROOT."/views/admin/AdminRouteFill.php";
+		return true;
 	}
-	$title = "Заповнення маршруту";
 
-	require ROOT."/views/admin/AdminRouteFill.php";
-	return true;
+	public function actionDelete($id){
+		User::checkAdmin();
+		$title = "Видалення маршруту $id";
+
+		Route::deleteRouteById($id);
+		echo '<script type="text/javascript">
+				window.location = "'.LOCALPATH.'/admin/route"
+				</script>';
+		require_once ROOT."/views/admin/AdminRouteDelete.php";
+		return true;
+	}
 }
-
-public function actionDelete($id){
-	User::checkAdmin();
-	$title = "Видалення маршруту $id";
-
-	Route::deleteRouteById($id);
-	echo '<script type="text/javascript">
-	window.location = "'.LOCALPATH.'/admin/route"
-</script>';
-require_once ROOT."/views/admin/AdminRouteDelete.php";
-return true;
-}
-}
-

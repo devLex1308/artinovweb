@@ -1,5 +1,6 @@
 <?php
 class AjaxController{
+	
 	public function actionIndex(){
 		$title = "Ajax";
 		$aStation = Station::getAllStations();
@@ -8,7 +9,5 @@ class AjaxController{
 		require_once ROOT."/views/admin/AdminAjaxIndex.php";
 		return true;
 	}
-
-
 }
 
