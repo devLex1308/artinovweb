@@ -25,7 +25,7 @@ class Router
 				array_shift($segments);
 				array_shift($segments);
 				// array_shift($segments);
-				
+
 				$controllerName = array_shift($segments).'Controller';
 				$controllerName = ucfirst($controllerName);
 

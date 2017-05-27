@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	var map = L.map('map', {
 	    crs: L.CRS.Simple,
-	    minZoom: -0.55,
-		maxZoom: 4
+	    minZoom: -1,
+			maxZoom: 4
 	});
 
 	var bounds = [[0,0], [1066,1920]];
@@ -16,8 +16,8 @@ $(document).ready(function(){
 	var lat = $("input[name='map_x']").val();
 	var lng = $("input[name='map_y']").val();
 
-	if(!lat){lat = 970;}
-	if(!lng){lng = 640;}
+	if(!lat){lat = 550;}
+	if(!lng){lng = 960;}
 
 	var marker = L.marker([lat,lng],
 		{draggable: true}
