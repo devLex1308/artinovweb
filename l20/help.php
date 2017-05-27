@@ -29,6 +29,18 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
 print_r($_FILES);
 
 
+unlink('test.html');
+
+var latlngs = [
+		[45.51,0],
+		[370.77, 1022.43],
+		[34.04, 118.2]
+	];
+
+var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+map.removeLayer();
+
 $.ajax({
 
             cache: false,
