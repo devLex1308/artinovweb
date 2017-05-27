@@ -5,7 +5,7 @@ require_once ROOT."/views/admin/header.php";
 <script src="<?php echo LOCALPATH; ?>/template/js/leaflet.js"></script>
 <link rel="stylesheet" href="<?php echo LOCALPATH; ?>/template/css/leaflet.css">
 <script src="<?php echo LOCALPATH; ?>/template/js/stationEdit.js"></script>
-
+<form action="" method="POST" style="max-width: 500px;">
 <?php
 if(!empty($errors)){
 	foreach ($errors as $key => $error) {
