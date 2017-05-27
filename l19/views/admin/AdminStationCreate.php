@@ -1,6 +1,7 @@
 <?php
 require_once ROOT."/views/admin/header.php";
 ?>
+<form action="" method="POST" style="max-width: 500px;">
 <script src="<?php echo LOCALPATH; ?>/template/js/leaflet.js"></script>
 <link rel="stylesheet" href="<?php echo LOCALPATH; ?>/template/css/leaflet.css">
 <script src="<?php echo LOCALPATH; ?>/template/js/stationEdit.js"></script>
