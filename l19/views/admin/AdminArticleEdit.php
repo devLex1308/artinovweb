@@ -1,6 +1,20 @@
 <?php
 require_once ROOT."/views/admin/header.php";
 ?>
+<style>
+  input[type='number'] {
+    -moz-appearance:textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  .content{
+    text-align: center;
+  }
+</style>
+
 <h1 class="text-center"><?php echo $title;echo " ".$article['name'] ?></h1>
 <div class="container">
   <div class="row">

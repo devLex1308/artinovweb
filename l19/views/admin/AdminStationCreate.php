@@ -1,6 +1,7 @@
 <?php
 require_once ROOT."/views/admin/header.php";
 ?>
+<form action="" method="POST" style="max-width: 500px;">
 <script src="<?php echo LOCALPATH; ?>/template/js/leaflet.js"></script>
 <link rel="stylesheet" href="<?php echo LOCALPATH; ?>/template/css/leaflet.css">
 <script src="<?php echo LOCALPATH; ?>/template/js/stationEdit.js"></script>
@@ -48,15 +49,9 @@ if(!empty($errors)){
                 </select>
             </div>
             <div id="map"></div>
-            <div class="form-group hide">
-                <label>Додайте Координату X на карті схемі:</label>
-                <input class="form-control" type="number" name="map_x" placeholder="map_x(25,2123)" step="0.0001" required>
-            </div>
 
-            <div class="form-group hide">
-                <label>Додайте Координату Y на карті схемі:</label>
-                <input class="form-control" type="number" name="map_y" placeholder="map_y(45,1113)" step="0.0001" required>
-            </div>
+                <input class="form-control" type="hidden" name="map_x" placeholder="map_x(25,2123)" required>
+                <input class="form-control" type="hidden" name="map_y" placeholder="map_y(45,1113)" required>
 
             <div class="form-group">
                 <label>Додайте Широту:</label>

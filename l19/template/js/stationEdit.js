@@ -8,7 +8,7 @@ $(document).ready(function(){
 	var bounds = [[0,0], [1066,1920]];
 	var LOCALPATH = $("#LOCALPATH").val();
 	var mapUrl = LOCALPATH + "/template/images/map.svg";
-	console.log(mapUrl);
+	//console.log(mapUrl);
 	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
 
 	map.fitBounds(bounds);
