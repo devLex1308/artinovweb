@@ -29,6 +29,56 @@ $(document).ready(function(){
 		$("input[name='map_x']").val(xy.lat);
 		$("input[name='map_y']").val(xy.lng);
 	});
+
+
+	$(".showRoute").click(function(e){
+
+
+    e.preventDefault();
+    var LOCALPATH = $("#LOCALPATH").val();
+
+  var server = LOCALPATH+"/ajax";
+  var oData = {
+      "action":"routeStation"
+    };
+
+  $.ajax({
+
+      cache: false,
+      timeout: 10000,
+      url: server,//SERVER_NAME,
+      type: "POST",
+      data: (oData),
+
+            beforeSend: function () {
+
+    },
+
+            success: function (data, textStatus, jqXHR) {
+            	var arr = JSON.parse(data);
+            	console.log(arr);
+
+            	var latlngs = [
+				    [45.51, -122.68],
+				    [37.77, -122.43],
+				    [34.04, -118.2]
+				];
+				var polyline = L.polyline(arr, {color: 'black'}).addTo(map);
+				// zoom the map to the polyline
+				map.fitBounds(polyline.getBounds());
+
+    },
+
+            error: function (jqXHR, textStatus, errorThrown) {
+
+    },
+            complete: function (jqXHR, textStatus) {
+    }
+
+    });
+
+  });
+
 });
 
 

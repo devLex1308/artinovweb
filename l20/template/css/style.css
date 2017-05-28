@@ -1,0 +1,12 @@
+body{
+    margin-top: 51px;
+}
+
+ #map{
+     min-height: 400px;
+ }
+ 
+ .custom{
+        display: block;
+        text-align: center;
+    }
