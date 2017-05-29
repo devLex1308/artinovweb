@@ -115,6 +115,34 @@ class Station{
 		return $query->fetch();
 	}
 
+	public static function getStationCoordsByArrayId($sIds){
+		$DBH = Db::getConnection();
+
+		echo $sIds;
+
+		$sIds=" 22, 28, 24, 21, 29, 34";
+
+		$ids     = array(1, 2, 3, 7, 8, 9);
+		$inQuery = implode(',', array_fill(0, count($ids), '?'));
+
+		$sql ="
+				SELECT map_x, map_y
+				FROM station
+				WHERE id IN(' . $inQuery . ')
+			";
+
+		$query = $DBH->prepare($sql);
+		$query->bindParam(":sIds", 	$sIds, 	PDO::PARAM_STR);
+
+		print_r($query);
+
+		$result = $query->fetchAll();
+		print_r($result);
+		return $result;
+
+		//https://stackoverflow.com/questions/920353/can-i-bind-an-array-to-an-in-condition
+	}
+
 	public static function editStation(
 										$id,	
 										$name,

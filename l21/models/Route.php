@@ -132,7 +132,8 @@ class Route{
 	}
 
 	public static function getStationCoordinateRouteById($id){
-		$DBH = Db::getConnection(); 
+
+		$DBH = Db::getConnection();
 
 		$sql = '
 				SELECT id_stations_start,id_stations_end 
@@ -146,17 +147,23 @@ class Route{
 		$query->execute();
 
 		$result = $query->fetch();
+
 		$aStationId = explode(",", $result['id_stations_start'].",".$result['id_stations_end']);
+
+		//$aStationId2 = Station::getStationCoordsByArrayId($result['id_stations_start'].",".$result['id_stations_end']);
+		//print_r($aStationId2);
+		//echo $result['id_stations_start'].",".$result['id_stations_end'];
 
 		$aStationCoor = [];
 		foreach ($aStationId as $key => $stationId) {
 			$r = Station::getStationCoordById($stationId);
 			$aStationCoor[]=[floatval($r["map_x"]),floatval($r["map_y"])];
-			
+
 		}
 		return $aStationCoor;
 
 	}
+
 
 	public static function editRoute(
 										$id,
