@@ -5,3 +5,5 @@ return array(
 	'user' => 'student',
 	'password' => 'srNH5eKH'
 	);
+
+//http://s19.thehost.com.ua/myadmin/index.php

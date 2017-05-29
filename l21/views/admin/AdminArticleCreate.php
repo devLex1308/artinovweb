@@ -29,7 +29,7 @@ require_once ROOT."/views/admin/header.php";
         <div class="form-group">
           <label for="description" class="col-sm-3 control-label">Опис</label>
           <div class="col-sm-9">  <!-- тут треба вставити випадаюче меню з назвами зупинок ***а нашо це?-->
-            <textarea type="text" class="form-control" rows="3" id="description" name="description" placeholder="Текст статті" pattern="^[А-Яа-яЁё\s]+$" required></textarea>
+            <textarea type="text" class="form-control" rows="3" id="description" name="description" placeholder="Текст статті"  required></textarea>
           </div>
         </div>
         <!-- не зрозуміло як додати форму ***тре багато коду, шоби воно усе робило -->
@@ -46,7 +46,7 @@ require_once ROOT."/views/admin/header.php";
         <div class="form-group row">
           <label for="context" class="col-sm-3 control-label">Контекст</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="context" name="context" placeholder="Введіть щонебудь" pattern="^[А-Яа-яЁё\s]+$" required>
+            <input type="text" class="form-control" id="context" name="context" placeholder="Введіть щонебудь"  required>
           </div>
         </div>
         <div class="form-group row">

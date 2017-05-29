@@ -76,18 +76,18 @@ class Article{
 										$category_id,
 										$time_edit
 										){
-	
+
 		$DBH = Db::getConnection(); 
 	
 		$sql = '
-			UPDATE station
+			UPDATE article
 				SET
-					name=:name,
+					`name`=:name,
 					description=:description,
 					context=:context,
 					user_id=:user_id,
 					category_id=:category_id,
-					time_edit=:time_edit,
+					time_edit=:time_edit
 				WHERE id = :id
 
 		';
@@ -103,6 +103,7 @@ class Article{
 		$query->bindParam(":time_edit", 	$time_edit, 	PDO::PARAM_STR);
 		
 		$query->execute();
+
 	}
 
 	public static function deleteArticleById($id){

@@ -36,16 +36,19 @@ class AdminArticleController {
 	public function actionEdit($id){
 		User::checkAdmin();
 		if(isset($_POST['editArticle'])){
+			$date = new DateTime();
+
 			Article::editArticle(
 									$id,
 									$_POST['name'],
 									$_POST['description'],
 									$_POST['context'],
-									$_POST['user_id'],
+									$_SESSION['user_id'],
 									$_POST['category_id'],
-									$_POST['time_edit']
+									$date->format('Y-m-d H:i:sP')
 								);
 		}
+
 
 		$title = "Редагування статті";
 		$article = Article::getArticleById($id);
