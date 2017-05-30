@@ -3,9 +3,10 @@ $(document).ready(function(){
 	setSliderHeight();
 
 	var countImages = $(".slider .wrepImages img").length;
+
 	var currentImageNext = 2;
-	var currentImage = 1;
 	var currentImagePrev = countImages;
+	var currentImage = 1;
 	$(".slider .wrepImages img:nth-child("+currentImage+")").addClass("active");
 
 	$(".slider .wrepImages img:nth-child("+currentImageNext+")").addClass("activeNext");
@@ -36,7 +37,6 @@ function setClasses(currentImage,countImages){
 								.removeClass("activeNext")
 								.removeClass("activePrev");
 
-	$(".slider .wrepImages img").removeClass("active").removeClass("activeNext");
 	$(".slider .wrepImages img:nth-child("+currentImage+")").addClass("active");
 	$(".slider .wrepImages img:nth-child("+currentImageNext+")").addClass("activeNext");
 	$(".slider .wrepImages img:nth-child("+currentImagePrev+")").addClass("activePrev");
