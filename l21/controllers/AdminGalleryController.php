@@ -3,16 +3,9 @@ class AdminGalleryController {
 
 	public function actionIndex($page=1){
 		User::checkAdmin();
-		$title = "Вивід всіх зупинок";
+		$title = "Вивід усіх файлів";
 
-		$countStation = Station::getPaginationInfo();
-		$countStationOnPage = Station::stationOnPage;
-
-		$countPage = ceil($countStation['count'] / $countStationOnPage);
-
-		$stations = Station::getAllStations($page);
-
-		require_once ROOT."/views/admin/AdminStationIndex.php";
+		require_once ROOT."/views/admin/AdminGalleryIndex.php";
 		return true;
 	}
 
