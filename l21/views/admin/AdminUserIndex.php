@@ -2,6 +2,22 @@
 require_once ROOT."/views/admin/header.php";
 ?>
 <style>
+	.content{
+		text-align: center;
+	}
+	.man{
+		background-image: url(../template/images/man.png);
+		background-position: center;
+	}
+	.woman{
+		background-image: url(../template/images/woman.png);
+		background-position: center;
+	}
+	.picture{
+		background-size: contain;
+		background-repeat: no-repeat;
+		height: 30px;
+	}
 	.table-my{
 		width: 100%;
 	}
