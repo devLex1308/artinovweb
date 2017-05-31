@@ -13,111 +13,46 @@ class AdminGalleryController {
 		User::checkAdmin();
 		$title = "Завантаження картинки зупинки";
 
-		if(isset($_FILES['userFile'])){
+		if(!empty($_FILES['userFile']['name'][0])){
+
+			$dir = ROOT."/resourses/images";
+			$allFiles = (scandir($dir));
+			unset($allFiles[0]);
+			unset($allFiles[1]);
+			sort($allFiles);
 
 			$newAddress = [];
+			$keys_name = [];
 
-			foreach ($_FILES['userFile']['name'] as $key => $file) {
+			foreach ($_FILES['userFile']['name'] as $key2 => $file) {
+				foreach ($allFiles as $key => $img) {
+					if($file == $img) {
+						$errors[] = "Файл з таким ім'ям уже існує на сервері";
+						continue 2;
+					}
+				}
 				$uploaddir = ROOT.RESOURSES."/images/";
-			 	$newAddress[] = $uploaddir . basename($file);
+				$newAddress[$key2] = $uploaddir . basename($file);
+
+				$keys_name[] = $key2;
 			}
 
-			foreach ($_FILES['userFile']['tmp_name'] as $key => $tmp_name) {
-				if (move_uploaded_file($tmp_name, $newAddress[$key])) {
-				} else {
-				    $error[] = "Один із файлів не завантажено";
+			if(!empty($newAddress)){
+				foreach ($_FILES['userFile']['tmp_name'] as $key => $tmp_name) {
+					foreach ($keys_name as $key_n => $value) {
+						if($value == $key){
+							if (move_uploaded_file($tmp_name, $newAddress[$key])) {
+							} else {
+								$errors[] = "Один із файлів не завантажено";
+							}
+						}
+					}
 				}
+				$errors[] = "Завантажено на сервер файлів: ".count($keys_name);
 			}
 		}
 		
 		require_once ROOT."/views/admin/AdminGalleryUpload.php";
-		return true;
-	}
-
-	public function actionEdit($id){
-		User::checkAdmin();
-		$title = "Редагування зупинки";
-		$stations = Station::getAllStation();
-
-		if(isset($_POST['editStation'])){
-
-			$errors = [];
-
-			if(!empty($stations)){
-				foreach ($stations as $key => $station_name) {
-					if($_POST['name'] == $station_name['name'] && $id != $station_name['id']){
-						$errors[] = "Зупинка: <b>".$station_name['name']."</b>. Уже існує у базі";
-					}
-				}
-			}
-
-			if(Station::getLengthField('name') < strlen($_POST['name'])){
-				$errors[] = "Макс.: <b>".Station::getLengthField('name')."</b>. Ви ввели: <b>".strlen($_POST['name'])."</b> символів у поле <b>name</b>.";
-			}
-
-			if(500 < strlen($_POST['description'])){
-				$errors[] = "Макс.: <b>500</b>. Ви ввели: <b>".strlen($_POST['description'])."</b> символів у поле <b>description</b>.";
-			}
-
-			if(!empty($_POST['is_real'])){
-				if($_POST['is_real'] == 'on') {
-					$is_real = 1;
-				}
-			} else {
-				$is_real = 0;
-			}
-
-			if(!is_numeric($_POST['map_x'])){
-				$errors[] = "Не числове значення у полі: <b>map_x</b>";
-			}
-
-			if(!is_numeric($_POST['map_y'])){
-				$errors[] = "Не числове значення у полі: <b>map_y</b>";
-			}
-
-			if(!is_numeric($_POST['latitude'])){
-				$errors[] = "Не числове значення у полі: <b>latitude</b>";
-			}
-
-			if(!is_numeric($_POST['longitude'])){
-				$errors[] = "Не числове значення у полі: <b>longitude</b>";
-			}
-
-			$id_stations_neighboring_stop_edit = implode(",", $_POST['neighboring_stop']);
-			if(Station::getLengthField('neighboring_stop') < strlen($id_stations_neighboring_stop_edit)){
-				$errors[] = "Макс.: <b>".Station::getLengthField('neighboring_stop')."</b>. Ви ввели: <b>".strlen($id_stations_neighboring_stop_edit)."</b> символів у поле <b>neighboring_stop</b>.";
-			}
-
-			if (empty($errors)){
-				Station::editStation(
-					$id,
-					$_POST['name'],
-					$_POST['description'],
-					$is_real,
-					$id_stations_neighboring_stop_edit,
-					$_POST['map_x'],
-					$_POST['map_y'],
-					$_POST['latitude'],
-					$_POST['longitude']
-				);
-			}
-		}
-		
-		$station = Station::getStationById($id);
-		$id_stations_neighboring_stop = explode(",", $station['neighboring_stop']);
-		require_once ROOT."/views/admin/AdminStationEdit.php";
-		return true;
-	}
-
-	public function actionDelete($id){
-		User::checkAdmin();
-		$title = "Видалення зупинки $id";
-
-		Station::deleteStationById($id);
-		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/station"
-      	</script>';
-		require_once ROOT."/views/admin/AdminStationDelete.php";
 		return true;
 	}
 }

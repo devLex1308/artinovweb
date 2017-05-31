@@ -35,12 +35,13 @@ function deleteAjax(nameModel,id,parent){
 		},
 
             success: function (data, textStatus, jqXHR) {
-            	if(data==1){
-            		parent.remove();
-            	}else{
-            		parent.show();
-            		alert(data);
-            	}
+            	// if(data==1){
+            		// console.log(data);
+        		parent.remove();
+            	// }else{
+            	// 	parent.show();
+            	// 	alert(data);
+            	// }
 
 		},
 

@@ -23,13 +23,15 @@ class AjaxController{
 			case 'station':
 				Station::deleteStationById($id);
 				break;
+
+			case 'images':
+			 	unlink(ROOT.'/resourses/images/'.$id);
+				break;
 			
 			default:
 				echo 0;
 				break;
 		}
-		
-		echo 1;
 	}
 }
 
