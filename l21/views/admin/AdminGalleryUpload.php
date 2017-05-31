@@ -12,7 +12,9 @@ require_once ROOT."/views/admin/header.php";
 
 <form method="post" enctype="multipart/form-data">
     <input name="userFile[]" type="file" multiple><br>
-    <input type="submit" value="Загрузить">
+	<div class="form-group">
+		<button type="submit" name="createUser" class="btn btn-default">Завантажити</button>
+	</div>
 </form>
 
 <?php
