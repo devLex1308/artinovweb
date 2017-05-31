@@ -20,36 +20,22 @@ class AdminGalleryController {
 		User::checkAdmin();
 		$title = "Завантаження картинки зупинки";
 
-		if(isset($_FILES['userfile']['name'])){
-			$uploaddir = ROOT.RESOURSES."/images/";
-		 	echo "$uploaddir";
-		 	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+		if(isset($_FILES['userFile'])){
 
-			if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-			} else {
-			    $error[] = "Файл не завантажено";
+			$newAddress = [];
+
+			foreach ($_FILES['userFile']['name'] as $key => $file) {
+				$uploaddir = ROOT.RESOURSES."/images/";
+			 	$newAddress[] = $uploaddir . basename($file);
+			}
+
+			foreach ($_FILES['userFile']['tmp_name'] as $key => $tmp_name) {
+				if (move_uploaded_file($tmp_name, $newAddress[$key])) {
+				} else {
+				    $error[] = "Один із файлів не завантажено";
+				}
 			}
 		}
-
-
-		if(isset($_FILES['userFile'])){
-			print_r($_FILES);
-			// $uploaddir = ROOT.RESOURSES."/images/";
-		 // 	echo "$uploaddir";
-		 // 	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-
-			// if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-			// } else {
-			//     $error[] = "Файл не завантажено";
-			// }
-		}
-		 
-
-		
-
-
-	
-		//echo "$path";
 		
 		require_once ROOT."/views/admin/AdminGalleryUpload.php";
 		return true;
