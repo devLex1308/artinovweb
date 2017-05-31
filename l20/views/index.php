@@ -46,13 +46,13 @@ require_once ROOT."/views/header.php";
 						<div class="row">
 							<div class="hidden-lg hidden-md hidden-sm col-xs-1 mobile-align"></div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-10 mobile-general">
-									<div class="general-text">
-										Прибуття найближчого <br> громадського транспорту
-									</div>
-									<form class="form-inline" method="POST">
-										<div class="text">
-											Вкажіть який транспорт ви очікуєте:
-										</div>
+					<div class="general-text">
+						Прибуття найближчого <br> громадського транспорту
+					</div>
+					<form class="form-inline" method="POST">
+						<div class="text">
+							Вкажіть який транспорт ви очікуєте:
+						</div>
 										<div class="row transports">
 											<label class="radio-inline transport transport-1">
 												<input type="radio" value="tram" name="transport" id="tram-id-1" onClick="tram('tram-id')">
