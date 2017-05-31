@@ -1,7 +1,12 @@
 <?php
   require_once ROOT."/views/admin/header.php";
 ?>
-<div class="container">
+<style>
+    .table-my{
+        width: 100%;
+    }
+</style>
+<div class="container table-my">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1 class="text-center"><?php echo $title; ?></h1>
@@ -35,7 +40,7 @@
                     ?>
                 </table>
             </div>
-        </div>
+        
         <?php
 
         if($countPage > 1){

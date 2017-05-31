@@ -1,12 +1,17 @@
 <?php
   require_once ROOT."/views/admin/header.php";
 ?>
-<div class="container">
+<style>
+    .my-table{
+        width: 100%;
+    }
+</style>
+<div class="container my-table">
     <div class="row">
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <div class="col-md-1 col-lg-1"></div>
+        <div class="col-md-10 col-lg-10">
             <h1 class="text-center"><?php echo $title; ?></h1>
-            <table class="table">
+            <table class="table my-table">
                 <tr>
                     <th>id</th>
                     <th>Назва</th>
@@ -39,7 +44,7 @@
                     <?php } ?>
             </table>
         </div>
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 <?php

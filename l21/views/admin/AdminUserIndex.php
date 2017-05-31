@@ -18,10 +18,13 @@ require_once ROOT."/views/admin/header.php";
 		background-repeat: no-repeat;
 		height: 30px;
 	}
+	.my-table{
+		width: 100%;
+	}
 </style>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 content">
+		<div class="col-xs-12 content my-table">
 			<h1><?php echo $title; ?></h1>
 			<table class="table table-striped table-hover table-condensed">
 				<tr>

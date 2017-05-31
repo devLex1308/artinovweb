@@ -5,8 +5,11 @@
 .material-switch > label {
     cursor: pointer;
     height: 0px;
-    position: relative; 
-    /*width: 40px;  */
+    position: absolute; 
+}
+
+.label-warning {
+    background-color: #03A9F4;
 }
 
 .material-switch > label::before {
