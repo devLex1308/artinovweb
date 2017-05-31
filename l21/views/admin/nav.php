@@ -70,11 +70,11 @@
 				} else {
 					?>
 
-					<li class="nav-item">
+					<li class="nav-item btn-group">
 						<a href="<?php echo LOCALPATH;?>/admin/authorization" class="nav-link">Вхід</a>
 					</li>
 
-					<li class="nav-item">
+					<li class="nav-item btn-group">
 						<a href="<?php echo LOCALPATH;?>/admin/logout" class="nav-link">Реєстрація</a>
 					</li>
 
