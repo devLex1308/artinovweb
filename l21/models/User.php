@@ -242,8 +242,7 @@ class User{
 
 	}
 
-	public static function checkLogged()
-    {
+	public static function checkLogged(){
         // Якщо є сесія то вернем ідентифікатор користувача
         if (isset($_SESSION['user_id'])) {
             return $_SESSION['user_id'];
@@ -256,8 +255,7 @@ class User{
         //header("Location: /user/login");
     }
 
-    public static function isLogged()
-    {
+    public static function isLogged(){
         // Якщо є сесія то вернем ідентифікатор користувача
         if (isset($_SESSION['user_id'])) {
             return true;
@@ -266,8 +264,7 @@ class User{
         }
     }
 
-    public static function checkAdmin()
-    {
+    public static function checkAdmin(){
         // Перевіряєм чи зареєстрований користувач-
         $userId = User::checkLogged();
         // Отримуєм про нього інформацію
@@ -289,5 +286,17 @@ class User{
       	</script>';
         // Інакше завершуєм виконання
         die('Access denied');
+    }
+
+    public static function isAdmin(){
+        // Перевіряєм чи зареєстрований користувач-
+        $userId = User::checkLogged();
+        // Отримуєм про нього інформацію
+        $user = User::getUserById($userId);
+
+        // Якщо це "admin", to пускаем його адмінку
+        if ($user['role'] == 1) {
+            return true;
+        }
     }
 }

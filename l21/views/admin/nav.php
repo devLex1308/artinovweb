@@ -19,7 +19,7 @@
 			<ul class="navbar-nav mr-auto">
 
 				<?php
-				if(User::isLogged()){
+				if(User::isAdmin()){
 					?>
 
 					<li class="nav-item dropdown btn-group">
@@ -51,9 +51,9 @@
 					<?php
 				} else {
 					?>
-					<!-- <li class="nav-item active">
+					<li class="nav-item active">
 						<a class="nav-link">Головна <span class="sr-only">(current)</span></a>
-					</li> -->
+					</li>
 					<?php
 				}
 				if(User::isLogged()){
