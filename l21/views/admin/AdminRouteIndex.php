@@ -5,6 +5,18 @@
     .table-my{
         width: 100%;
     }
+    @media (max-width: 768px) {
+        table{
+            font-size: 70%;
+        }
+        h1{
+            font-size: 30px;
+        }
+    }
+    .table th, .table td {
+        padding: 1%;
+        text-align: center;
+    }
 </style>
 <div class="container table-my">
     <div class="row">
