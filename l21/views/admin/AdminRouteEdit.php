@@ -14,23 +14,42 @@ require_once ROOT."/views/admin/header.php";
 </center>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <style>
-  .custom-combobox {
-    position: relative;
-    display: inline-block;
-}
-.custom-combobox-toggle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin-left: -1px;
-    padding: 0;
-}
-.custom-combobox-input {
-    margin: 0;
-    padding: 5px 10px;
-}
+    .custom-combobox {
+        position: relative;
+        display: inline-block;
+    }
+    .custom-combobox-toggle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-left: -1px;
+        padding: 0;
+    }
+    .custom-combobox-input {
+        margin: 0;
+        padding: 5px 10px;
+    }
+    .btn-add .btn{
+        margin: 0 10px;
+    }
+    .btn-add{
+        float: right;
+        padding-right: 30px;
+    }
+    @media (max-width: 468px) {
+        table{
+            font-size: 10px;
+        }
+        .btn{   
+            padding: 0.4rem 0.4rem;
+            font-size: 9px;
+            margin: 0;
+        }
+    }
 </style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 create-station">
@@ -118,10 +137,10 @@ require_once ROOT."/views/admin/header.php";
                             }
                             ?>
                         </table>
-                        <button id="addStation1" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку">
-                        </button>
-                        <button id="calculateTime1" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу">
-                        </button>
+                        <div class="row btn-add">
+                            <button id="calculateTime1" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу"></button>
+                            <button id="addStation1" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку"></button>
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <h2>Рух за зворотнім маршрутом</h2>
@@ -161,11 +180,10 @@ require_once ROOT."/views/admin/header.php";
                             }
                             ?>
                         </table>
-                        <button id="addStation2" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку">
-                        </button>
-                        <button id="calculateTime2" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу">
-                        </button>
-
+                        <div class="row btn-add">
+                            <button id="calculateTime2" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу"></button>
+                            <button id="addStation2" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку"></button>
+                        </div>
                     </div>
                 </div>
                 <br>

@@ -30,6 +30,23 @@ require_once ROOT."/views/admin/header.php";
 		margin: 0;
 		padding: 5px 10px;
 	}
+	.btn-add .btn{
+		margin: 0 10px;
+	}
+	.btn-add{
+    	float: right;
+    	padding-right: 30px;
+	}
+	@media (max-width: 468px) {
+		table{
+			font-size: 10px;
+		}
+		.btn{	
+			padding: 0.4rem 0.4rem;
+			font-size: 9px;
+			margin: 0;
+		}
+	}
 </style>
 <div class="container">
 	<div class="row">
@@ -135,16 +152,16 @@ require_once ROOT."/views/admin/header.php";
 									<td>
 										<input type="text" class="form-control delta-time" name="delta_time_start_1" required>
 									</td>
-									<td><button class="deleteStation">X</button></td>
+									<td><button class="deleteStation btn btn-danger glyphicon glyphicon-remove"></button></td>
 								</tr>
 								<?php
 							}
 							?>
 						</table>
-						<button id="addStation1" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку">
-						</button>
-						<button id="calculateTime1" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу">
-						</button>
+						<div class="row btn-add">
+							<button id="calculateTime1" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу"></button>
+							<button id="addStation1" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку"></button>
+						</div>
 					</div>
 					<div class="col-lg-6">
 						<h2>Рух за зворотнім маршрутом</h2>
@@ -201,23 +218,22 @@ require_once ROOT."/views/admin/header.php";
 									<td>
 										<input type="text" class="form-control delta-time" name="delta_time_end_1" required>
 									</td>
-									<td><button class="deleteStation">X</button></td>
+									<td><button class="deleteStation btn btn-danger glyphicon glyphicon-remove"></button></td>
 								</tr>
 								<?php
 							}
 							?>
 						</table>
-						<button id="addStation2" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку">
-						</button>
-						<button id="calculateTime2" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу">
-						</button>
-
+						<div class="row btn-add">
+							<button id="calculateTime2" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу"></button>
+							<button id="addStation2" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку"></button>
+						</div>
 					</div>
 				</div>
 				<br>
 				<div class="form-group" align="center">
 					<div class="col-sm-offset-0">
-					<input name="createRoute" type="submit" class="btn btn-warning" value="Відправити">
+						<input name="createRoute" type="submit" class="btn btn-warning" value="Відправити">
 					</div>
 				</div>
 			</form>
