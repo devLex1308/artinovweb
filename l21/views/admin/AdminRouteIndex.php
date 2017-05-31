@@ -17,8 +17,7 @@
                         <th>Назва</th>
                         <th>Тип транспорту</th>
                         <th>Зупинки</th>
-                        <th>Редагувати</th>
-                        <th>Заповнення маршруту</th>
+                        <th>Редагувати</th>                       
                         <th>Видалити</th>
                     </tr>
                     <?php
@@ -31,7 +30,6 @@
                                 <td><?=$carriage_name[$key]['name']; ?></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/route/<?=$router['id'] ?>"><span class="custom glyphicon glyphicon-map-marker text-center"></a></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/admin/route/edit/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></a></td>
-                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/fill/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-edit text-center"></a></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/admin/route/delete/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></a></td>
                             </tr>
                             <?php

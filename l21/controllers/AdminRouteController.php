@@ -271,33 +271,7 @@ class AdminRouteController{
 		return true;
 	}
 
-	public function actionFill($id){
-		User::checkAdmin();
-		$stations_route = Route::getAllStationsRoute($id);
-		$stations = Route::getAllStationsById($id);
-
-		if(isset($_POST['fillRoute'])){
-			$station_id=$_POST['station_id'];
-			Route::fillRoute(
-				$id,
-				$station_id
-				);
-			$stations = Route::getAllStationsById($id);
-			$stations_route = Route::getAllStationsRoute($id);
-		}
-
-		if(isset($_POST['outFill'])){
-			echo '<script type="text/javascript">
-			window.location = "'.LOCALPATH.'/admin/station"
-		</script>';
-		}
-
-		$title = "Заповнення маршруту";
-
-		require ROOT."/views/admin/AdminRouteFill.php";
-		return true;
-	}
-
+	
 	public function actionDelete($id){
 		User::checkAdmin();
 		$title = "Видалення маршруту $id";
