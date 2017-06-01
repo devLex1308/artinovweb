@@ -15,14 +15,12 @@
                 </tr>
                 <?php
                 foreach ($stations as $key => $station) {
-                    $edit = '<span class="custom glyphicon glyphicon-pencil"></span>';
-                    $delete = '<span class="custom  glyphicon glyphicon-trash" aria-hidden="true"></span>';
                     ?>
                     <tr>
                         <td><?php echo $station['id']; ?></td>
                         <td><?php echo $station['name']; ?></td>
-                        <td><a href="<?php echo LOCALPATH;?>/admin/station/edit/<?php echo $station['id']; ?>"><?=$edit?></a></td>
-                        <td><a href="<?php echo LOCALPATH;?>/admin/station/delete/<?php echo $station['id']; ?>"><?=$delete?></a></td>
+                        <td><a class="custom glyphicon glyphicon-pencil" href="<?php echo LOCALPATH;?>/admin/station/edit/<?php echo $station['id']; ?>"></a></td>
+                        <td><a class="custom glyphicon glyphicon-trash" href="<?php echo LOCALPATH;?>/admin/station/delete/<?php echo $station['id']; ?>"></a></td>
                     </tr>
                 <?php
                 }
