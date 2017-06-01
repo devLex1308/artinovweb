@@ -161,17 +161,5 @@ class AdminStationController {
 		require_once ROOT."/views/admin/AdminStationEdit.php";
 		return true;
 	}
-
-	public function actionDelete($id){
-		User::checkAdmin();
-		$title = "Видалення зупинки $id";
-
-		Station::deleteStationById($id);
-		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/station"
-      	</script>';
-		require_once ROOT."/views/admin/AdminStationDelete.php";
-		return true;
-	}
 }
 

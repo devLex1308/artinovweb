@@ -270,17 +270,4 @@ class AdminRouteController{
 		require_once ROOT."/views/admin/AdminRouteEdit.php";
 		return true;
 	}
-
-	
-	public function actionDelete($id){
-		User::checkAdmin();
-		$title = "Видалення маршруту $id";
-
-		Route::deleteRouteById($id);
-		echo '<script type="text/javascript">
-				window.location = "'.LOCALPATH.'/admin/route"
-				</script>';
-		require_once ROOT."/views/admin/AdminRouteDelete.php";
-		return true;
-	}
 }

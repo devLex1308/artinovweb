@@ -24,6 +24,26 @@ class AjaxController{
 				Station::deleteStationById($id);
 				break;
 
+			case 'transport':
+				Transport::deleteTransportById($id);
+				break;
+
+			case 'route':
+				Route::deleteRouteById($id);
+				break;
+
+			case 'category':
+				Category::deleteCategoryById($id);
+				break;
+
+			case 'user':
+				User::deleteUserById($id);
+				break;
+
+			case 'article':
+				Article::deleteArticleById($id);
+				break;
+
 			case 'images':
 			 	unlink(ROOT.'/resourses/images/'.$id);
 				break;

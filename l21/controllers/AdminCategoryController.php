@@ -30,17 +30,5 @@ class AdminCategoryController {
 		require_once ROOT."/views/admin/AdminCategoryEdit.php";
 		return true;
 	}
-
-	public function actionDelete($id){
-		User::checkAdmin();
-		$title = "Видалення категорії транспорту $id";
-
-		Category::deleteCategoryById($id);
-		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/category"
-      	</script>';
-		require_once ROOT."/views/admin/AdminCategoryDelete.php";
-		return true;
-	}
 }
 

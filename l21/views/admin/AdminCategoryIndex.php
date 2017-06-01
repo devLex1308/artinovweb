@@ -36,7 +36,9 @@ require_once ROOT."/views/admin/header.php";
                         <td><?php echo $category['id']; ?></td>
                         <td><?php echo $category['name']; ?></td>
                         <td><a href="<?php echo LOCALPATH;?>/admin/category/edit/<?php echo $category['id']; ?>">Редагувати</a></td>
-                        <td><a href="<?php echo LOCALPATH;?>/admin/category/delete/<?php echo $category['id']; ?>">Видалити</a></td>
+                        <td>
+                            <button class="deleteAjax" data-nameModel="category" data-id="<?php echo $category['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></span></button>
+                        </td>
                     </tr>
                     <?
                 }

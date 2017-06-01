@@ -29,7 +29,6 @@ require_once ROOT."/views/admin/header.php";
 						<th>Назва</th>
 						<th>Редагувати</th>
 						<th>Видалити</th>
-						<th>Видалити через ajax</th>
 					</tr>
 					<?php
 					foreach ($stations as $key => $station) {
@@ -40,7 +39,6 @@ require_once ROOT."/views/admin/header.php";
 							<td><?php echo $station['id']; ?></td>
 							<td><?php echo $station['name']; ?></td>
 							<td><a href="<?php echo LOCALPATH;?>/admin/station/edit/<?php echo $station['id']; ?>"><?php echo $edit?></a></td>
-							<td><a href="<?php echo LOCALPATH;?>/admin/station/delete/<?php echo $station['id']; ?>"><?php echo $delete?></a></td>
 							<td>
 								<button class="deleteAjax" data-nameModel="station" data-id="<?php echo $station['id']; ?>"><?php echo $delete?></button>
 							</td>

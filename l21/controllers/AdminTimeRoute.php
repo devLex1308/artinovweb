@@ -1,7 +1,7 @@
 <?php
 class AdminTimeRouteController{	
 
-public function actionEdit($id){
+	public function actionEdit($id){
 		$routeStart = Transport::getTrasportById($id);
 		User::checkAdmin();
 		$routes = Transport::getAllRoutes();
