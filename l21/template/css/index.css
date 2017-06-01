@@ -10,7 +10,8 @@
 
 html{
 	max-width: 1360px;
-	max-height: 1610px;
+	/*max-height: 1610px;*/
+	background: #0071bc;
 }
 
 body{
@@ -334,8 +335,8 @@ a:hover {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-size: cover;
 	background: url(../images/news_up.png) no-repeat center center;
+	background-size: cover;
 }
 
 /*NEWS*/
@@ -370,8 +371,8 @@ footer{
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-size: cover;
 	background: url(../images/news_down.png) no-repeat center center;
+	background-size: cover;
 }
 
 .footer{
@@ -389,6 +390,13 @@ label > input{
 }
 label > input + img{
 	cursor:pointer;
+}
+
+@media (min-width: 1360px) {
+	html{
+		margin: 0 auto;
+		max-width: 100%;
+	}
 }
 
 @media (max-width: 1199px) {
@@ -456,7 +464,7 @@ label > input + img{
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 	.mobile-general{
 		width: 100%;
 		padding-left: 0px;
