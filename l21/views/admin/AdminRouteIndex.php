@@ -29,6 +29,7 @@ require_once ROOT."/views/admin/header.php";
                         <th>Назва</th>
                         <th>Тип транспорту</th>
                         <th>Зупинки</th>
+                        <th>Шлях</th>
                         <th>Редагувати</th>                       
                         <th>Видалити</th>
                     </tr>
@@ -41,6 +42,7 @@ require_once ROOT."/views/admin/header.php";
                                 <td><?php echo $route['number']." ".$route['name_start']."-".$route['name_end']; ?></td>
                                 <td><?=$carriage_name[$key]['name']; ?></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/route/<?=$route['id'] ?>"><span class="custom glyphicon glyphicon-map-marker text-center"></a></td>
+                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/way/<?=$route['id']; ?>">way</a></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/admin/route/edit/<?=$route['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></a></td>
                                 <td>
                                     <button class="deleteAjax" data-nameModel="route" data-id="<?php echo $route['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></span></button>

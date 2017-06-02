@@ -10,7 +10,7 @@ class AjaxController{
 		}
 
 		if(isset($_POST['action'])&&($_POST['action']=="routeStation")){
-			echo json_encode(Route::getStationCoordinateRouteById(4));
+			echo json_encode(Route::getStationCoordinateRouteById($_POST['id']));
 		}
 
 		return true;
