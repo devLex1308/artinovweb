@@ -40,7 +40,9 @@ require_once ROOT."/views/admin/header.php";
                         <td><?php echo $article['user_id']; ?></td>
                         <td><?php echo $article['time_create']; ?></td>
                         <td><a href="<?php echo LOCALPATH;?>/admin/article/edit/<?php echo $article['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></span></a></td>
-                        <td><a href="<?php echo LOCALPATH;?>/admin/article/delete/<?php echo $article['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></span></a></td>
+                        <td>
+                            <button class="deleteAjax" data-nameModel="article" data-id="<?php echo $article['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></span></button>
+                        </td>
                     </tr>
                     <?php
                 }

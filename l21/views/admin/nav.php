@@ -44,7 +44,7 @@
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/users">Користувачі</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/transport">Весь транспорт</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/article">Статті</a>
-							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/gallery/upload">Медіафайли</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/gallery">Медіафайли</a>
 						</div>
 					</li>
 

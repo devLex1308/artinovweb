@@ -55,14 +55,4 @@ class AdminArticleController {
 		require_once ROOT."/views/admin/AdminArticleEdit.php";
 		return true;
 	}
-
-	public function actionDelete($id){
-		User::checkAdmin();
-		$title = "Видалення статті $id";
-
-		Article::deleteArticleById($id);
-		header("Location: ".LOCALPATH."admin/article");
-		require_once ROOT."/views/admin/AdminArticleDelete.php";
-		return true;
-	}
 }

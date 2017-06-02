@@ -55,21 +55,21 @@ require_once ROOT."/views/header.php";
 										</div>
 										<div class="row transports">
 											<label class="radio-inline transport transport-1">
-												<input type="radio" value="tram" name="transport" id="tram-id-1" onClick="tram('tram-id')">
+												<input type="radio" checked="checked" value="tram" name="transport" id="tram-id-1">
 												<div class="transport-fon">
 													<div class="transport-fon-1" id="tram-id"></div>
 												</div>
 												<div class="transport-name" id="tram-txt">Трамвай</div>
 											</label>
 											<label class="radio-inline transport transport-2">
-												<input type="radio" value="trolleybus" name="transport" id="trolleybus-id-1" onClick="tram('trolleybus-id')">
+												<input type="radio" value="trolleybus" name="transport" id="trolleybus-id-1">
 												<div class="transport-fon">
 													<div class="transport-fon-2" id="trolleybus-id"></div>
 												</div>
 												<div class="transport-name" id="trolleybus-txt">Тролейбус</div>
 											</label>
 											<label class="radio-inline transport transport-3">
-												<input type="radio" value="bus" name="transport" id="bus-id-1" onClick="tram('bus-id')">
+												<input type="radio" value="bus" name="transport" id="bus-id-1">
 												<div class="transport-fon">
 													<div class="transport-fon-3" id="bus-id"></div>
 												</div>

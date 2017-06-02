@@ -166,25 +166,6 @@ class AdminUserController {
 		return true;
 	}
 
-	public function actionDelete($id){
-		User::checkAdmin();
-		if(!isset($_SESSION['login'])){
-			require_once ROOT."/views/admin/header.php";
-			echo "<center><h1> Увас немає прав доступу! </h1></center>";
-			require_once ROOT."/views/admin/footer.php";
-			die();
-		}
-
-		$title = "Виддалення Користувача";
-		User::deleteUserById($id);
-		require_once ROOT."/views/admin/AdminUserDelete.php";
-		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/users"
-      	</script>';
-		require_once ROOT."/views/admin/AdminUserDelete.php";
-		return true;
-	}
-
 	public function actionAuthorization(){
 
 		$errors = [];

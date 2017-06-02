@@ -51,7 +51,9 @@ require_once ROOT."/views/admin/header.php";
                                 ?></td>
 
                                 <td><a href="<?php echo LOCALPATH;?>/admin/transport/edit/<?php echo $transport['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></span></a></td>
-                                <td><a href="<?php echo LOCALPATH;?>/admin/transport/delete/<?php echo $transport['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></span></a></td>
+                                <td>
+                                    <button class="deleteAjax" data-nameModel="transport" data-id="<?php echo $transport['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></span></button>
+                                </td>
                             </tr>
                             <?php } ?>
                         </table>

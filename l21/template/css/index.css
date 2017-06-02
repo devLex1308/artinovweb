@@ -10,7 +10,8 @@
 
 html{
 	max-width: 1360px;
-	max-height: 1610px;
+	/*max-height: 1610px;*/
+	background: #0071bc;
 }
 
 body{
@@ -211,15 +212,6 @@ a:hover {
 	width: 31%;
 }
 
-.transport-name{
-	color: #29abe2;
-	font-family: Verdana;
-	font-size: 12px;
-	top: 10px;
-	position: relative;
-	display: block;
-}
-
 .transport-fon{
 	position: relative;
     width: 100%;
@@ -231,7 +223,7 @@ a:hover {
     padding-top: 90%;
 }
 
-.transport-fon-1{
+#tram-id-1[type=radio] + div .transport-fon-1{
 	position: absolute;
 	top: 0;
 	left: 39px;
@@ -239,9 +231,18 @@ a:hover {
 	right: 0;
 	background: url(../images/tram.png) no-repeat;
 	background-size: contain;
+} 
+#tram-id-1[type=radio]:checked + div .transport-fon-1{
+	position: absolute;
+	top: 0;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/tram-1.png) no-repeat;
+	background-size: contain;
 }
 
-.transport-fon-2{
+#trolleybus-id-1[type=radio] + div .transport-fon-2{
 	position: absolute;
 	top: 0;
 	left: 39px;
@@ -249,9 +250,18 @@ a:hover {
 	right: 0;
 	background: url(../images/trolleybus.png) no-repeat;
 	background-size: contain;
+} 
+#trolleybus-id-1[type=radio]:checked + div .transport-fon-2{
+	position: absolute;
+	top: 0;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/trolleybus-1.png) no-repeat;
+	background-size: contain;
 }
 
-.transport-fon-3{
+#bus-id-1[type=radio] + div .transport-fon-3{
 	position: absolute;
 	top: 45px;
 	left: 39px;
@@ -259,6 +269,45 @@ a:hover {
 	right: 0;
 	background: url(../images/bus.png) no-repeat;
 	background-size: contain;
+} 
+#bus-id-1[type=radio]:checked + div .transport-fon-3{
+	position: absolute;
+	top: 45px;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/bus-1.png) no-repeat;
+	background-size: contain;
+}
+
+.transport-name{
+	/*color: #29abe2;*/
+	font-family: Verdana;
+	font-size: 12px;
+	top: 10px;
+	position: relative;
+	display: block;
+}
+
+#tram-id-1[type=radio] + div + #tram-txt{
+	color: #29abe2;
+} 
+#tram-id-1[type=radio]:checked + div + #tram-txt{
+	color: #fbb03b;
+}
+
+#trolleybus-id-1[type=radio] + div + #trolleybus-txt{
+	color: #29abe2;
+} 
+#trolleybus-id-1[type=radio]:checked + div + #trolleybus-txt{
+	color: #fbb03b;
+}
+
+#bus-id-1[type=radio] + div + #bus-txt{
+	color: #29abe2;
+} 
+#bus-id-1[type=radio]:checked + div + #bus-txt{
+	color: #fbb03b;
 }
 
 .station{
@@ -334,8 +383,8 @@ a:hover {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-size: cover;
 	background: url(../images/news_up.png) no-repeat center center;
+	background-size: cover;
 }
 
 /*NEWS*/
@@ -370,8 +419,8 @@ footer{
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-size: cover;
 	background: url(../images/news_down.png) no-repeat center center;
+	background-size: cover;
 }
 
 .footer{
@@ -389,6 +438,13 @@ label > input{
 }
 label > input + img{
 	cursor:pointer;
+}
+
+@media (min-width: 1360px) {
+	html{
+		margin: 0 auto;
+		max-width: 100%;
+	}
 }
 
 @media (max-width: 1199px) {
@@ -456,7 +512,7 @@ label > input + img{
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 	.mobile-general{
 		width: 100%;
 		padding-left: 0px;

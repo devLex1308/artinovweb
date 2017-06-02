@@ -86,17 +86,5 @@ class AdminTransportController{
 		require_once ROOT."/views/admin/AdminTransportEdit.php";
 		return true;
 	}
-
-	public function actionDelete($id){
-		User::checkAdmin();
-		$title = "Видалення транспорту $id";
-
-		Transport::deleteTransportById($id);
-		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/users"
-      	</script>';
-		require_once ROOT."/views/admin/AdminTransportDelete.php";
-		return true;
-	}
 }
 
