@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	var map = L.map('map', {
-	    crs: L.CRS.Simple,
-	    minZoom: -1,
-			maxZoom: 4
+		crs: L.CRS.Simple,
+		minZoom: -1,
+		maxZoom: 4
 	});
 
 	var bounds = [[0,0], [1066,1920]];
@@ -15,13 +15,14 @@ $(document).ready(function(){
 
 	var lat = $("input[name='map_x']").val();
 	var lng = $("input[name='map_y']").val();
-
+	
 	if(!lat){lat = 550;}
 	if(!lng){lng = 960;}
 
 	var marker = L.marker([lat,lng],
 		{draggable: true}
-	).addTo(map);
+		).addTo(map);
+
 
 	marker.on('dragend', function(){
 		var xy = this.getLatLng();
@@ -78,7 +79,7 @@ $(document).ready(function(){
 
 // 	var x1 = 1203.5;
 // 	var y1 = 559;
-	
+
 // 	var x2 = 970;
 // 	var y2 = 558.25;
 

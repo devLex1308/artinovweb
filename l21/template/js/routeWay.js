@@ -13,12 +13,6 @@ $(document).ready(function(){
 
 	map.fitBounds(bounds);
 
-	var lat = $("input[name='map_x']").val();
-	var lng = $("input[name='map_y']").val();
-
-	if(!lat){lat = 550;}
-	if(!lng){lng = 960;}
-
 	$(".showRoute").click(function(e){
 
 
@@ -46,17 +40,35 @@ $(document).ready(function(){
 
       success: function (data, textStatus, jqXHR) {
       	var arr = JSON.parse(data);
-      	console.log(arr);
+      	
+      	var arrLength = [];
+      	for (var i = 0; i < arr.length; i++) {
+      		for (var x = 0; x < arr[i].length; x++) {
+      			arrLength.push(arr[i][x]);
+      		}
+      	}
+      	
+      	var num = 0;
+      	var lat;
+      	var lng;
+      	arrLength.forEach(function(item, i, arr) {
+      		if(num == 0){
+      			lat = item;
+      		} else if(num == 1){
+      			lng = item;
 
-      	var latlngs = [
-      	[45.51, -122.68],
-      	[37.77, -122.43],
-      	[34.04, -118.2]
-      	];
+      			var marker = L.marker([lat,lng],
+      				{draggable: false}
+      				).addTo(map);
+
+      			num = -1;
+      		}
+      		num++;
+      	});
+
       	var polyline = L.polyline(arr, {color: 'yellow'}).addTo(map);
 				// zoom the map to the polyline
 				map.fitBounds(polyline.getBounds());
-
 			},
 
 			error: function (jqXHR, textStatus, errorThrown) {
