@@ -24,21 +24,22 @@
 				position: absolute;
 				width: 100%;
 				z-index: 1;
-				transition: left 1s linear;
+				transition: transform 1s linear;
 			}
 
 			.slider img.active{
 				z-index: 2;
 				left: 0;
+				transform: translateX(0);
 			}
 
 			.slider img.activeNext{
 				z-index: 2;
-				left: -100%;
+				transform: translateX(-100%);
 			}
 			.slider img.activePrev{
 				z-index: 2;
-				left: 100%;
+				transform: translateX(100%);
 			}
 			
 			
