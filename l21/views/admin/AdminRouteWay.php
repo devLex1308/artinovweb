@@ -3,7 +3,7 @@ require_once ROOT."/views/admin/header.php";
 ?>
 <style>
 	#map{
-		min-height: 600px;
+		min-height: 530px;
 		width: 100%;
 	}
 </style>
@@ -13,9 +13,9 @@ require_once ROOT."/views/admin/header.php";
 <div class="container" style="padding-top: 1%;">
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 create-station">
+			<button class="showRoute" id="<?php echo $id; ?>">Покажи маршрут</button>
 			<div id="map"></div>
 		</div>
-		<button class="showRoute" id="<?php echo $id; ?>">Покажи маршрут</button>
 	</div>
 </div>
 
