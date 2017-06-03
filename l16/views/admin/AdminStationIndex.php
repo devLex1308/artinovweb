@@ -2,7 +2,8 @@
   require_once ROOT."/views/admin/header.php";
 ?>
     <h1><?php echo $title; ?></h1>
-	<table class="table">
+	<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover table-condensed">
 		<tr>
 			<th>id</th>
 			<th>Назва</th>

@@ -1,7 +1,24 @@
 <?php
   require_once ROOT."/views/admin/header.php";
 ?>
-<div class="container">
+<style>
+    .table-my{
+        width: 100%;
+    }
+    @media (max-width: 768px) {
+        table{
+            font-size: 70%;
+        }
+        h1{
+            font-size: 30px;
+        }
+    }
+    .table th, .table td {
+        padding: 1%;
+        text-align: center;
+    }
+</style>
+<div class="container table-my">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1 class="text-center"><?php echo $title; ?></h1>
@@ -12,8 +29,7 @@
                         <th>Назва</th>
                         <th>Тип транспорту</th>
                         <th>Зупинки</th>
-                        <th>Редагувати</th>
-                        <th>Заповнення маршруту</th>
+                        <th>Редагувати</th>                       
                         <th>Видалити</th>
                     </tr>
                     <?php
@@ -26,7 +42,6 @@
                                 <td><?=$carriage_name[$key]['name']; ?></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/route/<?=$router['id'] ?>"><span class="custom glyphicon glyphicon-map-marker text-center"></a></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/admin/route/edit/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></a></td>
-                                <td><a href="<?php echo LOCALPATH; ?>/admin/route/fill/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-edit text-center"></a></td>
                                 <td><a href="<?php echo LOCALPATH; ?>/admin/route/delete/<?=$router['id']; ?>"><span class="custom glyphicon glyphicon-trash text-center"></a></td>
                             </tr>
                             <?php
@@ -35,7 +50,7 @@
                     ?>
                 </table>
             </div>
-        </div>
+        
         <?php
 
         if($countPage > 1){

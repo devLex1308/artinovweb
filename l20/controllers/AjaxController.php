@@ -11,6 +11,7 @@ class AjaxController{
 
 		if(isset($_POST['action'])&&($_POST['action']=="routeStation")){
 			echo json_encode(Route::getStationCoordinateRouteById(11));
+
 		}
 
 		return true;

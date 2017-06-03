@@ -1,90 +1,83 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<style>
+	.mr-auto {
+	    margin-left: auto !important;
+   	 	margin-right: 15px !important;
+	}
+	.btn-group{
+    	align-self: flex-end;
+	}
+</style>
+<nav class="navbar navbar-toggleable-sm navbar-dark bg-primary">
 	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand home" href="<?php echo LOCALPATH;?>/">Home</a>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav nav-pills">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="<?php echo LOCALPATH;?>/">
+			<strong>Головна</strong>
+		</a>
+		<div class="collapse navbar-collapse" id="navbarNav1">
+			<ul class="navbar-nav mr-auto">
 
 				<?php
-				if(User::isLogged()){
+				if(User::isAdmin()){
 					?>
 
-					<li class="dropdown">
-						<a href="<?php echo LOCALPATH;?>/admin/station" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Зупинки <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo LOCALPATH;?>/admin/station">Всі</a></li>
-							<li><a href="<?php echo LOCALPATH;?>/admin/station/create">Створити</a></li>
-						</ul>
+					<li class="nav-item dropdown btn-group">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Додати (+)</a>
+						<div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/station/create">Зупинки</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/route/create">Маршрути</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/category/create">Вид транспорту</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/user/create">Користувача</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/transport/create">Транспорт</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/article/create">Статті</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/gallery/upload">Медіафайли</a>
+						</div>
 					</li>
 
-					<li class="dropdown">
-						<a href="<?php echo LOCALPATH;?>/admin/route" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Маршрути <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo LOCALPATH;?>/admin/route">Всі</a></li>
-							<li><a href="<?php echo LOCALPATH;?>/admin/route/create">Створити</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="<?php echo LOCALPATH;?>/admin/category" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Категорії <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo LOCALPATH;?>/admin/category">Всі</a></li>
-							<li><a href="<?php echo LOCALPATH;?>/admin/category/create">Створити</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="<?php echo LOCALPATH;?>/admin/users" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Користувачі <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo LOCALPATH;?>/admin/users">Всі</a></li>
-							<li><a href="<?php echo LOCALPATH;?>/admin/user/create">Створити</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="<?php echo LOCALPATH;?>/admin/transport" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Транспорт <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo LOCALPATH;?>/admin/transport">Весь транспорт</a></li>
-							<li><a href="<?php echo LOCALPATH;?>/admin/transport/create">Створити</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="<?php echo LOCALPATH;?>/admin/article" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Статті <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo LOCALPATH;?>/admin/article">Всі</a></li>
-							<li><a href="<?php echo LOCALPATH;?>/admin/article/create">Створити</a></li>
-						</ul>
+					<li class="nav-item dropdown btn-group">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Переглянути</a>
+						<div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/station">Зупинки</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/route">Маршрути</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/category">Вид транспорту</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/users">Користувачі</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/transport">Весь транспорт</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/article">Статті</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/gallery">Медіафайли</a>
+						</div>
 					</li>
 
 					<?php
 				} else {
 					?>
-					<li><a href="<?php echo LOCALPATH;?>/">Home</a></li>
+					<li class="nav-item active">
+						<a class="nav-link">Головна <span class="sr-only">(current)</span></a>
+					</li>
 					<?php
 				}
 				if(User::isLogged()){
 					?>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['login']; ?> <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li class="active"><a href="<?php echo LOCALPATH;?>/">Home</a></li>
-							<li><a href="<?php echo LOCALPATH;?>/admin/logout">Вихід</a></li>
-						</ul>
+
+					<li class="nav-item dropdown btn-group active">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['login']; ?></a>
+						<div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/logout">Вихід</a>
+						</div>
 					</li>
+
 					<?php
 				} else {
 					?>
-					<li class="dropdown active">
-						<a href="<?php echo LOCALPATH;?>/admin/authorization" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Вхід</a>
+
+					<li class="nav-item btn-group">
+						<a href="<?php echo LOCALPATH;?>/admin/authorization" class="nav-link">Вхід</a>
 					</li>
+
+					<li class="nav-item btn-group">
+						<a href="<?php echo LOCALPATH;?>/admin/logout" class="nav-link">Реєстрація</a>
+					</li>
+
 					<?php
 				}
 				?>

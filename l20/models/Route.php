@@ -43,38 +43,6 @@ class Route{
 			
 	}
 
-	public static function getAllStationsById($id){
-			
-		$DBH = Db::getConnection(); 
-		
-		$sql = '
-				SELECT id,name 
-				FROM station WHERE id not in (SELECT station_id as id from route_station WHERE route_id=:id)
-			';
-			
-		$query = $DBH->prepare($sql);
-		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
-		$query->execute();
-
-		return $query->fetchAll();
-	}
-
-    public static function getAllStationsRoute($id){
-			
-		$DBH = Db::getConnection(); 
-
-		$sql = '
-				SELECT name 
-				FROM station WHERE id in (SELECT station_id as id from route_station WHERE route_id=:id)
-			';
-			
-		$query = $DBH->prepare($sql);
-		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
-		$query->execute();
-
-		return $query->fetchAll();
-	}
-
 	public static function getAllRoute($page = 1){
 		$routeOnPage = self::routeOnPage;
 
@@ -201,28 +169,6 @@ class Route{
 			
 			$query->execute();
 			//print_r($query->errorInfo());
-	}
-
-	public static function fillRoute(
-			                             $id,
-										 $station_id
-									){
-	
-		$DBH = Db::getConnection(); 
-	
-			$sql = 'INSERT INTO route_station
-					SET
-						station_id=:station_id,
-					    route_id = :id
-
-			';
-			
-			$query = $DBH->prepare($sql);
-
-			$query->bindParam(":station_id", $station_id, PDO::PARAM_INT);
-			$query->bindParam(":id", $id, PDO::PARAM_INT);
-			
-			$query->execute();
 	}
 
 	public static function deleteRouteById($id){

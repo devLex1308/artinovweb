@@ -13,6 +13,19 @@ require_once ROOT."/views/admin/header.php";
 	.content{
 		text-align: center;
 	}
+	.button-checkbox > input[type="checkbox"] {
+	    display: none;
+	}
+	.checktext{
+		position: absolute;
+		display: block;
+    	left: -60px;
+    	top: -10px;
+	}
+	.material-switch{
+	    margin-top: 10px;
+	    margin-bottom: 45px;
+	}
 </style>
 <?php
 if(!empty($errors)){
@@ -58,10 +71,10 @@ if(!empty($errors)){
 			</div>
 
 			<div class="form-group">
-				<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Виберіть стать:</b>
-				<div class="material-switch pull-right">
-					<b>Ж&nbsp;</b><input id="someSwitchOptionWarning" name="gender" type="checkbox" checked="checked"/>
-					<label for="someSwitchOptionWarning" class="label-warning">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;М</label>
+				<b>Виберіть стать:</b>
+				<div class="material-switch pull-right text-center">
+					<input id="someSwitchOptionWarning" name="gender" type="checkbox" checked="checked"/>
+					<label for="someSwitchOptionWarning" class="label-warning"><span class="checktext"><b>Ж&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;М</b></span></label>
 				</div>
 			</div>
 
