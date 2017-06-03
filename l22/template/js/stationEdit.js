@@ -30,7 +30,65 @@ $(document).ready(function(){
 		$("input[name='map_x']").val(xy.lat);
 		$("input[name='map_y']").val(xy.lng);
 	});
+
+	showAllStation(map);
 });
+
+
+function showAllStation(map){
+
+
+	var LOCALPATH = $("#LOCALPATH").val();
+
+	var url = window.location.href;
+	var aUrl = url.split("/");
+	var id = aUrl[aUrl.length - 1];
+
+	var server = LOCALPATH+"/ajax";
+	var oData = {
+		"action":"getAllStationsForMap"
+	};
+
+	$.ajax({
+
+			cache: false,
+			timeout: 15000,
+      url: server,//SERVER_NAME,
+      type: "POST",
+      data: (oData),
+
+      beforeSend: function () {
+
+      },
+
+      success: function (data, textStatus, jqXHR) {
+      	var arr = JSON.parse(data);
+
+      	console.log(arr);
+
+      	arr.forEach(function(item, i, arr) {
+
+      		console.log("item = " + item, " i = " + i);
+      		console.log(item);
+
+      		var marker = L.marker([item.map_x,item.map_y],
+      				{draggable: false,title:item.id + " " + item.name}
+      				).addTo(map);
+      		
+      	});
+
+
+			},
+
+			error: function (jqXHR, textStatus, errorThrown) {
+
+			},
+			complete: function (jqXHR, textStatus) {
+			}
+
+		});
+
+}
 
 
 // $(document).ready(function(){

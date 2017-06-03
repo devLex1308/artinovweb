@@ -17,6 +17,11 @@ class AjaxController{
 			echo json_encode(Route::routeStationInfo($_POST['id']));
 		}
 
+		if(isset($_POST['action'])&&($_POST['action']=="getAllStationsForMap")){
+			echo json_encode(Station::getAllStationsForMap());
+		}
+
+
 		return true;
 	}
 

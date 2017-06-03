@@ -67,6 +67,25 @@ class Station{
 		return $query->fetchAll();
 	}
 
+	public static function getAllStationsForMap(){
+	
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+				SELECT id,name,map_x,map_y
+				FROM station
+			';
+			
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":stationOnPage", 	$stationOnPage, 	PDO::PARAM_INT);
+		$query->bindParam(":start", 	$start, 	PDO::PARAM_INT);
+		
+		$query->execute();
+
+		return $query->fetchAll();
+	}
+
 	public static function getAllStation(){
 		 
 		$DBH = Db::getConnection();

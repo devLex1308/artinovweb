@@ -80,11 +80,11 @@ $(document).ready(function(){
 		});
 	});
 
-	showRouteStation();
+	showRouteStation(map);
 	
 });
 
-function showRouteStation(){
+function showRouteStation(map){
 
 
 	var LOCALPATH = $("#LOCALPATH").val();
@@ -116,13 +116,24 @@ function showRouteStation(){
 
       	console.log(arr);
       	
-    //   	var arrLength = [];
-    //   	for (var i = 0; i < arr.length; i++) {
-    //   		for (var x = 0; x < arr[i].length; x++) {
-    //   			arrLength.push(arr[i][x]);
-    //   		}
-    //   	}
-      	
+      	var mapXY = [];
+
+      	arr.forEach(function(item, i, arr) {
+
+      		console.log("item = " + item, " i = " + i);
+      		console.log(item);
+
+      		mapXY.push([item[0],item[1]]);
+      		var marker = L.marker([item[0],item[1]],
+      				{draggable: false,title:item[2]}
+      				).addTo(map);
+      		
+      	});
+
+      	var polyline = L.polyline(mapXY, {color: 'yellow'}).addTo(map);
+				// // zoom the map to the polyline
+				// map.fitBounds(polyline.getBounds());
+
     //   	var num = 0;
     //   	var lat;
     //   	var lng;
