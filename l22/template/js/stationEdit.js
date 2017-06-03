@@ -19,8 +19,16 @@ $(document).ready(function(){
 	if(!lat){lat = 550;}
 	if(!lng){lng = 960;}
 
+	var myIcon = L.icon({
+    iconUrl: LOCALPATH + "/template/images/marker-icon-red.png",
+    iconSize: [38, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76]
+});
+
 	var marker = L.marker([lat,lng],
-		{draggable: true}
+		{draggable: true,
+			icon: myIcon }
 		).addTo(map);
 
 
@@ -64,12 +72,12 @@ function showAllStation(map){
       success: function (data, textStatus, jqXHR) {
       	var arr = JSON.parse(data);
 
-      	console.log(arr);
+      	//console.log(arr);
 
       	arr.forEach(function(item, i, arr) {
 
-      		console.log("item = " + item, " i = " + i);
-      		console.log(item);
+      		//console.log("item = " + item, " i = " + i);
+      		//console.log(item);
 
       		var marker = L.marker([item.map_x,item.map_y],
       				{draggable: false,title:item.id + " " + item.name}
