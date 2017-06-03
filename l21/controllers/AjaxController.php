@@ -10,7 +10,7 @@ class AjaxController{
 		}
 
 		if(isset($_POST['action'])&&($_POST['action']=="routeStation")){
-			echo json_encode(Route::getStationCoordinateRouteById(4));
+			echo json_encode(Route::getStationCoordinateRouteById($_POST['id']));
 		}
 
 		return true;
@@ -22,6 +22,26 @@ class AjaxController{
 		switch ($nameModel) {
 			case 'station':
 				Station::deleteStationById($id);
+				break;
+
+			case 'transport':
+				Transport::deleteTransportById($id);
+				break;
+
+			case 'route':
+				Route::deleteRouteById($id);
+				break;
+
+			case 'category':
+				Category::deleteCategoryById($id);
+				break;
+
+			case 'user':
+				User::deleteUserById($id);
+				break;
+
+			case 'article':
+				Article::deleteArticleById($id);
 				break;
 
 			case 'images':

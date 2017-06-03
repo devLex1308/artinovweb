@@ -189,11 +189,6 @@ require_once ROOT."/views/admin/header.php";
                 <br>
                 <div class="form-group" align="center">
                     <div class="col-sm-offset-0">
-                        <a href="<?php echo LOCALPATH;?>/admin/route/revers/<?php echo $route['id']; ?>">Реверс прямого руху у зворотній, для лінивих =)</a>
-                    </div>
-                </div>
-                <div class="form-group" align="center">
-                    <div class="col-sm-offset-0">
                         <input name="editRoute" type="submit" class="btn btn-warning" value="Відправити">
                     </div>
                 </div>
