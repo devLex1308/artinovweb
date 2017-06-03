@@ -1,17 +1,16 @@
 $(document).ready(function() {
-	console.log("Test");
 	var map = L.map('map', {
 		crs: L.CRS.Simple,
 		minZoom: -2,
 		maxZoom: 3
 	});
 
-	var bounds = [[0,0], [1920,1066]];
+	var bounds = [[0,0], [1066,1920]];
 	var image = L.imageOverlay('map.svg', bounds).addTo(map);
 
 	map.fitBounds(bounds);
 
-	var marker = L.marker([1000, 530]).addTo(map);
+	// var marker = L.marker([1000, 530]).addTo(map);
 
 	// var coor = marker.getLatLng();
 	// console.log(coor);
@@ -25,7 +24,7 @@ $(document).ready(function() {
 
 
 
- 	marker = L.marker([1050,530],
+ 	marker = L.marker([530,1000],
 	 				{draggable: true}
 	 			).addTo(map);
 
@@ -95,23 +94,23 @@ function Transport(route,map){
 	var currentTime;
 	var maxStation;
 
-	this.init = function(route,map){
-		x = route[0][0];
-		y = route[0][1];
-		currentStation = 0;
-		xEnd = route[currentStation+1][0];
-		yEnd = route[currentStation+1][1];
+	// this.init = function(route,map){
+	// 	x = route[0][0];
+	// 	y = route[0][1];
+	// 	currentStation = 0;
+	// 	xEnd = route[currentStation+1][0];
+	// 	yEnd = route[currentStation+1][1];
 
-		deltaTime = route[currentStation+1][2]-route[currentStation][2];
+	// 	deltaTime = route[currentStation+1][2]-route[currentStation][2];
 
-		dx = (xEnd-route[currentStation][0])/deltaTime;
-		dy = (yEnd-route[currentStation][1])/deltaTime;
+	// 	dx = (xEnd-route[currentStation][0])/deltaTime;
+	// 	dy = (yEnd-route[currentStation][1])/deltaTime;
 
-		_marker = L.marker([x, y]).addTo(map);
-		currentTime = 0;
-		maxStation = route.length;
-		console.log(maxStation);
-	}
+	// 	_marker = L.marker([x, y]).addTo(map);
+	// 	currentTime = 0;
+	// 	maxStation = route.length;
+	// 	console.log(maxStation);
+	// }
 
 
 

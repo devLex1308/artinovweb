@@ -1,0 +1,373 @@
+@font-face{
+	font-family: "Head";
+	src: url("../fonts/MyriadPro-Regular.otf");
+}
+
+@font-face{
+	font-family: "Head-Bold";
+	src: url("../fonts/MyriadPro-Semibold.otf");
+}
+
+html{
+	max-width: 1360px;
+	background: #0071bc;
+}
+
+body{
+	background-color: #0071bc;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover { 
+	text-decoration: none;
+} 
+
+/*HEAD*/
+.align-head{
+	max-width: 210px;
+}
+
+header{
+   	margin-bottom: -5%;
+}
+
+.head{
+	padding-top: 15px;
+	color: #ffffff;
+	font-family: "Head";
+	width: 750px;
+	padding-bottom: 10px;
+}
+
+.block{
+	width: 884px;
+}
+
+/*LOGO*/
+.logo{
+	position: relative;
+	width: 70%;
+}
+
+.logo::before{
+	content: "";
+	display: block;
+	padding-top: 70px;
+}
+
+.logo-img{
+	position: absolute;
+	top: 0;
+    left: 5px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/logo_white.png) no-repeat;
+	background-size: contain;
+}
+
+.logo-txt{
+    position: absolute;
+    left: 95px;
+    top: 43px;
+    font-size: 8px;
+    width: 50px;
+    color: #ffffff;
+}
+
+/*LOGIN*/
+.login{
+	margin-top: 2%;
+}
+
+.login-txt{
+    position: relative;
+    right: 15px;
+    top: 22px;
+	text-align: right;
+	font-size: 12px;
+}
+
+.login-txt a{
+	color: #ffffff;
+	font-size: 12px;
+	font-family: "Head";
+}
+
+.head-text h1{
+	color: #ffffff;
+	font-size: 24px;
+	font-family: "Head-Bold";
+}
+
+/*HEADER END*/
+.left-right-block-wrap{
+	max-width: 143px;
+}
+
+.fon{
+	position: relative;
+	width: 100%;
+}
+
+.fon::before{
+	content: "";
+	display: block;
+	padding-top: 5%;
+}
+
+.fon_content_down{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url(../images/news_up.png) no-repeat center center;
+	background-size: cover;
+}
+
+/*NEWS*/
+.news{
+	padding-top: 10px;
+	background: white;
+	width: 100%;
+	margin-top: -0.3%;
+}
+
+.block-news{
+	background: url(../images/uzor.png) no-repeat;
+	width: 660px;
+	height: 182px;
+	margin-bottom: 60px;
+}
+
+.image-news-block{
+	display: block;
+	float: left;
+	padding-left: 43px;
+	padding-top: 8px;
+	width: 350px;
+	height: 175px;
+	overflow: hidden;
+	margin-right: 17px;
+}
+
+.image-news{
+	height: 100%;
+	width: 306px;
+	/*background: url(../../resourses/images/Koala.jpg) no-repeat center center;*/
+	/*background-size: cover;*/
+	border-radius: 5px;
+
+}
+
+.head-text-news{
+	text-align: left;
+	color: #333333;
+	font-size: 24px;
+	font-family: "Head-Bold";
+}
+
+.text-news{
+	padding-top: 15px;
+	padding-right: 90px;
+	text-align: left;
+	color: #808080;
+	font-size: 12px;
+	font-family: "Head";
+}
+
+.block-time{
+	padding-top: 15px
+}
+
+.time-image{
+	background: url(../images/clock.png) no-repeat;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+}
+
+.text-time{
+	color: #808080;
+	font-size: 12px;
+	font-family: "Head";
+	padding-left: 5px;
+	display: block;
+	float: left;
+}
+
+.btn{
+	width: 175px;
+	height: 60px;
+	background-color: unset;
+	border: 2px solid #fbb03b;
+	border-radius: 30px;
+	color: #000000;
+	font-size: 12px;
+	font-family: "Head";
+}
+
+.button_more{
+	padding-bottom: 43px;
+}
+
+/*CONTENT END*/
+
+/*FOOTER*/
+footer{
+	background: linear-gradient(0deg, #0071bc 98%, #FFFFFF 2%);
+}
+
+.footer{
+	font-size: 10px;
+	font-family: "Head";
+	color: white;
+	padding-top: 5%;
+	padding-bottom: 3%;
+	max-height: 200px;
+}
+
+label > input{
+	visibility: hidden;
+	position: absolute;
+}
+label > input + img{
+	cursor:pointer;
+}
+
+@media (min-width: 1360px) {
+	html{
+		margin: 0 auto;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 1199px) {
+	.align-head{
+		max-width: 110px;
+	}
+
+	.left-right-block-wrap{
+		max-width: 43px;
+	}
+
+	.align-general{
+		max-width: 217px;
+	}
+}
+
+@media (max-width: 991px) {
+	.align-general{
+		max-width: 150px;
+	}
+
+	.block{
+		width: 100%;
+	}
+
+	.head-pic::before{
+	    padding-top: 200%;
+	}
+
+	.uzor{
+		top: 20px;
+    	left: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.mobile-align{
+		max-width: 9%;
+	}
+
+	.head{
+		width: 100%;
+	}
+
+	.head-text{
+		background-size: 100%;
+	}
+
+	.general {
+	    max-width: 100%;
+	    width: 100%;
+	}
+
+	.transport-fon-1 {
+	    left: 28%;
+	}
+
+	.transport-fon-2 {
+	    left: 28%;
+	}
+
+	.transport-fon-3 {
+	    top: 36%;
+	    left: 28%;
+	}
+}
+
+@media (max-width: 500px) {
+	.mobile-general{
+		width: 100%;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.mobile-input{
+		width: 70%;
+	}
+
+	.mobile-go{
+		width: 35%!important;
+		margin-left: -5%;
+	}
+
+	.go{
+		width: 100%;
+	}
+
+	.mobile-align{
+		display: none;
+	}
+
+	.transports{
+		margin: auto 0;
+		padding: auto 0;
+	}
+
+	.transport {
+		width: 30%;
+	}
+
+	.station{
+		width: 100%;
+	}
+
+	.logo{
+		width: 70%;
+	}
+
+	.logo::before{
+		padding-top: 50px;
+	}
+
+	.top{
+		background: green;
+		min-height: 50px;
+	}
+
+	.logo-txt {
+	    left: 68px;
+    	top: 27px;
+	}
+
+	.login-txt {
+	    top: 10px;
+	}
+}
