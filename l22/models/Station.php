@@ -229,6 +229,7 @@ class Station{
 	}
 
 	public static function deleteStationById($id){
+		
 		$DBH = Db::getConnection(); 
 
 		$sql = '

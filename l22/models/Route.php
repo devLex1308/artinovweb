@@ -223,6 +223,12 @@ class Route{
 				WHERE id = :id
 			';
 			
+		?>
+			<script>
+				alert(Ви видалили зупинку!!! Якщо ця дія виконалась не вірно, розкажіть про це);
+			</script>
+		<?php
+		
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
 		
