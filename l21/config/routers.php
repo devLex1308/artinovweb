@@ -4,6 +4,8 @@ return array(
 
 	'index.php' => 'Index/index',
 	'index' => 'Index/index',
+	'news/([0-9]+)' => 'Index/news/$1',
+	'news' => 'Index/archiveNews',
 	'general' => 'Index/index',
 	
 	'admin/station/create' => 'AdminStation/create',

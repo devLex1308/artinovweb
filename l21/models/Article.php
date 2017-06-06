@@ -39,7 +39,7 @@ class Article{
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT id,name,user_id,time_create 
+				SELECT id,name,user_id,time_create,description,context
 				FROM article
 			';
 			

@@ -1,0 +1,618 @@
+@font-face{
+	font-family: "Head";
+	src: url("../fonts/MyriadProRegular.otf");
+}
+
+@font-face{
+	font-family: "Head-Bold";
+	src: url("../fonts/MyriadProBold.otf");
+}
+
+html{
+	max-width: 1360px;
+	/*max-height: 1610px;*/
+	background: #0071bc;
+}
+
+body{
+	background-color: #f0f1f3;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover { 
+	text-decoration: none;
+} 
+
+/*HEAD*/
+.align-head{
+	max-width: 210px;
+}
+
+.head{
+	padding-top: 15px;
+	color: #4d4d4d;
+	font-family: "Head";
+	width: 750px;
+	padding-bottom: 10px;
+}
+
+.block{
+	width: 884px;
+}
+
+/*LOGO*/
+.logo{
+	position: relative;
+	width: 70%;
+}
+
+.logo::before{
+	content: "";
+	display: block;
+	padding-top: 70px;
+}
+
+.logo-img{
+	position: absolute;
+	top: 0;
+    left: 5px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/logo.png) no-repeat;
+	background-size: contain;
+}
+
+.logo-txt{
+    position: absolute;
+    left: 95px;
+    top: 43px;
+    font-size: 8px;
+    width: 50px;
+    color: #333333;
+}
+
+/*LOGIN*/
+.login{
+	margin-top: 2%;
+}
+
+.login-txt{
+    position: relative;
+    right: 15px;
+    top: 22px;
+	text-align: right;
+	font-size: 12px;
+}
+
+.login-txt a{
+	color: #4d4d4d;
+	font-size: 12px;
+	font-family: "Head";
+}
+
+/*IMAGES*/
+.head-images{
+	position: relative;
+    width: 98%;
+    margin-left: 4%;
+}
+
+.head-images::before{
+	content: "";
+	display: block;
+    padding-top: 36%;
+}
+
+.head-image{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url(../images/head.png) no-repeat center center;
+}
+/*HEADER END*/
+.left-right-block-wrap{
+	max-width: 143px;
+}
+
+.fon{
+	position: relative;
+	width: 100%;
+}
+
+.fon::before{
+	content: "";
+	display: block;
+	padding-top: 5%;
+}
+
+.fon_content_up{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url(../images/fon_up.png) no-repeat center center;
+	background-size: cover;
+}
+
+/*CONTENT*/
+.content{
+	width: 100%;	
+	margin-top: -0.3%;
+}
+
+.fon_content{
+	background-color: #0071bc;
+}
+
+.content-all{
+	padding-top: 1%;
+}
+
+.align-general{
+    padding-top: 20%;
+	width: 217px;
+}
+
+.head-pic{
+	position: relative;
+	width: 100%;
+}
+
+.head-pic::before{
+	content: "";
+	display: block;
+    padding-top: 100%;
+}
+
+.uzor{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url(../images/uzor.png) no-repeat center center;
+}
+
+.general{
+	max-height: 514px;
+	max-width: 450px;
+	width: 450px;
+}
+
+.general-text{
+	margin: auto;
+	font-size: 24px;
+	font-family: "Head-Bold";
+	color: white;
+}
+
+.text{
+	margin-top: 5px;
+	font-size: 12px;
+	font-family: "Head";
+	color: white;
+}
+
+.transports{
+	padding-top: 30px;
+	padding-bottom: 45px;
+	/*margin: 3% 0%;*/
+}
+
+.transport{
+	margin: 0;
+	padding: 0;
+	width: 31%;
+}
+
+.transport-fon{
+	position: relative;
+    width: 100%;
+}
+
+.transport-fon::before{
+	content: "";
+	display: block;
+    padding-top: 90%;
+}
+
+#tram-id-1[type=radio] + div .transport-fon-1{
+	position: absolute;
+	top: 0;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/tram.png) no-repeat;
+	background-size: contain;
+} 
+#tram-id-1[type=radio]:checked + div .transport-fon-1{
+	position: absolute;
+	top: 0;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/tram-1.png) no-repeat;
+	background-size: contain;
+}
+
+#trolleybus-id-1[type=radio] + div .transport-fon-2{
+	position: absolute;
+	top: 0;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/trolleybus.png) no-repeat;
+	background-size: contain;
+} 
+#trolleybus-id-1[type=radio]:checked + div .transport-fon-2{
+	position: absolute;
+	top: 0;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/trolleybus-1.png) no-repeat;
+	background-size: contain;
+}
+
+#bus-id-1[type=radio] + div .transport-fon-3{
+	position: absolute;
+	top: 45px;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/bus.png) no-repeat;
+	background-size: contain;
+} 
+#bus-id-1[type=radio]:checked + div .transport-fon-3{
+	position: absolute;
+	top: 45px;
+	left: 39px;
+	bottom: 0;
+	right: 0;
+	background: url(../images/bus-1.png) no-repeat;
+	background-size: contain;
+}
+
+.transport-name{
+	/*color: #29abe2;*/
+	font-family: Verdana;
+	font-size: 12px;
+	top: 10px;
+	position: relative;
+	display: block;
+}
+
+#tram-id-1[type=radio] + div + #tram-txt{
+	color: #29abe2;
+} 
+#tram-id-1[type=radio]:checked + div + #tram-txt{
+	color: #fbb03b;
+}
+
+#trolleybus-id-1[type=radio] + div + #trolleybus-txt{
+	color: #29abe2;
+} 
+#trolleybus-id-1[type=radio]:checked + div + #trolleybus-txt{
+	color: #fbb03b;
+}
+
+#bus-id-1[type=radio] + div + #bus-txt{
+	color: #29abe2;
+} 
+#bus-id-1[type=radio]:checked + div + #bus-txt{
+	color: #fbb03b;
+}
+
+.station{
+	width: 100%;
+}
+
+.input-station::-webkit-input-placeholder {
+	/*color: #333333 !important;*/
+	font-family: "Head";
+	font-size: 13px;
+}
+
+.input-station{
+	width: 100% !important;
+	height: 45px;
+	padding-bottom: 10px;
+}
+
+.go{
+	margin-top: -2.5px;
+	height: 50px;
+	width: 110px;
+	color: #333333;
+	font-family: "Head";
+	font-size: 15px;
+    border: none!important; 
+	max-width: 105px;
+	border-radius: 25px;
+	background-color: #fbb03b;
+    outline: none!important;
+}
+
+.go:hover {
+	background-color: #dd931e;
+}
+
+.go:active {
+	background-color: #dd931e;
+}
+
+.go:focus {
+}
+
+.go:focus::before {
+	background-color: #fbb03b;
+}
+
+.txt-1{
+	padding-top: 100px;
+}
+
+.txt-1 a{
+	font-size: 14px;
+	font-family: "Head";
+	color: black;
+}
+
+.txt-2{
+	padding-bottom: 40px;
+	font-size: 12px;
+	font-family: "Head";
+	color: white;
+}
+
+.txt-2 a{
+	color: orange;
+	text-decoration: underline
+}
+
+.fon_content_down{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url(../images/news_up.png) no-repeat center center;
+	background-size: cover;
+}
+
+/*NEWS*/
+.news{
+	background: white;
+	width: 100%;
+	margin-top: -0.3%;
+}
+
+/*slider*/
+/*CONTENT END*/
+
+/*FOOTER*/
+footer{
+	background: linear-gradient(0deg, #0071bc 98%, #FFFFFF 2%);
+}
+
+.fon_down{
+	position: relative;
+	width: 100%;
+}
+
+.fon_down::before{
+	content: "";
+	display: block;
+	padding-top: 3%;
+}
+
+.news_fon_down{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url(../images/news_down.png) no-repeat center center;
+	background-size: cover;
+}
+
+.footer{
+	font-size: 10px;
+	font-family: "Head";
+	color: white;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	max-height: 200px;
+}
+
+label > input{
+	visibility: hidden;
+	position: absolute;
+}
+label > input + img{
+	cursor:pointer;
+}
+
+@media (min-width: 1360px) {
+	html{
+		margin: 0 auto;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 1199px) {
+	.align-head{
+		max-width: 110px;
+	}
+
+	.left-right-block-wrap{
+		max-width: 43px;
+	}
+
+	.align-general{
+		max-width: 217px;
+	}
+}
+
+@media (max-width: 991px) {
+	.align-general{
+		max-width: 150px;
+	}
+
+	.block{
+		width: 100%;
+	}
+
+	.head-pic::before{
+	    padding-top: 200%;
+	}
+
+	.uzor{
+		top: 20px;
+    	left: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.mobile-align{
+		max-width: 9%;
+	}
+
+	.head{
+		width: 100%;
+	}
+
+	.head-image{
+		background-size: 100%;
+	}
+
+	.general {
+	    max-width: 100%;
+	    width: 100%;
+	}
+
+	.transport-fon-1 {
+	    left: 28%;
+	}
+
+	.transport-fon-2 {
+	    left: 28%;
+	}
+
+	.transport-fon-3 {
+	    top: 36%;
+	    left: 28%;
+	}
+}
+
+@media (max-width: 500px) {
+	.mobile-general{
+		width: 100%;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.mobile-input{
+		width: 70%;
+	}
+
+	.mobile-go{
+		width: 35%!important;
+		margin-left: -5%;
+	}
+
+	.go{
+		width: 100%;
+	}
+
+	.mobile-align{
+		display: none;
+	}
+
+	.transports{
+		margin: auto 0;
+		padding: auto 0;
+	}
+
+	.transport {
+		width: 30%;
+	}
+
+	.station{
+		width: 100%;
+	}
+
+	.logo{
+		width: 70%;
+	}
+
+	.logo::before{
+		padding-top: 50px;
+	}
+
+	.top{
+		background: green;
+		min-height: 50px;
+	}
+
+	.logo-txt {
+	    left: 68px;
+    	top: 27px;
+	}
+
+	.login-txt {
+	    top: 10px;
+	}
+}
+
+/*SLIDER*/
+.cycle-slideshow, .cycle-slideshow * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.cycle-slideshow { width: 45%; min-width: 200px; max-width: 500px; margin: 10px auto; padding: 0; position: relative;
+	background: url(http://malsup.github.com/images/spinner.gif) 50% 50% no-repeat;
+}
+.cycle-slideshow img { 
+position: absolute; top: 0; left: 0;
+width: 100%; padding: 0; display: block;
+}
+.cycle-slideshow img:first-child {
+	position: static; z-index: 100;
+}
+.cycle-pager { 
+	text-align: center; width: 100%; z-index: 500; position: absolute; top: 10px; overflow: hidden;
+}
+.cycle-pager span { 
+	font-family: arial; font-size: 50px; width: 16px; height: 16px; 
+	display: inline-block; color: #ddd; cursor: pointer; 
+}
+.cycle-pager span.cycle-pager-active { color: #D69746;}
+.cycle-pager > * { cursor: pointer;}
+
+.cycle-caption { position: absolute; color: white; bottom: 15px; right: 15px; z-index: 700; }
+.cycle-overlay { 
+	font-family: tahoma, arial;
+	position: absolute; bottom: 0; width: 100%; z-index: 600;
+	background: black; color: white; padding: 15px; opacity: .5;
+}
+.cycle-prev, .cycle-next { position: absolute; top: 0; width: 30%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 100%; cursor: pointer; }
+.cycle-prev { left: 0;  background: url(http://malsup.github.com/images/left.png) 50% 50% no-repeat;}
+.cycle-next { right: 0; background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;}
+.cycle-prev:hover, .cycle-next:hover { opacity: .7; filter: alpha(opacity=70) }
+.disabled { opacity: .5; filter:alpha(opacity=50); }
+.cycle-paused:after {
+	content: 'Paused'; color: white; background: black; padding: 10px;
+	z-index: 500; position: absolute; top: 10px; right: 10px;
+	border-radius: 10px;
+	opacity: .5; filter: alpha(opacity=50);
+}
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+	.cycle-slideshow { width: 200px;}
+	.cycle-overlay { padding: 4px }
+	.cycle-caption { bottom: 4px; right: 4px }
+}

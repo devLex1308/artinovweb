@@ -1,13 +1,15 @@
 <?php
-class Router
-{
+class Router{
+    private $pgNotFound;
 	private $routes;
 	function __construct(){
 		$this->routes = require(ROOT."/config/routers.php");
-		//print_r($this->routes);
+		print_r($this->routes);
+        
 	}
 
 	public function run(){
+        
 
 		$url = $_SERVER['REQUEST_URI'];
 		foreach ($this->routes as $key => $value) {
@@ -21,9 +23,14 @@ class Router
 
 				$object = new $class();
 				$object->$action();
-
-			}
+                
+			} 
 		}
+        
+        $this->pgNotFound = require_once(ROOT."/classes/Page.php");
+        if(run->$class == false){
+            echo "<br>".Page::actionNotFound()."<br>";
+        }
 	}
 
 }
