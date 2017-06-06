@@ -8,5 +8,4 @@
 	<link rel="stylesheet" href="<?php echo LOCALPATH; ?>/template/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo LOCALPATH;?>/template/css/index.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
