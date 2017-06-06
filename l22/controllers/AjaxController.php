@@ -2,9 +2,11 @@
 class AjaxController{
 	
 	public function actionIndex(){
-		// $title = "Ajax";
-		// $aStation = Station::getAllStations();
-		// $json = json_encode($aStation);
+		
+		if(isset($_POST['action'])&&($_POST['action']=="moreNews")){
+			$this->actionMoreNews($_POST['startFrom']);
+		}
+
 		if(isset($_POST['action'])&&($_POST['action']=="delete")){
 			$this->actionDelete($_POST["nameModel"],$_POST["id"]);
 		}
@@ -61,6 +63,11 @@ class AjaxController{
 				echo 0;
 				break;
 		}
+	}
+
+	private function actionMoreNews($startFrom){
+		$archiveNews = Article::getAllArticlesPagination($startFrom);
+		echo json_encode($archiveNews);
 	}
 }
 

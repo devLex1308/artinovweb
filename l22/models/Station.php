@@ -77,9 +77,6 @@ class Station{
 			';
 			
 		$query = $DBH->prepare($sql);
-
-		$query->bindParam(":stationOnPage", 	$stationOnPage, 	PDO::PARAM_INT);
-		$query->bindParam(":start", 	$start, 	PDO::PARAM_INT);
 		
 		$query->execute();
 

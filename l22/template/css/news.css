@@ -1,11 +1,11 @@
 @font-face{
 	font-family: "Head";
-	src: url("../fonts/MyriadPro-Regular.otf");
+	src: url("../fonts/MyriadProRegular.otf");
 }
 
 @font-face{
 	font-family: "Head-Bold";
-	src: url("../fonts/MyriadPro-Semibold.otf");
+	src: url("../fonts/MyriadProBold.otf");
 }
 
 html{

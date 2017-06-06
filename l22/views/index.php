@@ -9,9 +9,11 @@ require_once ROOT."/views/header.php";
 			<div class="col-lg-6 col-md-6 head">
 				<div class="row">
 					<div class="col-xs-2 logo">
+					<a href="<?php echo LOCALPATH; ?>">
 						<div class="logo-img">
 							<div class="logo-txt">розклад руху онлайн</div>
 						</div>
+						</a>
 					</div>
 					<div class="login col-xs-offset-8">
 						<div class = "login-txt">

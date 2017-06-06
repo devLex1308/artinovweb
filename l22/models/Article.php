@@ -1,6 +1,8 @@
 <?php
 class Article{
 	
+	const newsOnPage = 2;
+	
 	public static function createArticle(	
 										$name,
 										$description,
@@ -44,6 +46,29 @@ class Article{
 			';
 			
 		$query = $DBH->prepare($sql);
+		
+		$query->execute();
+
+		return $query->fetchAll();
+	}
+
+	public static function getAllArticlesPagination($page = 1){
+		$newsOnPage = self::newsOnPage;
+
+		$start = ($page - 1) * $newsOnPage;
+
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+				SELECT id,name,user_id,time_create,description,context
+				FROM article
+				LIMIT :start,:newsOnPage
+			';
+			
+		$query = $DBH->prepare($sql);
+		
+		$query->bindParam(":newsOnPage", 	$newsOnPage, 	PDO::PARAM_INT);
+		$query->bindParam(":start", 	$start, 	PDO::PARAM_INT);
 		
 		$query->execute();
 
@@ -119,5 +144,20 @@ class Article{
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
 		
 		$query->execute();
+	}
+
+	public static function getPaginationInfo(){
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+				SELECT COUNT(id) as count 
+				FROM article
+			';
+			
+		$query = $DBH->prepare($sql);
+		
+		$query->execute();
+
+		return $query->fetch();
 	}
 }

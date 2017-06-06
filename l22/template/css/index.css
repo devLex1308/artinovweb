@@ -1,16 +1,15 @@
 @font-face{
 	font-family: "Head";
-	src: url("../fonts/MyriadPro-Regular.otf");
+	src: url("../fonts/MyriadProRegular.otf");
 }
 
 @font-face{
 	font-family: "Head-Bold";
-	src: url("../fonts/MyriadPro-Semibold.otf");
+	src: url("../fonts/MyriadProBold.otf");
 }
 
 html{
 	max-width: 1360px;
-	/*max-height: 1610px;*/
 	background: #0071bc;
 }
 
@@ -478,6 +477,14 @@ label > input + img{
 		top: 20px;
     	left: 20px;
 	}
+
+	.transport-fon-1 {
+	    left: 28%!important;
+	}
+
+	.transport-fon-2 {
+	    left: 28%!important;
+	}
 }
 
 @media (max-width: 767px) {
@@ -498,17 +505,9 @@ label > input + img{
 	    width: 100%;
 	}
 
-	.transport-fon-1 {
-	    left: 28%;
-	}
-
-	.transport-fon-2 {
-	    left: 28%;
-	}
-
 	.transport-fon-3 {
-	    top: 36%;
-	    left: 28%;
+	    top: 36% !important;
+	    left: 28% !important;
 	}
 }
 
