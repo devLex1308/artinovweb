@@ -48,7 +48,6 @@ require_once ROOT."/views/archiveNews/header.php";
 						if(isset($archiveNews)){
 							foreach ($archiveNews as $key => $news) {
 								?>
-
 								<div id="news" class="row" align="center">
 									<div class="block-news">
 										<a href="<?php echo LOCALPATH.'/'.'news/'.$news['id']; ?>">

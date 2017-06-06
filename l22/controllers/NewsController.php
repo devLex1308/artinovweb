@@ -3,9 +3,7 @@ class NewsController {
 	
 	public function actionIndex(){
 		$title = "Усі Новини";
-
 		$archiveNews = Article::getAllArticlesPagination(1);
-		
 		require_once ROOT."/views/archiveNews/index.php";
 		return true;
 	}

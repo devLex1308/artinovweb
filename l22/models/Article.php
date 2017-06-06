@@ -62,7 +62,7 @@ class Article{
 		$sql = '
 				SELECT id,name,user_id,time_create,description,context
 				FROM article
-				LIMIT :start,:newsOnPage
+				ORDER BY id DESC LIMIT :start,:newsOnPage
 			';
 			
 		$query = $DBH->prepare($sql);
@@ -90,6 +90,24 @@ class Article{
 		$query->execute();
 
 		return $query->fetch();
+	}
+
+	public static function getLastArticles($count){
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+				SELECT * 
+				FROM article
+				ORDER BY id DESC LIMIT :count
+			';
+			
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":count", 	$count, 	PDO::PARAM_INT);
+		
+		$query->execute();
+
+		return $query->fetchAll();
 	}
 
 	public static function editArticle(
