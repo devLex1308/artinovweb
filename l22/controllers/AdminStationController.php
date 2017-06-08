@@ -91,7 +91,6 @@ class AdminStationController {
 		User::checkAdmin();
 		$title = "Редагування зупинки";
 		$stations = Station::getAllStation();
-
 		if(isset($_POST['editStation'])){
 
 			$errors = [];

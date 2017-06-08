@@ -27,7 +27,7 @@ class AdminRouteController{
 		User::checkAdmin();
 		$title = "Створення маршруту";
 		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
+		$stations = Station::getAllStation();
 		$Allroute = Route::getAllRoute();
 
 		if(isset($_POST['createRoute'])){
@@ -156,7 +156,7 @@ class AdminRouteController{
 		$route = Route::getRouteById($id);
 
 		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
+		$stations = Station::getAllStation();
 
 		if(isset($_POST['editRoute'])){
 
@@ -286,7 +286,7 @@ class AdminRouteController{
 		$route = Route::getRouteById($id);
 
 		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
+		$stations = Station::getAllStation();
 
 		if(isset($_POST['editRoute'])){
 

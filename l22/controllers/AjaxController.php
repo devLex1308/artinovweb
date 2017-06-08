@@ -27,7 +27,6 @@ class AjaxController{
 		return true;
 	}
 
-
 	private function actionDelete($nameModel,$id){
 		
 		switch ($nameModel) {

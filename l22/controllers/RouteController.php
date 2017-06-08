@@ -26,7 +26,7 @@ class RouteController {
 		$start_count = $route['delta_time_start']*60/count($id_stations_start);
 		$end_count = $route['delta_time_end']*60/count($id_stations_end);
 
-		$stations = Route::getAllStations();
+		$stations = Station::getAllStations();
 
 		require_once ROOT."/views/Route.php";
 		return true;
@@ -39,7 +39,7 @@ class RouteController {
 		$id_stations_start = explode(",", $route['id_stations_start']);
 		$id_stations_end = explode(",", $route['id_stations_end']);
 		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
+		$stations = Station::getAllStations();
 
 		if(isset($_POST['editRoute'])){
 
