@@ -160,12 +160,9 @@ class Route{
 		foreach ($aStationId as $key => $stationId) {
 			$r = Station::getStationShortInfoById($stationId);
 			$aStationCoor[]=[floatval($r["map_x"]),floatval($r["map_y"]),$r['name']];
-
 		}
 		return $aStationCoor;
-
 	}
-
 
 	public static function editRoute(
 										$id,
@@ -222,12 +219,6 @@ class Route{
 				FROM route
 				WHERE id = :id
 			';
-			
-		?>
-			<script>
-				alert(Ви видалили зупинку!!! Якщо ця дія виконалась не вірно, розкажіть про це);
-			</script>
-		<?php
 		
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
@@ -243,45 +234,6 @@ class Route{
 		$table_users = $q->fetchAll(PDO::FETCH_UNIQUE);
 		$text = $table_users[$field][0];
 		return substr(substr(strrchr($text, '('), 1), 0, -1);
-	}
-
-	public static function getTypeCarriageById($routes){
-		 
-		$DBH = Db::getConnection();
-
-		foreach ($routes as $key => $route) {
-			
-		
-			$sql = '
-					SELECT name
-					FROM type_carriage
-					WHERE id = :id
-					';
-
-			$query = $DBH->prepare($sql);
-
-			$query->bindParam(":id", $route['carriage_id'], PDO::PARAM_INT);
-
-			$query->execute();
-			$result[] = $query->fetch();
-		}
-		return $result;
-	}
-
-	public static function getAllTypeCarriage(){
-		 
-		$DBH = Db::getConnection();
-
-		$sql = '
-				SELECT *
-				FROM type_carriage
-				';
-
-		$query = $DBH->prepare($sql);
-
-		$query->execute();
-
-		return $query->fetchAll();
 	}
 
 	public static function getAllIdStationsStart(){
@@ -307,22 +259,6 @@ class Route{
 		$sql = '
 				SELECT id, name_end, id_stations_end
 				FROM route
-				';
-
-		$query = $DBH->prepare($sql);
-
-		$query->execute();
-
-		return $query->fetchAll();
-	}
-
-	public static function getAllStations(){
-		 
-		$DBH = Db::getConnection();
-
-		$sql = '
-				SELECT id, name
-				FROM station
 				';
 
 		$query = $DBH->prepare($sql);

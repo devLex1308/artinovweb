@@ -8,6 +8,4 @@
 	<link rel="stylesheet" href="<?php echo LOCALPATH; ?>/template/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo LOCALPATH;?>/template/css/index.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
-	<script src="<?php echo LOCALPATH; ?>/template/js/jquery.cycle2.js"></script>
-	<script src="<?php echo LOCALPATH; ?>/template/js/jquery.cycle2.carousel.js"></script>
 </head>

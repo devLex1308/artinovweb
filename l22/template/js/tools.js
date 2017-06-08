@@ -1,43 +1,65 @@
 $(document).ready(function(){
-// 	var map = L.map('map', {
-// 	crs: L.CRS.Simple,
-// 	minZoom: -1,
-// 	maxZoom: 4
-// });
 
-// 	var bounds = [[0,0], [1066,1920]];
-// 	var LOCALPATH = $("#LOCALPATH").val();
-// 	var mapUrl = LOCALPATH + "/template/images/map.svg";
-// 	//console.log(mapUrl);
-// 	var image = L.imageOverlay(mapUrl, bounds).addTo(map);
-
-// 	map.fitBounds(bounds);
-
-// 	var lat = $("input[name='map_x']").val();
-// 	var lng = $("input[name='map_y']").val();
-
-// 	if(!lat){lat = 550;}
-// 	if(!lng){lng = 960;}
-
-// 	var marker = L.marker([lat,lng],
-// 		{draggable: true}
-// 		).addTo(map);
-
-// 	marker.on('dragend', function(){
-// 		var xy = this.getLatLng();
-// 		console.log("x=" + xy.lat+" y=" + xy.lng);
-// 		$("input[name='map_x']").val(xy.lat);
-// 		$("input[name='map_y']").val(xy.lng);
-// 	});
-
-// 	console.log("Підключено скрізь в адмінці");
+	// 	console.log("Підключено скрізь в адмінці");
+	var startFrom = 2;
 
 	$(".deleteAjax").click(function(){
 		var nameModel = $(this).attr("data-nameModel");
 		var id = $(this).attr("data-id");
 		var parent = $(this).parent().parent();
 		console.log(nameModel+" "+id);
-		deleteAjax(nameModel,id,parent);
+		var ask = confirm("Ви справді бажаєте це зробити???");
+		if(ask){
+			deleteAjax(nameModel,id,parent);
+		}
+	});
+
+	$("#moreNews").click(function(){
+		var LOCALPATH = $("#LOCALPATH").val();
+
+		var server = LOCALPATH+"/ajax";
+		var oData = {
+			"startFrom":startFrom,
+			"action":"moreNews"
+		};
+
+		$.ajax({
+
+			cache: false,
+			timeout: 10000,
+			url: server,
+			type: "POST",
+			data: (oData),
+
+			beforeSend: function () {
+
+			},
+
+			success: function (data) {
+				
+				data = jQuery.parseJSON(data);
+
+				if(data.length > 0){
+					$.each(data, function(index, data){
+
+						var date = new Date(data.time_create);
+						var time_create = ('0' + date.getDate()).slice(-2) + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + date.getFullYear();
+
+						$(".allNews").append('<div class="row" align="center"><div class="block-news"><a href="' + LOCALPATH + '/news/' + data.id + '"><div class="image-news-block"><div class="image-news" style="background: url(resourses/images/' + data.resources_id + ') no-repeat center center; background-size: cover;"></div></div><div class="head-text-news">' + data.name + '</div><div class="text-news">' + data.description + '...</div><div class="block-time"><div class="time-image"></div><div class="text-time">' + time_create + '</div></div></a></div></div>');
+					});
+					startFrom += 1;
+				} else {
+					document.getElementById('moreNews').style.display = 'none';
+				}
+			},
+
+			error: function (jqXHR, textStatus, errorThrown) {
+
+			},
+			complete: function (jqXHR, textStatus) {
+			}
+
+		});
 	});
 });
 
@@ -84,4 +106,40 @@ function deleteAjax(nameModel,id,parent){
             }
 
         });
+}
+
+function isLastElement(){
+
+		var LOCALPATH = $("#LOCALPATH").val();
+		var zero = 0;
+		var server = LOCALPATH+"/ajax";
+		var oData = {
+			"action":"countNews"
+		};
+
+		$.ajax({
+
+			cache: false,
+			timeout: 10000,
+			url: server,
+			type: "POST",
+			data: (oData),
+
+			beforeSend: function () {
+
+			},
+
+			success: function (data) {
+				data = jQuery.parseJSON(data);
+				zero = data.length;
+			},
+
+			error: function (jqXHR, textStatus, errorThrown) {
+
+			},
+			complete: function (jqXHR, textStatus) {
+			}
+
+		});
+	return zero;
 }

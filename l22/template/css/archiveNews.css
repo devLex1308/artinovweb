@@ -1,11 +1,11 @@
 @font-face{
 	font-family: "Head";
-	src: url("../fonts/MyriadPro-Regular.otf");
+	src: url("../fonts/MyriadProRegular.otf");
 }
 
 @font-face{
 	font-family: "Head-Bold";
-	src: url("../fonts/MyriadPro-Semibold.otf");
+	src: url("../fonts/MyriadProBold.otf");
 }
 
 html{
@@ -32,7 +32,7 @@ a:hover {
 }
 
 header{
-   	margin-bottom: -5%;
+	margin-bottom: -5%;
 }
 
 .head{
@@ -44,7 +44,7 @@ header{
 }
 
 .block{
-	width: 884px;
+	width: 100%;
 }
 
 /*LOGO*/
@@ -62,7 +62,7 @@ header{
 .logo-img{
 	position: absolute;
 	top: 0;
-    left: 5px;
+	left: 5px;
 	bottom: 0;
 	right: 0;
 	background: url(../images/logo_white.png) no-repeat;
@@ -70,12 +70,12 @@ header{
 }
 
 .logo-txt{
-    position: absolute;
-    left: 95px;
-    top: 43px;
-    font-size: 8px;
-    width: 50px;
-    color: #ffffff;
+	position: absolute;
+	left: 95px;
+	top: 43px;
+	font-size: 8px;
+	width: 50px;
+	color: #ffffff;
 }
 
 /*LOGIN*/
@@ -84,9 +84,9 @@ header{
 }
 
 .login-txt{
-    position: relative;
-    right: 15px;
-    top: 22px;
+	position: relative;
+	right: 15px;
+	top: 22px;
 	text-align: right;
 	font-size: 12px;
 }
@@ -98,9 +98,11 @@ header{
 }
 
 .head-text h1{
+	padding-top: 65px;
 	color: #ffffff;
 	font-size: 24px;
 	font-family: "Head-Bold";
+	/*font-style: bold;*/
 }
 
 /*HEADER END*/
@@ -158,13 +160,15 @@ header{
 .image-news{
 	height: 100%;
 	width: 306px;
-	/*background: url(../../resourses/images/Koala.jpg) no-repeat center center;*/
-	/*background-size: cover;*/
 	border-radius: 5px;
 
 }
 
 .head-text-news{
+	display: block;
+	width: 290px;
+	max-height: 70px;
+	float: left;
 	text-align: left;
 	color: #333333;
 	font-size: 24px;
@@ -172,15 +176,22 @@ header{
 }
 
 .text-news{
-	padding-top: 15px;
-	padding-right: 90px;
+	margin-top: 5px;
+	display: block;
+	width: 220px;
+	max-height: 69px;
+	float: left;
 	text-align: left;
 	color: #808080;
 	font-size: 12px;
 	font-family: "Head";
+	overflow: hidden;
 }
 
 .block-time{
+	display: block;
+	width: 290px;
+	float: left;
 	padding-top: 15px
 }
 
@@ -210,6 +221,7 @@ header{
 	color: #000000;
 	font-size: 12px;
 	font-family: "Head";
+    outline: none!important;
 }
 
 .button_more{
@@ -271,18 +283,52 @@ label > input + img{
 	}
 
 	.head-pic::before{
-	    padding-top: 200%;
+		padding-top: 200%;
 	}
 
 	.uzor{
 		top: 20px;
-    	left: 20px;
+		left: 20px;
 	}
 }
 
 @media (max-width: 767px) {
 	.mobile-align{
 		max-width: 9%;
+	}
+
+	.block{
+		width: 100%;
+	}
+
+	.block-news{
+		width: 440px;
+		margin-bottom: 0;
+	}
+
+	.image-news-block{
+		width: 250px;
+		height: 140px;
+	}
+
+	.image-news{
+		width: 100%;
+	}
+
+	.head-text-news{
+		padding-top: 5px;
+		font-size: 14px;
+		width: 30%;
+	}
+
+	.text-news{
+		font-size: 10px;
+		width: 30%;
+	}
+
+	.block-time{
+		width: 30%;
+		padding-top: 5px;
 	}
 
 	.head{
@@ -294,21 +340,21 @@ label > input + img{
 	}
 
 	.general {
-	    max-width: 100%;
-	    width: 100%;
+		max-width: 100%;
+		width: 100%;
 	}
 
 	.transport-fon-1 {
-	    left: 28%;
+		left: 28%;
 	}
 
 	.transport-fon-2 {
-	    left: 28%;
+		left: 28%;
 	}
 
 	.transport-fon-3 {
-	    top: 36%;
-	    left: 28%;
+		top: 36%;
+		left: 28%;
 	}
 }
 
@@ -363,11 +409,69 @@ label > input + img{
 	}
 
 	.logo-txt {
-	    left: 68px;
-    	top: 27px;
+		left: 68px;
+		top: 27px;
 	}
 
 	.login-txt {
-	    top: 10px;
+		top: 10px;
+	}
+
+	.block-news{
+		width: 90%;
+		height: auto;
+	}
+
+	.image-news-block{
+		width: 140px;
+		height: 100px;
+		padding-left: 15px;
+	}
+
+	.head-text-news{
+		font-size: 10px;
+		width: 40%;
+	}
+
+	.text-news{
+		font-size: 8px;
+		width: 40%;
+		max-height: 45px;
+	}
+
+	.block-time{
+		width: 40%;
+	}
+
+	.time-image{
+		width: 10px;
+		height: 10px;
+		background-size: contain;
+	}
+
+	.text-time{
+		font-size: 8px;
+	}
+
+	.btn{
+		font-size: 8px;
+		width: 100px;
+		height: 40px;
+	}
+
+	.button_more {
+		padding: 10px;
+	}
+
+	.head-text h1 {
+		padding-top: 15px;
+	}
+
+	.block{
+		margin: 0 auto;
+	}
+
+	.news{
+		margin: 0 auto;
 	}
 }

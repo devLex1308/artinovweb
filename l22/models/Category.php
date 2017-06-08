@@ -5,7 +5,7 @@ class Category{
 		$DBH = Db::getConnection(); 
 	
 			$sql = '
-				INSERT INTO type_carriage
+				INSERT INTO category
 					SET
 						name=:name
 			';
@@ -23,7 +23,7 @@ class Category{
 
 		$sql = '
 				SELECT id,name 
-				FROM type_carriage
+				FROM category
 			';
 			
 		$query = $DBH->prepare($sql);
@@ -38,7 +38,7 @@ class Category{
 
 		$sql = '
 				SELECT * 
-				FROM type_carriage
+				FROM category
 				WHERE id = :id
 			';
 			
@@ -58,7 +58,7 @@ class Category{
 		$DBH = Db::getConnection(); 
 	
 			$sql = '
-				UPDATE type_carriage
+				UPDATE category
 					SET
 						name=:name
 					WHERE id = :id
@@ -78,7 +78,7 @@ class Category{
 
 		$sql = '
 				DELETE  
-				FROM type_carriage
+				FROM category
 				WHERE id = :id
 			';
 			

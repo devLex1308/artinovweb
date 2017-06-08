@@ -20,8 +20,8 @@ $(document).ready(function(){
 	if(!lng){lng = 960;}
 
 	var myIcon = L.icon({
-    iconUrl: LOCALPATH + "/template/images/marker-icon-red.png",
-    iconSize: [38, 95],
+    iconUrl: LOCALPATH + "/template/images/marker-icon-green.png",
+    iconSize: [30, 45],
     iconAnchor: [22, 94],
     popupAnchor: [-3, -76]
 });

@@ -2,9 +2,11 @@
 class AjaxController{
 	
 	public function actionIndex(){
-		// $title = "Ajax";
-		// $aStation = Station::getAllStations();
-		// $json = json_encode($aStation);
+		
+		if(isset($_POST['action'])&&($_POST['action']=="moreNews")){
+			$this->actionMoreNews($_POST['startFrom']);
+		}
+
 		if(isset($_POST['action'])&&($_POST['action']=="delete")){
 			$this->actionDelete($_POST["nameModel"],$_POST["id"]);
 		}
@@ -25,7 +27,6 @@ class AjaxController{
 		return true;
 	}
 
-
 	private function actionDelete($nameModel,$id){
 		
 		switch ($nameModel) {
@@ -45,6 +46,10 @@ class AjaxController{
 				Category::deleteCategoryById($id);
 				break;
 
+			case 'typeCarriage':
+				TypeCarriage::deleteTypeCarriageById($id);
+				break;
+
 			case 'user':
 				User::deleteUserById($id);
 				break;
@@ -54,13 +59,24 @@ class AjaxController{
 				break;
 
 			case 'images':
-			 	unlink(ROOT.'/resourses/images/'.$id);
+				Resource::deleteResourceById($id);
 				break;
 			
 			default:
 				echo 0;
 				break;
 		}
+	}
+
+	private function actionMoreNews($startFrom){
+		$archiveNews = Article::getAllArticlesPagination($startFrom);
+		$images = Resource::getAllResourcesTypeImg();
+		foreach ($archiveNews as $key => $news) {
+			foreach ($images as $keyz => $image) {
+				if($image['id'] == $news['resources_id']) $archiveNews[$key]['resources_id'] = $image['name'];
+			}
+		}
+		echo json_encode($archiveNews);
 	}
 }
 

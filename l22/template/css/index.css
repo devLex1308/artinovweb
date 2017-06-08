@@ -1,16 +1,19 @@
 @font-face{
 	font-family: "Head";
-	src: url("../fonts/MyriadPro-Regular.otf");
+	src: url("../fonts/MyriadProRegular.otf");
 }
 
 @font-face{
 	font-family: "Head-Bold";
-	src: url("../fonts/MyriadPro-Semibold.otf");
+	src: url("../fonts/MyriadProBold.otf");
+}
+
+img{
+	width: 20%;
 }
 
 html{
 	max-width: 1360px;
-	/*max-height: 1610px;*/
 	background: #0071bc;
 }
 
@@ -59,7 +62,7 @@ a:hover {
 .logo-img{
 	position: absolute;
 	top: 0;
-    left: 5px;
+	left: 5px;
 	bottom: 0;
 	right: 0;
 	background: url(../images/logo.png) no-repeat;
@@ -67,12 +70,12 @@ a:hover {
 }
 
 .logo-txt{
-    position: absolute;
-    left: 95px;
-    top: 43px;
-    font-size: 8px;
-    width: 50px;
-    color: #333333;
+	position: absolute;
+	left: 95px;
+	top: 43px;
+	font-size: 8px;
+	width: 50px;
+	color: #333333;
 }
 
 /*LOGIN*/
@@ -81,9 +84,9 @@ a:hover {
 }
 
 .login-txt{
-    position: relative;
-    right: 15px;
-    top: 22px;
+	position: relative;
+	right: 15px;
+	top: 22px;
 	text-align: right;
 	font-size: 12px;
 }
@@ -97,14 +100,14 @@ a:hover {
 /*IMAGES*/
 .head-images{
 	position: relative;
-    width: 98%;
-    margin-left: 4%;
+	width: 98%;
+	margin-left: 4%;
 }
 
 .head-images::before{
 	content: "";
 	display: block;
-    padding-top: 36%;
+	padding-top: 36%;
 }
 
 .head-image{
@@ -156,7 +159,7 @@ a:hover {
 }
 
 .align-general{
-    padding-top: 20%;
+	padding-top: 20%;
 	width: 217px;
 }
 
@@ -168,7 +171,7 @@ a:hover {
 .head-pic::before{
 	content: "";
 	display: block;
-    padding-top: 100%;
+	padding-top: 100%;
 }
 
 .uzor{
@@ -203,7 +206,6 @@ a:hover {
 .transports{
 	padding-top: 30px;
 	padding-bottom: 45px;
-	/*margin: 3% 0%;*/
 }
 
 .transport{
@@ -214,13 +216,13 @@ a:hover {
 
 .transport-fon{
 	position: relative;
-    width: 100%;
+	width: 100%;
 }
 
 .transport-fon::before{
 	content: "";
 	display: block;
-    padding-top: 90%;
+	padding-top: 90%;
 }
 
 #tram-id-1[type=radio] + div .transport-fon-1{
@@ -281,7 +283,6 @@ a:hover {
 }
 
 .transport-name{
-	/*color: #29abe2;*/
 	font-family: Verdana;
 	font-size: 12px;
 	top: 10px;
@@ -315,7 +316,6 @@ a:hover {
 }
 
 .input-station::-webkit-input-placeholder {
-	/*color: #333333 !important;*/
 	font-family: "Head";
 	font-size: 13px;
 }
@@ -333,11 +333,11 @@ a:hover {
 	color: #333333;
 	font-family: "Head";
 	font-size: 15px;
-    border: none!important; 
+	border: none!important; 
 	max-width: 105px;
 	border-radius: 25px;
 	background-color: #fbb03b;
-    outline: none!important;
+	outline: none!important;
 }
 
 .go:hover {
@@ -394,7 +394,108 @@ a:hover {
 	margin-top: -0.3%;
 }
 
-/*slider*/
+.news-block{
+	overflow: hidden;
+}
+
+.text-last-news{
+	margin-left: 9%;
+	text-align: left;
+	font-size: 12px;
+	font-family: "Head";
+	color: #fe9f29;
+}
+
+.text-last-news a{
+	color: #fe9f29;
+}
+
+.reed{
+	float: left;
+	width: 100px;
+	height: 50px;
+	background-color: unset;
+	border: 2px solid #fbb03b;
+	border-radius: 30px;
+	color: #000000;
+	font-size: 12px;
+	font-family: "Head";
+	outline: none!important;
+}
+
+.slider .one_block{
+	background-color: white;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	transition: transform 1s linear;
+	will-change: transform;
+}
+
+.slider .one_block.active{
+	z-index: 2;
+	width: 100%;
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	transition: transform 1s linear;
+	will-change: transform;
+}
+
+.slider .one_block.activeNext{
+	z-index: -1;
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	transition: transform 1s linear;
+	will-change: transform;
+}
+.slider .one_block.activePrev{
+	z-index: -1;
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	transition: transform 1s linear;
+	will-change: transform;
+}
+
+.block-news{
+	background: url(../images/uzor.png) no-repeat right bottom;
+	height: 182px;
+}
+
+.image-news-block{
+	display: block;
+	float: left;
+	width: 100%;
+	height: 175px;
+	overflow: hidden;
+}
+
+.image-news{
+	height: 100%;
+	border-radius: 5px;
+}
+
+.head-text-news{
+	padding-right: 11%;
+	display: block;
+	float: left;
+	text-align: left;
+	color: #333333;
+	font-size: 24px;
+	font-family: "Head-Bold";
+}
+
+.text-news{
+	padding-bottom: 6%;
+	padding-right: 10%;
+	margin-top: 5px;
+	display: block;
+	float: left;
+	text-align: left;
+	color: #808080;
+	font-size: 12px;
+	font-family: "Head";
+	overflow: hidden;
+}
 /*CONTENT END*/
 
 /*FOOTER*/
@@ -471,18 +572,42 @@ label > input + img{
 	}
 
 	.head-pic::before{
-	    padding-top: 200%;
+		padding-top: 200%;
 	}
 
 	.uzor{
 		top: 20px;
-    	left: 20px;
+		left: 20px;
+	}
+
+	.transport-fon-1 {
+		left: 28%!important;
+	}
+
+	.transport-fon-2 {
+		left: 28%!important;
 	}
 }
 
 @media (max-width: 767px) {
+
+	.head-text-news{
+		font-size: 20px;
+	}
+	.text-news{
+		font-size: 10px;
+	}
+
+	.news-block {
+		margin: auto 15%;
+	}
+
 	.mobile-align{
 		max-width: 9%;
+	}
+
+	.image-news {
+		height: 90%!important;
 	}
 
 	.head{
@@ -494,25 +619,33 @@ label > input + img{
 	}
 
 	.general {
-	    max-width: 100%;
-	    width: 100%;
-	}
-
-	.transport-fon-1 {
-	    left: 28%;
-	}
-
-	.transport-fon-2 {
-	    left: 28%;
+		max-width: 100%;
+		width: 100%;
 	}
 
 	.transport-fon-3 {
-	    top: 36%;
-	    left: 28%;
+		top: 36% !important;
+		left: 28% !important;
 	}
 }
 
 @media (max-width: 500px) {
+
+	.image-news {
+		height: 70%!important;
+	} 
+
+	.head-text-news{
+		font-size: 14px;
+	}
+	.text-news{
+		font-size: 9px;
+	}
+
+	.news-block {
+		margin: auto 1%;
+	}
+
 	.mobile-general{
 		width: 100%;
 		padding-left: 0px;
@@ -563,56 +696,11 @@ label > input + img{
 	}
 
 	.logo-txt {
-	    left: 68px;
-    	top: 27px;
+		left: 68px;
+		top: 27px;
 	}
 
 	.login-txt {
-	    top: 10px;
+		top: 10px;
 	}
-}
-
-/*SLIDER*/
-.cycle-slideshow, .cycle-slideshow * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-.cycle-slideshow { width: 45%; min-width: 200px; max-width: 500px; margin: 10px auto; padding: 0; position: relative;
-	background: url(http://malsup.github.com/images/spinner.gif) 50% 50% no-repeat;
-}
-.cycle-slideshow img { 
-position: absolute; top: 0; left: 0;
-width: 100%; padding: 0; display: block;
-}
-.cycle-slideshow img:first-child {
-	position: static; z-index: 100;
-}
-.cycle-pager { 
-	text-align: center; width: 100%; z-index: 500; position: absolute; top: 10px; overflow: hidden;
-}
-.cycle-pager span { 
-	font-family: arial; font-size: 50px; width: 16px; height: 16px; 
-	display: inline-block; color: #ddd; cursor: pointer; 
-}
-.cycle-pager span.cycle-pager-active { color: #D69746;}
-.cycle-pager > * { cursor: pointer;}
-
-.cycle-caption { position: absolute; color: white; bottom: 15px; right: 15px; z-index: 700; }
-.cycle-overlay { 
-	font-family: tahoma, arial;
-	position: absolute; bottom: 0; width: 100%; z-index: 600;
-	background: black; color: white; padding: 15px; opacity: .5;
-}
-.cycle-prev, .cycle-next { position: absolute; top: 0; width: 30%; opacity: 0; filter: alpha(opacity=0); z-index: 800; height: 100%; cursor: pointer; }
-.cycle-prev { left: 0;  background: url(http://malsup.github.com/images/left.png) 50% 50% no-repeat;}
-.cycle-next { right: 0; background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;}
-.cycle-prev:hover, .cycle-next:hover { opacity: .7; filter: alpha(opacity=70) }
-.disabled { opacity: .5; filter:alpha(opacity=50); }
-.cycle-paused:after {
-	content: 'Paused'; color: white; background: black; padding: 10px;
-	z-index: 500; position: absolute; top: 10px; right: 10px;
-	border-radius: 10px;
-	opacity: .5; filter: alpha(opacity=50);
-}
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-	.cycle-slideshow { width: 200px;}
-	.cycle-overlay { padding: 4px }
-	.cycle-caption { bottom: 4px; right: 4px }
 }
