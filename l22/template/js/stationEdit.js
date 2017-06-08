@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	var myIcon = L.icon({
     iconUrl: LOCALPATH + "/template/images/marker-icon-green.png",
-    iconSize: [30, 45],
+    iconSize: [38, 95],
     iconAnchor: [22, 94],
     popupAnchor: [-3, -76]
 });
