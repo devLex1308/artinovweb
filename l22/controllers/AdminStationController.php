@@ -81,7 +81,7 @@ class AdminStationController {
 					$_POST['map_y'],
 					$_POST['latitude'],
 					$_POST['longitude']
-				);
+					);
 			}
 		}
 		require_once ROOT."/views/admin/Station/AdminStationCreate.php";
@@ -153,14 +153,17 @@ class AdminStationController {
 					$_POST['latitude'],
 					$_POST['longitude'],
 					$_SESSION['user_id']
-				);
-			}
+					);
+				echo '<script type="text/javascript">
+				window.location = "'.LOCALPATH.'/admin/station"
+			</script>';
 		}
-		
-		$station = Station::getStationById($id);
-		$id_stations_neighboring_stop = explode(",", $station['neighboring_stop']);
-		require_once ROOT."/views/admin/Station/AdminStationEdit.php";
-		return true;
 	}
+
+	$station = Station::getStationById($id);
+	$id_stations_neighboring_stop = explode(",", $station['neighboring_stop']);
+	require_once ROOT."/views/admin/Station/AdminStationEdit.php";
+	return true;
+}
 }
 

@@ -80,7 +80,7 @@ function showAllStation(map){
       		//console.log(item);
 
       		var marker = L.marker([item.map_x,item.map_y],
-      				{draggable: false,title:item.id + " " + item.name}
+      				{draggable: false,title:item.id + " - " + item.name}
       				).addTo(map);
       		
       	});
