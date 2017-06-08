@@ -162,7 +162,7 @@ class User{
 	}
 
 	public static function deleteUserById($id){
-		 
+		
 		$DBH = Db::getConnection();
 
 		$sql = '

@@ -3,7 +3,9 @@ class IndexController {
 	
 	public function actionIndex(){
 		$title = "Головна";
-		$lastArticles = array_reverse(Article::getLastArticles(3));
+		$lastArticles = Article::getLastArticles(3);
+		$images = Resource::getAllResourcesTypeImg();
+
 		require_once ROOT."/views/index.php";
 		return true;
 	}

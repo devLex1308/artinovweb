@@ -3,19 +3,19 @@ class AdminCategoryController {
 
 	public function actionIndex(){
 		User::checkAdmin();
-		$title = "Вивід всіх категорій транспорту";
+		$title = "Усі категорії для статтів";
 		$categories = Category::getAllCategories();
-		require_once ROOT."/views/admin/AdminCategoryIndex.php";
+		require_once ROOT."/views/admin/Category/AdminCategoryIndex.php";
 		return true;
 	}
 
 	public function actionCreate(){
 		User::checkAdmin();
-		$title = "Створення категорії транспорту";
+		$title = "Створення категорії для статті";
 		if(isset($_POST['createCategory'])){
 			Category::createCategory($_POST['name']);
 		}
-		require_once ROOT."/views/admin/AdminCategoryCreate.php";
+		require_once ROOT."/views/admin/Category/AdminCategoryCreate.php";
 		return true;
 	}
 
@@ -25,9 +25,9 @@ class AdminCategoryController {
 			Category::editCategory($id, $_POST['name']);
 		}
 
-		$title = "Редагування категорії транспорту";
+		$title = "Редагування категорії статтів";
 		$categories = Category::getCategoryById($id);
-		require_once ROOT."/views/admin/AdminCategoryEdit.php";
+		require_once ROOT."/views/admin/Category/AdminCategoryEdit.php";
 		return true;
 	}
 }

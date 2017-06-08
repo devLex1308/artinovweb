@@ -5,7 +5,7 @@ class AdminArticleController {
 		User::checkAdmin();
 		$title = "Вивід всіх статей";
 		$articles = Article::getAllArticles();
-		require_once ROOT."/views/admin/AdminArticleIndex.php";
+		require_once ROOT."/views/admin/Article/AdminArticleIndex.php";
 		return true;
 	}
 
@@ -24,12 +24,12 @@ class AdminArticleController {
 									$_POST['name'],
 									$_POST['description'],
 									$_POST['context'],
-									$_POST['user_id'],
-									$_POST['category_id'],
-									$_POST['time_create']
+									$_SESSION['user_id'],
+									$_POST['category_id']
 								);
 		}
-		require_once ROOT."/views/admin/AdminArticleCreate.php";
+		$categories = Category::getAllCategories();
+		require_once ROOT."/views/admin/Article/AdminArticleCreate.php";
 		return true;
 	}
 
@@ -41,6 +41,7 @@ class AdminArticleController {
 			Article::editArticle(
 									$id,
 									$_POST['name'],
+									$_POST['resources_id'],
 									$_POST['description'],
 									$_POST['context'],
 									$_SESSION['user_id'],
@@ -49,10 +50,11 @@ class AdminArticleController {
 								);
 		}
 
-
+		$images = Resource::getAllResourcesTypeImg();
 		$title = "Редагування статті";
 		$article = Article::getArticleById($id);
-		require_once ROOT."/views/admin/AdminArticleEdit.php";
+		$categories = Category::getAllCategories();
+		require_once ROOT."/views/admin/Article/AdminArticleEdit.php";
 		return true;
 	}
 }

@@ -5,7 +5,7 @@ class AdminUserController {
 		User::checkAdmin();
 		$title = "Вивід усіх користувачів";
 		$users = User::getAllUsers();
-		require_once ROOT."/views/admin/AdminUserIndex.php";
+		require_once ROOT."/views/admin/User/AdminUserIndex.php";
 		return true;
 	}
 
@@ -82,7 +82,7 @@ class AdminUserController {
 				);
 			}
 		}
-		require_once ROOT."/views/admin/AdminUserCreate.php";
+		require_once ROOT."/views/admin/User/AdminUserCreate.php";
 		return true;
 	}
 
@@ -162,7 +162,7 @@ class AdminUserController {
 			}
 		}
 		$user = User::getUserById($id);
-		require_once ROOT."/views/admin/AdminUserEdit.php";
+		require_once ROOT."/views/admin/User/AdminUserEdit.php";
 		return true;
 	}
 
@@ -186,7 +186,7 @@ class AdminUserController {
 			}
 		}
 
-		require_once ROOT."/views/admin/AdminUserAuthorization.php";
+		require_once ROOT."/views/admin/User/AdminUserAuthorization.php";
 		return true;
 	}
 

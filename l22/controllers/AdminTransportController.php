@@ -5,18 +5,18 @@ class AdminTransportController{
 		User::checkAdmin();
 		$title = "Вивід вcього транспорту";
 		$transports = Transport::getAllTransport();
-		$routes = Transport::getAllRoutes();
-		$carriages = Transport::getAllTypeCarriage();
+		$routes = Route::getAllRoutes();
+		$carriages = TypeCarriage::getAllTypeCarriage();
 
-		require_once ROOT."/views/admin/AdminTransportIndex.php";
+		require_once ROOT."/views/admin/Transport/AdminTransportIndex.php";
 		return true;
 	}
 
 	public function actionCreate(){
 		User::checkAdmin();
 		$title = "Створення нового транспорту";
-		$routes = Transport::getAllRoutes();
-		$carriages = Transport::getAllTypeCarriage();
+		$routes = Route::getAllRoutes();
+		$carriages = TypeCarriage::getAllTypeCarriage();
         if(isset($_POST['createTransport'])){
 
             Transport::createTransport(
@@ -26,15 +26,15 @@ class AdminTransportController{
                 $_POST['route_id']
             );
         }
-		require_once ROOT."/views/admin/AdminTransportCreate.php";
+		require_once ROOT."/views/admin/Transport/AdminTransportCreate.php";
 		return true;
 	}
 
 	public function actionEdit($id){
 		User::checkAdmin();
 		$transport = Transport::getTrasportById($id);
-		$routes = Transport::getAllRoutes();
-		$carriages = Transport::getAllTypeCarriage();
+		$routes = Route::getAllRoutes();
+		$carriages = TypeCarriage::getAllTypeCarriage();
 		if(isset($_POST['editTransport'])){
 			Transport::editTransport(
 										$id,
@@ -84,7 +84,7 @@ class AdminTransportController{
 		$aTimeStartRevertRest = TimeRouteStart::getTimeRouteStart($id,false,true);
 
 		$title = "Редагування транспорту";
-		require_once ROOT."/views/admin/AdminTransportEdit.php";
+		require_once ROOT."/views/admin/Transport/AdminTransportEdit.php";
 		return true;
 	}
 
@@ -96,7 +96,7 @@ class AdminTransportController{
 		echo '<script type="text/javascript">
            window.location = "'.LOCALPATH.'/admin/users"
       	</script>';
-		require_once ROOT."/views/admin/AdminTransportDelete.php";
+		require_once ROOT."/views/admin/Transport/AdminTransportDelete.php";
 		return true;
 	}
 }

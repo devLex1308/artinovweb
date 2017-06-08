@@ -1,7 +1,7 @@
 <?php
 class AdminStationController {
 
-	public function actionIndex($page=1){
+	public function actionIndex($page = 1){
 		User::checkAdmin();
 		$title = "Вивід всіх зупинок";
 
@@ -12,7 +12,7 @@ class AdminStationController {
 
 		$stations = Station::getAllStations($page);
 
-		require_once ROOT."/views/admin/AdminStationIndex.php";
+		require_once ROOT."/views/admin/Station/AdminStationIndex.php";
 		return true;
 	}
 
@@ -83,7 +83,7 @@ class AdminStationController {
 				);
 			}
 		}
-		require_once ROOT."/views/admin/AdminStationCreate.php";
+		require_once ROOT."/views/admin/Station/AdminStationCreate.php";
 		return true;
 	}
 
@@ -158,7 +158,7 @@ class AdminStationController {
 		
 		$station = Station::getStationById($id);
 		$id_stations_neighboring_stop = explode(",", $station['neighboring_stop']);
-		require_once ROOT."/views/admin/AdminStationEdit.php";
+		require_once ROOT."/views/admin/Station/AdminStationEdit.php";
 		return true;
 	}
 }

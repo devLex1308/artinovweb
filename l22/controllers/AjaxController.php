@@ -46,6 +46,10 @@ class AjaxController{
 				Category::deleteCategoryById($id);
 				break;
 
+			case 'typeCarriage':
+				TypeCarriage::deleteTypeCarriageById($id);
+				break;
+
 			case 'user':
 				User::deleteUserById($id);
 				break;
@@ -55,7 +59,7 @@ class AjaxController{
 				break;
 
 			case 'images':
-			 	unlink(ROOT.'/resourses/images/'.$id);
+				Resource::deleteResourceById($id);
 				break;
 			
 			default:
@@ -66,6 +70,12 @@ class AjaxController{
 
 	private function actionMoreNews($startFrom){
 		$archiveNews = Article::getAllArticlesPagination($startFrom);
+		$images = Resource::getAllResourcesTypeImg();
+		foreach ($archiveNews as $key => $news) {
+			foreach ($images as $keyz => $image) {
+				if($image['id'] == $news['resources_id']) $archiveNews[$key]['resources_id'] = $image['name'];
+			}
+		}
 		echo json_encode($archiveNews);
 	}
 }

@@ -53,21 +53,21 @@ require_once ROOT."/views/news/header.php";
 							<div class="block-news">
 								<div class="image-news-block">
 									<?php
-									if(isset($news['image'])){
+									if(isset($image['name'])){
 										?>
-										<div class="image-news" style="background: url(<?php echo $news['image']; ?>) no-repeat center center; background-size: cover;"></div>
+										<div class="image-news" style="background: url(<?php echo LOCALPATH; ?>/resourses/images/<?php echo $image['name']; ?>) no-repeat center center; background-size: cover;"></div>
 										<?php
 									} else {
 										?>
-										<div class="image-news" style="background: url(<?php echo LOCALPATH; ?>/resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
+										<div class="image-news" style="background: url(<?php echo LOCALPATH; ?>/template/images/no-image.png) no-repeat center center; background-size: cover;"></div>
 										<?php
 									}
 									?>
 								</div>
 								<div class="social">
 									<div class="share-txt">Поділитися:</div>
-									<div class="social-fb"><div class="social-count">3</div></div>
-									<div class="social-g"><div class="social-count">0</div></div>
+									<div class="social-fb"><div class="social-count"><?php echo $article['shared_fb']; ?></div></div>
+									<div class="social-g"><div class="social-count"><?php echo $article['shared_google']; ?></div></div>
 								</div>
 							</div>
 						</div>

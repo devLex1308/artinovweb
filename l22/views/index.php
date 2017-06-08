@@ -138,13 +138,17 @@ require_once ROOT."/views/header.php";
 											<div class="col-sm-6 col-xs-6">
 												<div class="image-news-block">
 													<?php
-													if(isset($news['image'])){
-														?>
-														<div class="image-news" style="background: url(<?php echo $news['image']; ?>) no-repeat center center; background-size: cover;"></div>
-														<?php
+													if(isset($images)){
+														foreach ($images as $key => $image) {
+															if($image['id'] == $news['resources_id']){
+																?>
+																<div class="image-news" style="background: url(resourses/images/<?php echo $image['name']; ?>) no-repeat center center; background-size: cover;"></div>
+																<?php
+															}
+														}
 													} else {
 														?>
-														<div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
+														<div class="image-news" style="background: url(template/images/no-image.png) no-repeat center center; background-size: cover;"></div>
 														<?php
 													}
 													?>
@@ -155,53 +159,25 @@ require_once ROOT."/views/header.php";
 									<?php
 								}
 							} else {
-								?>
-								<div class="row one_block">
-									<div class="block-news">
-										<div class="col-xs-1"></div> 
-										<div class="col-xs-5">
-											<div class="head-text-news">Історія вінницького трамваю 1</div>
-											<div class="text-news">Ідея створення трамвайного руху в Вінниці бере початок з 1898 року. У цей час Вінницька міська рада...</div>
-											<a href="<?php echo LOCALPATH; ?>/news/1"> <button class="btn reed">читати далі</button></a>
-										</div> 
-										<div class="col-xs-6">
-											<div class="image-news-block">
-												<div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
+								for ($i = 3; $i > 0; $i--) {
+									?>
+									<div class="row one_block">
+										<div class="block-news">
+											<div class="col-xs-1"></div> 
+											<div class="col-xs-5">
+												<div class="head-text-news">Заголовок для статті <?php echo $i ?></div>
+												<div class="text-news">Короткий опис для данної статті <?php echo $i ?>, опис для дуже цікавої статті, яку ви повинні прочитати...</div>
+												<a href="#"> <button class="btn reed" disabled>читати далі</button></a>
 											</div> 
+											<div class="col-xs-6">
+												<div class="image-news-block">
+													<div class="image-news" style="background: url(template/images/no-image.png) no-repeat center center; background-size: cover;"></div>
+												</div> 
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="row one_block">
-									<div class="block-news">
-										<div class="col-xs-1"></div> 
-										<div class="col-xs-5">
-											<div class="head-text-news">Історія вінницького трамваю 2</div>
-											<div class="text-news">Ідея створення трамвайного руху в Вінниці бере початок з 1898 року. У цей час Вінницька міська рада...</div>
-											<a href="<?php echo LOCALPATH; ?>/news/2"> <button class="btn reed">читати далі</button></a>
-										</div> 
-										<div class="col-xs-6">
-											<div class="image-news-block">
-												<div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
-											</div> 
-										</div>
-									</div>
-								</div>
-								<div class="row one_block">
-									<div class="block-news">
-										<div class="col-xs-1"></div> 
-										<div class="col-xs-5">
-											<div class="head-text-news">Історія вінницького трамваю 3</div>
-											<div class="text-news">Ідея створення трамвайного руху в Вінниці бере початок з 1898 року. У цей час Вінницька міська рада...</div>
-											<a href="<?php echo LOCALPATH; ?>/news/3"> <button class="btn reed">читати далі</button></a>
-										</div> 
-										<div class="col-xs-6">
-											<div class="image-news-block">
-												<div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
-											</div> 
-										</div>
-									</div>
-								</div>
-								<?php 
+									<?php
+								}
 							}
 							?>
 						</div>

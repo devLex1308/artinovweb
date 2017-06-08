@@ -53,13 +53,17 @@ require_once ROOT."/views/archiveNews/header.php";
 										<a href="<?php echo LOCALPATH.'/'.'news/'.$news['id']; ?>">
 											<div class="image-news-block">
 												<?php
-												if(isset($news['image'])){
-													?>
-													<div class="image-news" style="background: url(<?php echo $news['image']; ?>) no-repeat center center; background-size: cover;"></div>
-													<?php
+												if(isset($news['resources_id'])){
+													foreach ($images as $key => $image) {
+														if($image['id'] == $news['resources_id']){
+															?>
+															<div class="image-news" style="background: url(resourses/images/<?php echo $image['name']; ?>) no-repeat center center; background-size: cover;"></div>
+															<?php
+														}
+													}
 												} else {
 													?>
-													<div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
+													<div class="image-news" style="background: url(template/images/no-image.png) no-repeat center center; background-size: cover;"></div>
 													<?php
 												}
 												?>
@@ -91,34 +95,23 @@ require_once ROOT."/views/archiveNews/header.php";
 								<?php
 							}
 						} else {
-							?>
-							<div class="row" align="center">
-								<div class="block-news">
-									<div class="image-news-block">
-										<div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
-									</div> 
-									<div class="head-text-news">Історія вінницького трамваю</div>
-									<div class="text-news">Ідея створення трамвайного руху в Вінниці бере початок з 1898 року. У цей час Вінницька міська рада...</div>
-									<div class="block-time">
-										<div class="time-image"></div>
-										<div class="text-time">17.05.2017</div>
+							for ($i = 3; $i > 0; $i--) {
+								?>
+								<div class="row" align="center">
+									<div class="block-news">
+										<div class="image-news-block">
+											<div class="image-news" style="background: url(template/images/no-image.png) no-repeat center center; background-size: cover;"></div>
+										</div> 
+										<div class="head-text-news">Заголовок для статті <?php echo $i ?></div>
+										<div class="text-news">Короткий опис для данної статті <?php echo $i ?>, опис для дуже цікавої статті, яку ви повинні прочитати...</div>
+										<div class="block-time">
+											<div class="time-image"></div>
+											<div class="text-time"><?php echo "1$i.0$i.201$i"; ?></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row" align="center">
-								<div class="block-news">
-									<div class="image-news-block">
-										<div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
-									</div>
-									<div class="head-text-news">Історія вінницького трамваю</div>
-									<div class="text-news">Ідея створення трамвайного руху в Вінниці бере початок з 1898 року. У цей час Вінницька міська рада...</div>
-									<div class="block-time">
-										<div class="time-image"></div>
-										<div class="text-time">17.05.2017</div>
-									</div>
-								</div>
-							</div>
-							<?php 
+								<?php
+							}
 						}
 						?>
 					</div>

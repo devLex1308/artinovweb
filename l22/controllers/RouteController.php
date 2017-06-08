@@ -38,7 +38,7 @@ class RouteController {
 		$route = Route::getRouteById($id);
 		$id_stations_start = explode(",", $route['id_stations_start']);
 		$id_stations_end = explode(",", $route['id_stations_end']);
-		$carriages = Route::getAllTypeCarriage();
+		$carriages = TypeCarriage::getAllTypeCarriage();
 		$stations = Station::getAllStations();
 
 		if(isset($_POST['editRoute'])){
