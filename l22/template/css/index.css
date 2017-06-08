@@ -283,7 +283,6 @@ a:hover {
 }
 
 .transport-name{
-	/*color: #29abe2;*/
 	font-family: Verdana;
 	font-size: 12px;
 	top: 10px;
@@ -317,7 +316,6 @@ a:hover {
 }
 
 .input-station::-webkit-input-placeholder {
-	/*color: #333333 !important;*/
 	font-family: "Head";
 	font-size: 13px;
 }

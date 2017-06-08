@@ -97,12 +97,35 @@ header{
 	font-family: "Head";
 }
 
+.title{
+	margin-left: auto;
+	margin-right: auto;
+	width: 560px;
+	/*margin: 0 3%;*/
+}
+
+.text-last-news{
+	padding-top: 40px;
+	font-size: 12px;
+	font-family: "Head";
+	color: #fe9f29;
+}
+
+.text-last-news a{
+	color: #fe9f29;
+}
+
 .head-text h1{
-	padding-top: 65px;
 	color: #ffffff;
 	font-size: 24px;
 	font-family: "Head-Bold";
-	/*font-style: bold;*/
+}
+
+.description{
+	color: #e6e6e6;
+	font-size: 14px;
+	font-family: "Head";
+	margin-bottom: 22%;
 }
 
 /*HEADER END*/
@@ -132,36 +155,88 @@ header{
 }
 
 /*NEWS*/
-.news{
-	padding-top: 10px;
-	background: white;
-	width: 100%;
-	margin-top: -0.3%;
+
+.context{
+	text-align: justify;
+	text-indent: 10px; /* Отступ первой строки в пикселах */
+}
+
+.block-news-border{
+	margin-left: 50px; 
 }
 
 .block-news{
-	background: url(../images/uzor.png) no-repeat;
-	width: 660px;
-	height: 182px;
+	background: url(../images/uzor.png) no-repeat bottom left;
+	width: 520px;
+	height: 225px;
+	padding-top: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	/*margin: 0 4%;*/
 	margin-bottom: 60px;
+	margin-top: -135px;
 }
 
 .image-news-block{
 	display: block;
 	float: left;
-	padding-left: 43px;
-	padding-top: 8px;
-	width: 350px;
-	height: 175px;
+	margin-left: 47px;
+	width: 390px;
+	height: 220px;
 	overflow: hidden;
 	margin-right: 17px;
 }
 
 .image-news{
 	height: 100%;
-	width: 306px;
+	width: 390px;
 	border-radius: 5px;
 
+}
+
+.social{
+	display: block;
+	float: left;
+	margin-left: 3px;
+}
+
+.share-txt{
+	padding-top: 97px;
+	color: #000000;
+	font-size: 12px;
+	font-family: "Head";
+}
+
+.context{
+	width: 100%;
+	color: #808080;
+	font-size: 14px;
+	font-family: "Head";
+}
+
+.context h1, .context h2, .context h3 {
+	text-align: center!important;
+}
+
+.context p img {
+	margin-left: -10px;
+}
+
+.content-all{
+	margin-left: auto;
+	margin-right: auto;
+	width: 560px;
+}
+
+.content-all img{
+	width: 100%;
+}
+
+.news{
+	padding-top: 10px;
+	background: white;
+	width: 100%;
+	margin-top: -0.3%;
 }
 
 .head-text-news{
@@ -188,28 +263,45 @@ header{
 	overflow: hidden;
 }
 
-.block-time{
-	display: block;
-	width: 290px;
-	float: left;
-	padding-top: 15px
+.social-fb{
+	margin-top: 23px;
+	background: url(../images/social-fb.png) no-repeat;
+	background-size: contain;
+	width: 35px;
+	height: 35px;
+}
+
+.social-g{
+	margin-top: 15px;
+	background: url(../images/social-g+.png) no-repeat;
+	background-size: contain;
+	width: 35px;
+	height: 35px;
+}
+
+.social-count{
+	position: relative;
+	top: -7px;
+	left: 35px;
+	text-align: left;
+	color: #666666;
+	font-size: 12px;
+	font-family: "Head";
 }
 
 .time-image{
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
 	background: url(../images/clock.png) no-repeat;
 	width: 20px;
 	height: 20px;
-	display: block;
-	float: left;
 }
 
 .text-time{
 	color: #808080;
 	font-size: 12px;
 	font-family: "Head";
-	padding-left: 5px;
-	display: block;
-	float: left;
 }
 
 .btn{
@@ -221,11 +313,12 @@ header{
 	color: #000000;
 	font-size: 12px;
 	font-family: "Head";
-    outline: none!important;
+	outline: none!important;
 }
 
 .button_more{
-	padding-bottom: 43px;
+	padding-top: 33px;
+	padding-bottom: 35px;
 }
 
 /*CONTENT END*/
@@ -244,14 +337,6 @@ footer{
 	max-height: 200px;
 }
 
-label > input{
-	visibility: hidden;
-	position: absolute;
-}
-label > input + img{
-	cursor:pointer;
-}
-
 @media (min-width: 1360px) {
 	html{
 		margin: 0 auto;
@@ -263,52 +348,37 @@ label > input + img{
 	.align-head{
 		max-width: 110px;
 	}
-
-	.left-right-block-wrap{
-		max-width: 43px;
-	}
-
-	.align-general{
-		max-width: 217px;
-	}
 }
 
 @media (max-width: 991px) {
-	.align-general{
-		max-width: 150px;
-	}
 
 	.block{
 		width: 100%;
-	}
-
-	.head-pic::before{
-		padding-top: 200%;
-	}
-
-	.uzor{
-		top: 20px;
-		left: 20px;
 	}
 }
 
 @media (max-width: 767px) {
-	.mobile-align{
-		max-width: 9%;
+
+	.title{
+		width: 100%;
 	}
 
 	.block{
 		width: 100%;
 	}
 
+	.description{
+		margin-bottom: 130px;
+	}
+
 	.block-news{
 		width: 440px;
-		margin-bottom: 0;
+		/*margin-bottom: 0;*/
 	}
 
 	.image-news-block{
-		width: 250px;
-		height: 140px;
+		width: 300px;
+		height: 200px;
 	}
 
 	.image-news{
@@ -319,6 +389,10 @@ label > input + img{
 		padding-top: 5px;
 		font-size: 14px;
 		width: 30%;
+	}
+
+	.content-all {
+		width: 90%; 
 	}
 
 	.text-news{
@@ -334,66 +408,9 @@ label > input + img{
 	.head{
 		width: 100%;
 	}
-
-	.head-text{
-		background-size: 100%;
-	}
-
-	.general {
-		max-width: 100%;
-		width: 100%;
-	}
-
-	.transport-fon-1 {
-		left: 28%;
-	}
-
-	.transport-fon-2 {
-		left: 28%;
-	}
-
-	.transport-fon-3 {
-		top: 36%;
-		left: 28%;
-	}
 }
 
 @media (max-width: 500px) {
-	.mobile-general{
-		width: 100%;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-
-	.mobile-input{
-		width: 70%;
-	}
-
-	.mobile-go{
-		width: 35%!important;
-		margin-left: -5%;
-	}
-
-	.go{
-		width: 100%;
-	}
-
-	.mobile-align{
-		display: none;
-	}
-
-	.transports{
-		margin: auto 0;
-		padding: auto 0;
-	}
-
-	.transport {
-		width: 30%;
-	}
-
-	.station{
-		width: 100%;
-	}
 
 	.logo{
 		width: 70%;
@@ -401,11 +418,6 @@ label > input + img{
 
 	.logo::before{
 		padding-top: 50px;
-	}
-
-	.top{
-		background: green;
-		min-height: 50px;
 	}
 
 	.logo-txt {
@@ -417,15 +429,56 @@ label > input + img{
 		top: 10px;
 	}
 
+	.head-text h1 {
+		font-size: 15px;
+	}
+
+	.description {
+		margin-bottom: 80px;
+		font-size: 10px;
+	}
+
+	.block-news-border{
+		margin: 0;
+	}
+
 	.block-news{
-		width: 90%;
-		height: auto;
+		width: 270px;
+		margin-left: auto;
+		margin-right: auto;
+		background: none;
+		margin-top: -90px;
+		height: 0px;
+		margin-bottom: 150px;
 	}
 
 	.image-news-block{
-		width: 140px;
-		height: 100px;
-		padding-left: 15px;
+		width: 170px;
+		height: 120px;
+		margin-left: 35px;
+		margin-right: 10px;
+	}
+
+	.share-txt{
+		padding-top: 50px;
+		font-size: 10px;
+	}
+
+	.social-fb {
+		margin-top: 5px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.social-g {
+		margin-top: 5px;
+		width: 21px;
+		height: 21px;
+	}
+
+	.social-count {
+		left: 20px;
+		font-size: 10px;
 	}
 
 	.head-text-news{
@@ -437,6 +490,32 @@ label > input + img{
 		font-size: 8px;
 		width: 40%;
 		max-height: 45px;
+	}
+
+	.content-all {
+		width: 100%; 
+	}
+
+	.context{
+		font-size: 12px;
+		width: 100%;
+	}
+
+	h2, .h2 {
+		font-size: 20px;
+	}
+
+	h3, .h3 {
+		font-size: 15px;
+	}
+
+	.content-all img {
+		width: 100%!important;
+		height: auto!important;
+	}
+
+	table p{
+		width: 100%;
 	}
 
 	.block-time{
@@ -461,10 +540,6 @@ label > input + img{
 
 	.button_more {
 		padding: 10px;
-	}
-
-	.head-text h1 {
-		padding-top: 15px;
 	}
 
 	.block{

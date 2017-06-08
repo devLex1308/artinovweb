@@ -22,52 +22,76 @@ require_once ROOT."/views/news/header.php";
 							</div>
 						</div>
 					</div>
-					<div class="head-text">
-						<h1>Архів новин</h1>
+					<div class="title">
+						<div class="text-last-news"><a href="<?php echo LOCALPATH; ?>/news">Останні новини</a></div>
+						<div class="head-text">
+							<h1><?php echo $article['name'] ;?></h1>
+						</div>
+						<div class="description">
+							<?php
+							echo $article['description'];
+							?>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 hidden-xs align-head"></div>
 			</div>
 		</div>
 	</header>
-	<div class="fon">
-		<div class="fon_content_up"></div>
-	</div>
 	<div class="content">
 		<div class="fon_content">
 			<div class="fon">
 				<div class="fon_content_down"></div>
 			</div>
 		</div>
-		<style>
-			.context{
-				width:80%;
-			}
-			.content-all img{
-				width: 100%;
-			}
-
-		</style>
 		<div class="container news">
 			<div class="row">
-				<div class="col-lg-2 col-md-2 hidden-sm left-right-block-wrap"></div>
-				<div class="col-lg-8 col-md-8 block">
+				<div class="col-lg-2 col-md-2 col-sm-1 hidden-xs"></div>
+				<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 block">
+					<div class="block-news-border">
+						<div class="row">
+							<div class="block-news">
+								<div class="image-news-block">
+									<?php
+									if(isset($news['image'])){
+										?>
+										<div class="image-news" style="background: url(<?php echo $news['image']; ?>) no-repeat center center; background-size: cover;"></div>
+										<?php
+									} else {
+										?>
+										<div class="image-news" style="background: url(<?php echo LOCALPATH; ?>/resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div>
+										<?php
+									}
+									?>
+								</div>
+								<div class="social">
+									<div class="share-txt">Поділитися:</div>
+									<div class="social-fb"><div class="social-count">3</div></div>
+									<div class="social-g"><div class="social-count">0</div></div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="row content-all">
-						<h1><?php echo $article['name'] ;?></h1>
-						<div class="articleAuthor"> <?php echo $user['fio'] ;?></div>
-						<div class="articleTime"><?php echo $article['time_create'] ;?></div>
 						<div class="context">
 							<?php
 							echo $article['context'];
 							?>
 						</div>
 					</div>
+					<div class="time-image"></div>
+					<div class="text-time">
+						<?php 
+						$date = new DateTime($article['time_create']);
+						echo $date->format('d.m.Y');
+						?>
+					</div>
 					<div class="row button_more" align="center">
 						<a href="<?php echo LOCALPATH; ?>/news"><button class="btn other-news">Інші новини</button></a>
 					</div>
 				</div>
 			</div>	
-			<div class="col-lg-2 col-md-2 hidden-sm left-right-block-wrap"></div>
+			<div class="col-lg-2 col-md-2 col-sm-1 hidden-xs"></div>
 		</div>
 	</div>
 </div>
