@@ -11,6 +11,7 @@ class AdminStationController {
 		$countPage = ceil($countStation['count'] / $countStationOnPage);
 
 		$stations = Station::getAllStations($page);
+		$stations_select = Station::getAllStation();
 
 		require_once ROOT."/views/admin/Station/AdminStationIndex.php";
 		return true;
