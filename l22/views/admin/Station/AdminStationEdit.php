@@ -22,7 +22,7 @@ if(!empty($errors)){
 			<form action="" method="POST">
 				<div class="form-group">
 					<label>Введіть назву нової зупинки:</label>
-					<input class="form-control" type="text" name="name" placeholder="name" value="<?php echo $station['name']; ?>" required>
+					<input class="form-control" type="text" name="name" placeholder="name" value='<?php echo $station['name']; ?>' required>
 				</div>
 
 				<div class="form-group">
