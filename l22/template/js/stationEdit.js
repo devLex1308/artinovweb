@@ -21,15 +21,17 @@ $(document).ready(function(){
 
 	var myIcon = L.icon({
 		iconUrl: LOCALPATH + "/template/images/marker.png",
-	    iconSize: [30, 50],
-	    iconAnchor: [15, 50]
+		iconSize: [30, 50],
+		iconAnchor: [15, 50]
 	});
 
 	var marker = L.marker([lat,lng],
-		{draggable: true,
-			icon: myIcon }
-			).addTo(map);
+	{
+		draggable: true,
+		icon: myIcon 
+	}).addTo(map);
 
+	centerLeafletMapOnMarker(map, marker);
 
 	marker.on('dragend', function(){
 		var xy = this.getLatLng();
@@ -42,6 +44,13 @@ $(document).ready(function(){
 
 	showAllStation(map);
 });
+
+function centerLeafletMapOnMarker(map, marker) {
+	var latLngs = [ marker.getLatLng() ];
+	var markerBounds = L.latLngBounds(latLngs);
+	map.fitBounds(markerBounds);    
+	map.setZoom(1);
+}
 
 
 function showAllStation(map){
