@@ -114,18 +114,18 @@ function showRouteStation(map){
       success: function (data, textStatus, jqXHR) {
       	var arr = JSON.parse(data);
 
-      	console.log(arr);
+      	// console.log(arr);
       	
       	var mapXY = [];
 
       	arr.forEach(function(item, i, arr) {
 
-      		console.log("item = " + item, " i = " + i);
-      		console.log(item);
+      		// console.log("item = " + item, " i = " + i);
+      		// console.log(item);
 
       		mapXY.push([item[0],item[1]]);
       		var marker = L.marker([item[0],item[1]],
-      				{draggable: false,title:item[2]}
+      				{draggable: false,title:item[3] + " - " + item[2]}
       				).addTo(map);
       		
       	});

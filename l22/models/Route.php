@@ -159,7 +159,7 @@ class Route{
 		$aStationCoor = [];
 		foreach ($aStationId as $key => $stationId) {
 			$r = Station::getStationShortInfoById($stationId);
-			$aStationCoor[]=[floatval($r["map_x"]),floatval($r["map_y"]),$r['name']];
+			$aStationCoor[]=[floatval($r["map_x"]),floatval($r["map_y"]),$r['name'],$r['id']];
 		}
 		return $aStationCoor;
 	}

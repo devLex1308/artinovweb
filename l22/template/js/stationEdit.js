@@ -20,17 +20,18 @@ $(document).ready(function(){
 	if(!lng){lng = 960;}
 
 	var myIcon = L.icon({
-    iconUrl: LOCALPATH + "/template/images/marker-icon-green.png",
-    iconSize: [38, 95],
-    iconAnchor: [22, 94],
-    popupAnchor: [-3, -76]
-});
+		iconUrl: LOCALPATH + "/template/images/marker.png",
+		iconSize: [30, 50],
+		iconAnchor: [15, 50]
+	});
 
 	var marker = L.marker([lat,lng],
-		{draggable: true,
-			icon: myIcon }
-		).addTo(map);
+	{
+		draggable: true,
+		icon: myIcon 
+	}).addTo(map);
 
+	centerLeafletMapOnMarker(map, marker);
 
 	marker.on('dragend', function(){
 		var xy = this.getLatLng();
@@ -39,8 +40,17 @@ $(document).ready(function(){
 		$("input[name='map_y']").val(xy.lng);
 	});
 
+	marker.setZIndexOffset(100);
+
 	showAllStation(map);
 });
+
+function centerLeafletMapOnMarker(map, marker) {
+	var latLngs = [ marker.getLatLng() ];
+	var markerBounds = L.latLngBounds(latLngs);
+	map.fitBounds(markerBounds);    
+	map.setZoom(1);
+}
 
 
 function showAllStation(map){
@@ -59,8 +69,8 @@ function showAllStation(map){
 
 	$.ajax({
 
-			cache: false,
-			timeout: 15000,
+		cache: false,
+		timeout: 15000,
       url: server,//SERVER_NAME,
       type: "POST",
       data: (oData),
@@ -80,21 +90,21 @@ function showAllStation(map){
       		//console.log(item);
 
       		var marker = L.marker([item.map_x,item.map_y],
-      				{draggable: false,title:item.id + " " + item.name}
-      				).addTo(map);
+      			{draggable: false,title:item.id + " - " + item.name}
+      			).addTo(map);
       		
       	});
 
 
-			},
+      },
 
-			error: function (jqXHR, textStatus, errorThrown) {
+      error: function (jqXHR, textStatus, errorThrown) {
 
-			},
-			complete: function (jqXHR, textStatus) {
-			}
+      },
+      complete: function (jqXHR, textStatus) {
+      }
 
-		});
+  });
 
 }
 

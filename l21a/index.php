@@ -15,34 +15,43 @@
 		<a href="">New CONFLICT hahaha</a>
 
 
-		<nav>
-			<a href="index.html">Головна</a>
-		</nav>
-	</header>
-	<style>
-		.slider img{
-			position: absolute;
-			width: 100%;
-			z-index: 1;
-			transition: left 1s linear;
-		}
+			<nav>
+				<a href="index.html">Головна</a>
+			</nav>
+		</header>
+		<style>
+			.slider img{
+				position: absolute;
+				width: 100%;
+				z-index: 1;
+				transition: transform 1s linear;
+			}
 
-		.slider img.active{
-			z-index: 2;
-			left: 0;
-		}
+			.slider img.active{
+				z-index: 2;
+				left: 0;
+				transform: translateX(0);
+			}
 
-		.slider img.activeNext{
-			z-index: 2;
-			left: -100%;
-		}
-		.slider img.activePrev{
-			z-index: 2;
+			.slider img.activeNext{
+				z-index: 2;
+				transform: translateX(-100%);
+			}
+			.slider img.activePrev{
+				z-index: 2;
+				transform: translateX(100%);
+			}
+			
+			
+			
+	
+
 			left: 100%;
 		}
 	</style>
 	<div id="content">
 		<h1>Слайдер</h1>
+>>>>>>> 4313627a993dc785612d5cc46ab465ba9dbe8951
 
 		<div class="slider">
 			<div class="wrepImages">	
