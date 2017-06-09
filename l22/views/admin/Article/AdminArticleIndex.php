@@ -37,7 +37,7 @@ require_once ROOT."/views/admin/header.php";
                     <tr>
                         <td><?php echo $article['id']; ?></td>
                         <td><?php echo $article['name']; ?></td>
-                        <td><?php echo $article['user_id']; ?></td>
+                        <td><?php echo $article['user_id_create']; ?></td>
                         <td><?php echo $article['time_create']; ?></td>
                         <td><a href="<?php echo LOCALPATH;?>/admin/article/edit/<?php echo $article['id']; ?>"><span class="custom glyphicon glyphicon-pencil text-center"></span></a></td>
                         <td>

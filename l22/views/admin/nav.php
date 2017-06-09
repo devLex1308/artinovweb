@@ -27,7 +27,8 @@
 						<div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/station/create">Зупинки</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/route/create">Маршрути</a>
-							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/category/create">Вид транспорту</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/category/create">Категорію для статтей</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/type_carriage/create">Вид транспорту</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/user/create">Користувача</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/transport/create">Транспорт</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/article/create">Статті</a>
@@ -40,7 +41,8 @@
 						<div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/station">Зупинки</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/route">Маршрути</a>
-							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/category">Вид транспорту</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/category">Категорії для статтей</a>
+							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/type_carriage">Вид транспорту</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/users">Користувачі</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/transport">Весь транспорт</a>
 							<a class="dropdown-item" href="<?php echo LOCALPATH;?>/admin/article">Статті</a>

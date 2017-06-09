@@ -10,14 +10,12 @@ return array(
 	
 	'admin/station/create' => 'AdminStation/create',
 	'admin/station/edit/([0-9]+)' => 'AdminStation/edit/$1',
-	'admin/station/delete/([0-9]+)' => 'AdminStation/delete/$1',
 	'admin/station/([0-9]+)' => 'AdminStation/index/$1',
 	'admin/station' => 'AdminStation/index',
 	
 	'admin/route/create' => 'AdminRoute/create',
 	'admin/route/edit/([0-9]+)' => 'AdminRoute/edit/$1',
 	'admin/route/revers/([0-9]+)' => 'AdminRoute/revers/$1',
-	'admin/route/delete/([0-9]+)' => 'AdminRoute/delete/$1',
 	'admin/route/([0-9]+)' => 'AdminRoute/index/$1',
 	'admin/route/way/([0-9]+)' => 'AdminRoute/way/$1',
 	'admin/route' => 'AdminRoute/index',
@@ -25,8 +23,11 @@ return array(
 
 	'admin/category/create' => 'AdminCategory/create',
 	'admin/category/edit/([0-9]+)' => 'AdminCategory/edit/$1',
-	'admin/category/delete/([0-9]+)' => 'AdminCategory/delete/$1',
 	'admin/category' => 'AdminCategory/index',
+
+	'admin/type_carriage/create' => 'AdminTypeCarriage/create',
+	'admin/type_carriage/edit/([0-9]+)' => 'AdminTypeCarriage/edit/$1',
+	'admin/type_carriage' => 'AdminTypeCarriage/index',
 
 	'admin/user/create' => 'AdminUser/create',
 	'registration' => 'AdminUser/create',
@@ -40,12 +41,10 @@ return array(
 
 	'admin/transport/create' => 'AdminTransport/create',
 	'admin/transport/edit/([0-9]+)' => 'AdminTransport/edit/$1',
-	'admin/transport/delete/([0-9]+)' => 'AdminTransport/delete/$1',
 	'admin/transport' => 'AdminTransport/index',
 
 	'admin/article/create' => 'AdminArticle/create',
 	'admin/article/edit/([0-9]+)' => 'AdminArticle/edit/$1',
-	'admin/article/delete/([0-9]+)' => 'AdminArticle/delete/$1',
 	'admin/article' => 'AdminArticle/index',
 	
 	'ajax' => 'Ajax/index',

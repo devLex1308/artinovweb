@@ -8,7 +8,10 @@ $(document).ready(function(){
 		var id = $(this).attr("data-id");
 		var parent = $(this).parent().parent();
 		console.log(nameModel+" "+id);
-		deleteAjax(nameModel,id,parent);
+		var ask = confirm("Ви справді бажаєте це зробити???");
+		if(ask){
+			deleteAjax(nameModel,id,parent);
+		}
 	});
 
 	$("#moreNews").click(function(){
@@ -42,7 +45,7 @@ $(document).ready(function(){
 						var date = new Date(data.time_create);
 						var time_create = ('0' + date.getDate()).slice(-2) + '.' + ('0' + (date.getMonth() + 1)).slice(-2) + '.' + date.getFullYear();
 
-						$(".allNews").append('<div class="row" align="center"><div class="block-news"><a href="' + LOCALPATH + '/news/' + data.id + '"><div class="image-news-block"><div class="image-news" style="background: url(resourses/images/Koala.jpg) no-repeat center center; background-size: cover;"></div></div><div class="head-text-news">' + data.name + '</div><div class="text-news">' + data.description + '...</div><div class="block-time"><div class="time-image"></div><div class="text-time">' + time_create + '</div></div></a></div></div>');
+						$(".allNews").append('<div class="row" align="center"><div class="block-news"><a href="' + LOCALPATH + '/news/' + data.id + '"><div class="image-news-block"><div class="image-news" style="background: url(resourses/images/' + data.resources_id + ') no-repeat center center; background-size: cover;"></div></div><div class="head-text-news">' + data.name + '</div><div class="text-news">' + data.description + '...</div><div class="block-time"><div class="time-image"></div><div class="text-time">' + time_create + '</div></div></a></div></div>');
 					});
 					startFrom += 1;
 				} else {

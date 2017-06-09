@@ -5,7 +5,7 @@ class AdminUserController {
 		User::checkAdmin();
 		$title = "Вивід усіх користувачів";
 		$users = User::getAllUsers();
-		require_once ROOT."/views/admin/AdminUserIndex.php";
+		require_once ROOT."/views/admin/User/AdminUserIndex.php";
 		return true;
 	}
 
@@ -79,10 +79,10 @@ class AdminUserController {
 					$is_gender,
 					$time_registered,
 					$is_admin
-				);
+					);
 			}
 		}
-		require_once ROOT."/views/admin/AdminUserCreate.php";
+		require_once ROOT."/views/admin/User/AdminUserCreate.php";
 		return true;
 	}
 
@@ -146,59 +146,63 @@ class AdminUserController {
 						$_POST['birthday'],
 						$is_gender,
 						$is_admin
-					);
-				} else {
-					User::editUserWithoutPass(
-						$id,
-						$_POST['login'],
-						$_POST['email'],
-						$_POST['fio'],
-						$_POST['phone'],
-						$_POST['birthday'],
-						$is_gender,
-						$is_admin
-					);
-				}
-			}
-		}
-		$user = User::getUserById($id);
-		require_once ROOT."/views/admin/AdminUserEdit.php";
-		return true;
-	}
+						);
 
-	public function actionAuthorization(){
-
-		$errors = [];
-
-		$title = "Авторизація";
-		if(isset($_POST['authorization'])){
-			$user = User::isUserAuthorization($_POST['login'], $_POST['pass']);
-			if(!empty($user)){
-				$_SESSION['login'] = $user['login'];
-				$_SESSION['user_id'] = $user['id'];
-				echo '<script type="text/javascript">
-		           window.location = "'.LOCALPATH.'/admin/users"
-		      	</script>';
-			} elseif (User::isLogin($_POST['login'])){
-				$errors[] = "Невірно введений пароль!";
+					echo '<script type="text/javascript">
+							window.location = "'.LOCALPATH.'/admin/station"
+							</script>';
 			} else {
-				$errors[] = "Користувача з таким логіном не існує!";
+				User::editUserWithoutPass(
+					$id,
+					$_POST['login'],
+					$_POST['email'],
+					$_POST['fio'],
+					$_POST['phone'],
+					$_POST['birthday'],
+					$is_gender,
+					$is_admin
+					);
 			}
 		}
-
-		require_once ROOT."/views/admin/AdminUserAuthorization.php";
-		return true;
 	}
+	$user = User::getUserById($id);
+	require_once ROOT."/views/admin/User/AdminUserEdit.php";
+	return true;
+}
 
-	public static function actionLogout(){
-		$title = "Ви успішно вийшли";
+public function actionAuthorization(){
 
-		unset($_SESSION['login']);
-		unset($_SESSION['user_id']);
-		echo '<script type="text/javascript">
-           window.location = "'.LOCALPATH.'/admin/authorization"
-      	</script>';
+	$errors = [];
+
+	$title = "Авторизація";
+	if(isset($_POST['authorization'])){
+		$user = User::isUserAuthorization($_POST['login'], $_POST['pass']);
+		if(!empty($user)){
+			$_SESSION['login'] = $user['login'];
+			$_SESSION['user_id'] = $user['id'];
+			echo '<script type="text/javascript">
+			window.location = "'.LOCALPATH.'/admin/users"
+		</script>';
+	} elseif (User::isLogin($_POST['login'])){
+		$errors[] = "Невірно введений пароль!";
+	} else {
+		$errors[] = "Користувача з таким логіном не існує!";
+	}
+}
+
+require_once ROOT."/views/admin/User/AdminUserAuthorization.php";
+return true;
+}
+
+public static function actionLogout(){
+	$title = "Ви успішно вийшли";
+
+	unset($_SESSION['login']);
+	unset($_SESSION['user_id']);
+	echo '<script type="text/javascript">
+	window.location = "'.LOCALPATH.'/admin/authorization"
+</script>';
 		// require_once ROOT."/views/admin/AdminUserAuthorization.php";
-		return true;
-	}
+return true;
+}
 }

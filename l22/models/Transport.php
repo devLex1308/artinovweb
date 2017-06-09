@@ -93,47 +93,19 @@ class Transport{
 	}
 
 	public static function deleteTransportById($id){
+
 		$DBH = Db::getConnection();
+
 		$sql = '
-				DELETE  
+				DELETE
 				FROM transport
 				WHERE id = :id
-			';
-			
-		$query = $DBH->prepare($sql);
-		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
-		$query->execute();
-	}
-
-	public static function getAllRoutes(){
-			
-		$DBH = Db::getConnection(); 
-
-		$sql = '
-				SELECT id, number, name_start, name_end, carriage_id
-				FROM route
-			';
-			
-		$query = $DBH->prepare($sql);
-		
-		$query->execute();
-
-		return $query->fetchAll();
-	}
-
-	public static function getAllTypeCarriage(){
-		 
-		$DBH = Db::getConnection();
-
-		$sql = '
-				SELECT *
-				FROM type_carriage
 				';
-
+			
 		$query = $DBH->prepare($sql);
 
-		$query->execute();
+		$query->bindParam(":id", $id, PDO::PARAM_INT);
 
-		return $query->fetchAll();
+		$query->execute();
 	}
 }

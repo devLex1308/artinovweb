@@ -1,7 +1,7 @@
 <?php
 class Station{
 	
-	const stationOnPage =20;
+	const stationOnPage = 20;
 
 	public static function createStation(	
 										$name,
@@ -14,49 +14,116 @@ class Station{
 										$longitude
 										){
 		$DBH = Db::getConnection(); 
-	
-			$sql = '
-				INSERT INTO station
-					SET
-						name=:name,
-						description=:description,
-						is_real=:is_real,
-						neighboring_stop=:neighboring_stop,
-						map_x=:map_x,
-						map_y=:map_y,
-						latitude=:latitude,
-						longitude=:longitude
 
-			';
-			
-			$query = $DBH->prepare($sql);
+		$sql = '
+			INSERT INTO station
+				SET
+					name=:name,
+					description=:description,
+					is_real=:is_real,
+					neighboring_stop=:neighboring_stop,
+					map_x=:map_x,
+					map_y=:map_y,
+					latitude=:latitude,
+					longitude=:longitude
+		';
+		
+		$query = $DBH->prepare($sql);
 
-			$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
-			$query->bindParam(":description", $description, 	PDO::PARAM_STR);
-			$query->bindParam(":is_real", 	$is_real, 	PDO::PARAM_INT);
-			$query->bindParam(":neighboring_stop", 		$neighboring_stop, 	PDO::PARAM_STR);
-			$query->bindParam(":map_x", 	$map_x, 	PDO::PARAM_STR);
-			$query->bindParam(":map_y", 	$map_y, 	PDO::PARAM_STR);
-			$query->bindParam(":latitude", 	$latitude, 	PDO::PARAM_STR);
-			$query->bindParam(":longitude", $longitude, PDO::PARAM_STR);
-			
-			$query->execute();
+		$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
+		$query->bindParam(":description", $description, 	PDO::PARAM_STR);
+		$query->bindParam(":is_real", 	$is_real, 	PDO::PARAM_INT);
+		$query->bindParam(":neighboring_stop", 		$neighboring_stop, 	PDO::PARAM_STR);
+		$query->bindParam(":map_x", 	$map_x, 	PDO::PARAM_STR);
+		$query->bindParam(":map_y", 	$map_y, 	PDO::PARAM_STR);
+		$query->bindParam(":latitude", 	$latitude, 	PDO::PARAM_STR);
+		$query->bindParam(":longitude", $longitude, PDO::PARAM_STR);
+		
+		$query->execute();
+		$DBH = Db::getConnection(); 
 
+		$sql = '
+			INSERT INTO new_station
+				SET
+					name=:name,
+					description=:description,
+					is_real=:is_real,
+					neighboring_stop=:neighboring_stop,
+					map_x=:map_x,
+					map_y=:map_y,
+					latitude=:latitude,
+					longitude=:longitude
+		';
+		
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
+		$query->bindParam(":description", $description, 	PDO::PARAM_STR);
+		$query->bindParam(":is_real", 	$is_real, 	PDO::PARAM_INT);
+		$query->bindParam(":neighboring_stop", 		$neighboring_stop, 	PDO::PARAM_STR);
+		$query->bindParam(":map_x", 	$map_x, 	PDO::PARAM_STR);
+		$query->bindParam(":map_y", 	$map_y, 	PDO::PARAM_STR);
+		$query->bindParam(":latitude", 	$latitude, 	PDO::PARAM_STR);
+		$query->bindParam(":longitude", $longitude, PDO::PARAM_STR);
+		
+		$query->execute();
+	}
+
+	public static function createDeleteStation(	
+												$id,
+												$name,
+												$description,
+												$is_real=false,
+												$neighboring_stop,
+												$map_x,
+												$map_y,
+												$latitude,
+												$longitude
+												){
+		$DBH = Db::getConnection(); 
+
+		$sql = '
+			INSERT INTO delete_stations
+				SET
+					id=:id,
+					name=:name,
+					description=:description,
+					is_real=:is_real,
+					neighboring_stop=:neighboring_stop,
+					map_x=:map_x,
+					map_y=:map_y,
+					latitude=:latitude,
+					longitude=:longitude
+		';
+		
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+		$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
+		$query->bindParam(":description", $description, 	PDO::PARAM_STR);
+		$query->bindParam(":is_real", 	$is_real, 	PDO::PARAM_INT);
+		$query->bindParam(":neighboring_stop", 		$neighboring_stop, 	PDO::PARAM_STR);
+		$query->bindParam(":map_x", 	$map_x, 	PDO::PARAM_STR);
+		$query->bindParam(":map_y", 	$map_y, 	PDO::PARAM_STR);
+		$query->bindParam(":latitude", 	$latitude, 	PDO::PARAM_STR);
+		$query->bindParam(":longitude", $longitude, PDO::PARAM_STR);
+		
+		$query->execute();
 	}
 
 	public static function getAllStations($page = 1){
 		$stationOnPage = self::stationOnPage;
 
 		$start = ($page - 1) * $stationOnPage;
-			
+
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT id,name 
-				FROM station
-				LIMIT :start,:stationOnPage
-			';
-			
+			SELECT id,name 
+			FROM station
+			LIMIT :start,:stationOnPage
+		';
+
 		$query = $DBH->prepare($sql);
 
 		$query->bindParam(":stationOnPage", 	$stationOnPage, 	PDO::PARAM_INT);
@@ -68,14 +135,14 @@ class Station{
 	}
 
 	public static function getAllStationsForMap(){
-	
+
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT id,name,map_x,map_y
-				FROM station
-			';
-			
+			SELECT id,name,map_x,map_y
+			FROM station
+		';
+
 		$query = $DBH->prepare($sql);
 		
 		$query->execute();
@@ -84,13 +151,13 @@ class Station{
 	}
 
 	public static function getAllStation(){
-		 
+
 		$DBH = Db::getConnection();
 
 		$sql = '
-				SELECT id, name
-				FROM station
-				';
+			SELECT id, name
+			FROM station
+		';
 
 		$query = $DBH->prepare($sql);
 		$query->execute();
@@ -101,11 +168,11 @@ class Station{
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT * 
-				FROM station
-				WHERE id = :id
-			';
-			
+			SELECT * 
+			FROM station
+			WHERE id = :id
+		';
+
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
 		
@@ -118,11 +185,11 @@ class Station{
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT map_x,map_y 
-				FROM station
-				WHERE id = :id
-			';
-			
+			SELECT map_x,map_y 
+			FROM station
+			WHERE id = :id
+		';
+
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
 		
@@ -135,11 +202,11 @@ class Station{
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT map_x,map_y,name
-				FROM station
-				WHERE id = :id
-			';
-			
+			SELECT map_x,map_y,name,id
+			FROM station
+			WHERE id = :id
+		';
+
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
 		
@@ -151,7 +218,7 @@ class Station{
 	public static function getStationCoordsByArrayId($sIds){
 		$DBH = Db::getConnection();
 
-		echo $sIds;
+		// echo $sIds;
 
 		$sIds=" 22, 28, 24, 21, 29, 34";
 
@@ -159,18 +226,18 @@ class Station{
 		$inQuery = implode(',', array_fill(0, count($ids), '?'));
 
 		$sql ="
-				SELECT map_x, map_y
-				FROM station
-				WHERE id IN(' . $inQuery . ')
-			";
+			SELECT map_x, map_y
+			FROM station
+			WHERE id IN(' . $inQuery . ')
+		";
 
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":sIds", 	$sIds, 	PDO::PARAM_STR);
 
-		print_r($query);
+		// print_r($query);
 
 		$result = $query->fetchAll();
-		print_r($result);
+		// print_r($result);
 		return $result;
 
 		//https://stackoverflow.com/questions/920353/can-i-bind-an-array-to-an-in-condition
@@ -188,68 +255,94 @@ class Station{
 										$longitude,
 										$modificate
 										){
-	
+
 		$DBH = Db::getConnection(); 
-	
-			$sql = '
-				UPDATE station
-					SET
-						name=:name,
-						description=:description,
-						is_real=:is_real,
-						neighboring_stop=:neighboring_stop,
-						map_x=:map_x,
-						map_y=:map_y,
-						latitude=:latitude,
-						longitude=:longitude,
-						modificate=:modificate
-					WHERE id = :id
 
-			';
-			
-			$query = $DBH->prepare($sql);
+		$sql = '
+			UPDATE station
+				SET
+					name=:name,
+					description=:description,
+					is_real=:is_real,
+					neighboring_stop=:neighboring_stop,
+					map_x=:map_x,
+					map_y=:map_y,
+					latitude=:latitude,
+					longitude=:longitude,
+					modificate=:modificate
+				WHERE id = :id
+		';
 
-			$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
-			$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
-			$query->bindParam(":description", $description, 	PDO::PARAM_STR);
-			$query->bindParam(":is_real", 	$is_real, 	PDO::PARAM_INT);
-			$query->bindParam(":neighboring_stop", 		$neighboring_stop, 	PDO::PARAM_STR);
-			$query->bindParam(":map_x", 	$map_x, 	PDO::PARAM_STR);
-			$query->bindParam(":map_y", 	$map_y, 	PDO::PARAM_STR);
-			$query->bindParam(":latitude", 	$latitude, 	PDO::PARAM_STR);
-			$query->bindParam(":longitude", $longitude, PDO::PARAM_STR);
-			$query->bindParam(":modificate", $modificate, PDO::PARAM_INT);
+		$query = $DBH->prepare($sql);
 
-			
-			$query->execute();
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+		$query->bindParam(":name", 	$name, 	PDO::PARAM_STR);
+		$query->bindParam(":description", $description, 	PDO::PARAM_STR);
+		$query->bindParam(":is_real", 	$is_real, 	PDO::PARAM_INT);
+		$query->bindParam(":neighboring_stop", 		$neighboring_stop, 	PDO::PARAM_STR);
+		$query->bindParam(":map_x", 	$map_x, 	PDO::PARAM_STR);
+		$query->bindParam(":map_y", 	$map_y, 	PDO::PARAM_STR);
+		$query->bindParam(":latitude", 	$latitude, 	PDO::PARAM_STR);
+		$query->bindParam(":longitude", $longitude, PDO::PARAM_STR);
+		$query->bindParam(":modificate", $modificate, PDO::PARAM_INT);
+
+
+		$query->execute();
 
 	}
 
 	public static function deleteStationById($id){
+
+		$station = Station::getStationById($id);
+
+		Station::createDeleteStation(
+							$station['id'],
+							$station['name'],
+							$station['description'],
+							$station['is_real'],
+							$station['neighboring_stop'],
+							$station['map_x'],
+							$station['map_y'],
+							$station['latitude'],
+							$station['longitude']
+							);
 		
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				DELETE  
-				FROM station
-				WHERE id = :id
-			';
-			
+			DELETE  
+			FROM station
+			WHERE id = :id
+		';
+
 		$query = $DBH->prepare($sql);
 		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
 		
 		$query->execute();
 
+		$sql = '
+			INSERT INTO del
+				SET
+					id_station=:id,
+					user_id=:user_id
+		';
+		
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+		$query->bindParam(":user_id", $_SESSION['user_id'], 	PDO::PARAM_INT);
+		
+		$query->execute();
 	}
 
 	public static function getPaginationInfo(){
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-				SELECT COUNT(id) as count 
-				FROM station
-			';
-			
+			SELECT COUNT(id) as count 
+			FROM station
+		';
+
 		$query = $DBH->prepare($sql);
 		
 		$query->execute();

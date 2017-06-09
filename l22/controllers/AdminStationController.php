@@ -1,7 +1,7 @@
 <?php
 class AdminStationController {
 
-	public function actionIndex($page=1){
+	public function actionIndex($page = 1){
 		User::checkAdmin();
 		$title = "Вивід всіх зупинок";
 
@@ -11,8 +11,9 @@ class AdminStationController {
 		$countPage = ceil($countStation['count'] / $countStationOnPage);
 
 		$stations = Station::getAllStations($page);
+		$stations_select = Station::getAllStation();
 
-		require_once ROOT."/views/admin/AdminStationIndex.php";
+		require_once ROOT."/views/admin/Station/AdminStationIndex.php";
 		return true;
 	}
 
@@ -80,10 +81,10 @@ class AdminStationController {
 					$_POST['map_y'],
 					$_POST['latitude'],
 					$_POST['longitude']
-				);
+					);
 			}
 		}
-		require_once ROOT."/views/admin/AdminStationCreate.php";
+		require_once ROOT."/views/admin/Station/AdminStationCreate.php";
 		return true;
 	}
 
@@ -91,7 +92,6 @@ class AdminStationController {
 		User::checkAdmin();
 		$title = "Редагування зупинки";
 		$stations = Station::getAllStation();
-
 		if(isset($_POST['editStation'])){
 
 			$errors = [];
@@ -153,14 +153,17 @@ class AdminStationController {
 					$_POST['latitude'],
 					$_POST['longitude'],
 					$_SESSION['user_id']
-				);
-			}
+					);
+				echo '<script type="text/javascript">
+				window.location = "'.LOCALPATH.'/admin/station"
+			</script>';
 		}
-		
-		$station = Station::getStationById($id);
-		$id_stations_neighboring_stop = explode(",", $station['neighboring_stop']);
-		require_once ROOT."/views/admin/AdminStationEdit.php";
-		return true;
 	}
+
+	$station = Station::getStationById($id);
+	$id_stations_neighboring_stop = explode(",", $station['neighboring_stop']);
+	require_once ROOT."/views/admin/Station/AdminStationEdit.php";
+	return true;
+}
 }
 

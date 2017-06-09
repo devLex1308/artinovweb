@@ -38,7 +38,7 @@ if(!empty($errors)){
 						}
 						?>/>
 						<label for="someSwitchOptionWarning" style="height: 12px;" class="label-warning"></label>
-					<div class="text-switch"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Чи це справжня зупинка чи необхідна для руху по карті?</b></div>
+						<div class="text-switch"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Чи це справжня зупинка чи необхідна для руху по карті?</b></div>
 					</div>
 				</div>
 
@@ -46,6 +46,7 @@ if(!empty($errors)){
 					<label>Утримуючи клавішу <b>Shift</b> Виберіть сусідні зупинки або зв`язані:</label>
 					<select class="form-control" size="5" name="neighboring_stop[]" multiple required>
 						<?php
+						$z = 0; 
 						if(!empty($stations)){
 							foreach ($stations as $key => $station_edit) {
 								echo "<option "; 
@@ -54,7 +55,12 @@ if(!empty($errors)){
 										if($id == $station_edit['id']) echo "selected";
 									} 
 								}
-								echo " value=".$station_edit['id'].">".$station_edit['name']."</option>";
+								if($z == 0){
+									echo " value=".$station_edit['id']." selected>".$station_edit['name']."</option>";
+									$z++;
+								} else {
+									echo " value=".$station_edit['id'].">".$station_edit['name']."</option>";
+								}
 							}
 						}
 						?>

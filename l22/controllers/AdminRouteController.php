@@ -5,13 +5,13 @@ class AdminRouteController{
 		User::checkAdmin();
 		$title = "Вивід усіх маршрутів";
 		$routes = Route::getAllRoute($page);
-		$carriage_name = Route::getTypeCarriageById($routes);
+		$carriage_name = TypeCarriage::getTypeCarriageFromRoutesById($routes);
 		$countRoute = Route::getPaginationInfo();
 		$countRouteOnPage = Route::routeOnPage;
 
 		$countPage = ceil($countRoute['count'] / $countRouteOnPage);
 
-		require_once ROOT."/views/admin/AdminRouteIndex.php";
+		require_once ROOT."/views/admin/Route/AdminRouteIndex.php";
 		return true;
 	}
 
@@ -19,15 +19,15 @@ class AdminRouteController{
 		User::checkAdmin();
 		$title = "Вивід шлях маршруту";
 
-		require_once ROOT."/views/admin/AdminRouteWay.php";
+		require_once ROOT."/views/admin/Route/AdminRouteWay.php";
 		return true;
 	}
 
 	public function actionCreate(){
 		User::checkAdmin();
 		$title = "Створення маршруту";
-		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
+		$carriages = TypeCarriage::getAllTypeCarriage();
+		$stations = Station::getAllStation();
 		$Allroute = Route::getAllRoute();
 
 		if(isset($_POST['createRoute'])){
@@ -145,7 +145,7 @@ class AdminRouteController{
 			$delta_time_start_prev = explode(",", $route['delta_time_start']);
 			$delta_time_end_prev = explode(",", $route['delta_time_end']);
 		}
-		require_once ROOT."/views/admin/AdminRouteCreate.php";
+		require_once ROOT."/views/admin/Route/AdminRouteCreate.php";
 		return true;
 	}
 
@@ -155,8 +155,8 @@ class AdminRouteController{
 
 		$route = Route::getRouteById($id);
 
-		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
+		$carriages = TypeCarriage::getAllTypeCarriage();
+		$stations = Station::getAllStation();
 
 		if(isset($_POST['editRoute'])){
 
@@ -275,7 +275,7 @@ class AdminRouteController{
 		$delta_time_start_prev = explode(",", $route['delta_time_start']);
 		$delta_time_end_prev = explode(",", $route['delta_time_end']);
 
-		require_once ROOT."/views/admin/AdminRouteEdit.php";
+		require_once ROOT."/views/admin/Route/AdminRouteEdit.php";
 		return true;
 	}
 
@@ -285,8 +285,8 @@ class AdminRouteController{
 
 		$route = Route::getRouteById($id);
 
-		$carriages = Route::getAllTypeCarriage();
-		$stations = Route::getAllStations();
+		$carriages = TypeCarriage::getAllTypeCarriage();
+		$stations = Station::getAllStation();
 
 		if(isset($_POST['editRoute'])){
 
@@ -406,7 +406,7 @@ class AdminRouteController{
 	$delta_time_start_prev = explode(",", $route['delta_time_start']);
 	$delta_time_end_prev = array_reverse($delta_time_start_prev);
 
-	require_once ROOT."/views/admin/AdminRouteEdit_REVERS.php";
+	require_once ROOT."/views/admin/Route/AdminRouteEdit_REVERS.php";
 	return true;
 }
 }
