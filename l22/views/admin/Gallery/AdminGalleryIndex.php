@@ -10,23 +10,28 @@ if(!empty($errors)){
 }
 ?>
 <style>
-	.card{
-		width: 30%;
-		float: left;
-		margin: 1%;	
+	.content{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
-	.edit{
-		display: block;
-		float: left;
+	.img{
+		align-self:center;
+		margin-top:4%;
+	}
+	.card{
+		margin:1%;
+		flex-direction: column;
+		align-self:flex-end;
 	}
 	.deleteAjax{
-		float: right;
-	}
+		float: right;	}
 </style>
+<h1 class="text-center"><?php echo $title; ?></h1>
 <div class="container">
-	<div class="row">
-		<div class="col-lg-112 content">
-			<h1 class="text-center"><?php echo $title; ?></h1>
+		<div class="content">
+			
 			<?php
 			if (!empty($images)) {
 				$address = '/resourses/images/';
@@ -34,7 +39,7 @@ if(!empty($errors)){
 					$info = pathinfo($image['name']);
 					$filename = basename($image['name'],'.'.$info['extension']);
 					?>
-					<div class="card">
+					<div class=" col-md-3 col-sm-5 col-xs-10 card">
 						<div class="img">
 							<img class="img-fluid" src="..<?php echo $address.$image['name']; ?>" alt="Card image cap">
 						</div>
@@ -43,9 +48,11 @@ if(!empty($errors)){
 								<input type="hidden" value="<?php echo $image['name']; ?>" name="old">
 								<input type="hidden" value="<?php echo $image['id']; ?>" name="id">
 								<input type="text" value="<?php echo $filename; ?>" name="new">
-								<button type="submit" class="btn btn-default edit"><span class="custom glyphicon glyphicon-ok" aria-hidden="true"></button>
+								<div class="gallery-buttons">
+									<button type="submit" class="btn btn-default edit"><span class="custom glyphicon glyphicon-ok" aria-hidden="true"></button>
+									<button class="deleteAjax btn btn-danger glyphicon glyphicon-remove" data-nameModel="images" data-id="<?php echo $image['id']; ?>"></button>
+								</div>
 							</form>
-							<button class="deleteAjax btn btn-danger glyphicon glyphicon-remove" data-nameModel="images" data-id="<?php echo $image['id']; ?>"></button>
 						</div>
 					</div>
 					<?php
@@ -53,7 +60,6 @@ if(!empty($errors)){
 			}
 			?>
 		</div>
-	</div>
 </div>
 <?php
 require_once ROOT."/views/admin/footer.php";
