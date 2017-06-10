@@ -54,6 +54,8 @@ require_once ROOT."/views/admin/header.php";
   }
 
   .gallery .block:hover img{
+    width: 100%; 
+    height: auto;
     border-radius: 15px;
   }
 
