@@ -39,7 +39,7 @@ if(!empty($errors)){
 					$info = pathinfo($image['name']);
 					$filename = basename($image['name'],'.'.$info['extension']);
 					?>
-					<div class=" col-md-3 col-sm-5 col-xs-10 card">
+					<div class="col-lg-3 col-md-5 col-sm-5 col-xs-10 card">
 						<div class="img">
 							<img class="img-fluid" src="..<?php echo $address.$image['name']; ?>" alt="Card image cap">
 						</div>
