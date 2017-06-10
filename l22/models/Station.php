@@ -119,7 +119,7 @@ class Station{
 		$DBH = Db::getConnection(); 
 
 		$sql = '
-			SELECT id,name 
+			SELECT id,name
 			FROM station
 			LIMIT :start,:stationOnPage
 		';
@@ -155,7 +155,7 @@ class Station{
 		$DBH = Db::getConnection();
 
 		$sql = '
-			SELECT id, name
+			SELECT id, name,is_real
 			FROM station
 		';
 

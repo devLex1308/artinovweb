@@ -49,7 +49,6 @@ require_once ROOT."/views/admin/header.php";
         }
     }
 </style>
-
 <div class="container">
     <div class="row">
         <div class="col-md-12 create-station">
@@ -120,7 +119,7 @@ require_once ROOT."/views/admin/header.php";
                                                 <?php
                                                 if(!empty($stations)){
                                                     foreach ($stations as $key => $station) {
-                                                        echo "<option "; if($station['id'] == $value) echo "selected"; echo " value=".$station['id'].">".$station['name']."</option>";
+                                                        echo "<option "; if($station['id'] == $value) echo "selected"; echo " value=".$station['id']." data-is-real=".$station['is_real'].">".$station['name']."</option>";
                                                     }
                                                 }
                                                 ?>
@@ -138,7 +137,7 @@ require_once ROOT."/views/admin/header.php";
                             ?>
                         </table>
                         <div class="row btn-add">
-                            <button id="calculateTime1" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу"></button>
+                            <button id="calculateTime1" style="float: right;" class="btn btn-info glyphicon glyphicon-time" data-table-id="forwardDirection" title="Автоматичний розрахунок часу"></button>
                             <button id="addStation1" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку"></button>
                         </div>
                     </div>
@@ -164,7 +163,7 @@ require_once ROOT."/views/admin/header.php";
                                                 <?php
                                                 if(!empty($stations)){
                                                     foreach ($stations as $key => $station) {
-                                                        echo "<option "; if($station['id'] == $value) echo "selected"; echo " value=".$station['id'].">".$station['name']."</option>";
+                                                        echo "<option "; if($station['id'] == $value) echo "selected"; echo " value=".$station['id']." data-is-real=".$station['is_real'].">".$station['name']."</option>";
                                                     }
                                                 }
                                                 ?>
@@ -181,7 +180,7 @@ require_once ROOT."/views/admin/header.php";
                             ?>
                         </table>
                         <div class="row btn-add">
-                            <button id="calculateTime2" style="float: right;" class="btn btn-info glyphicon glyphicon-time" title="Автоматичний розрахунок часу"></button>
+                            <button id="calculateTime2" style="float: right;" class="btn btn-info glyphicon glyphicon-time" data-table-id="backDirection" title="Автоматичний розрахунок часу"></button>
                             <button id="addStation2" class="btn btn-success glyphicon glyphicon-plus" title="Додати зупинку"></button>
                         </div>
                     </div>

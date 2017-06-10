@@ -26,17 +26,25 @@ $(document).ready(function(){
   $( "#backDirection select" ).combobox();
   addActionDeleteStation();
 
-  $("#calculateTime1").click(function(e){
+  //Функція одна і таж навіщо подвоювати код?
+  $("#calculateTime1, #calculateTime2").click(function(e){
     e.preventDefault();
     var count_start_station = 0;
-    $("#forwardDirection").find("select").each( function( index, element ){
-      count_start_station++;
+    var id = $(this).attr("data-table-id");
+
+    //Запам'ятовую колекцію селектів вона нам зе пригодиться. Пошук колекції часно одна з самих ресурсоємних задач
+    var select = $("#"+id+" select");
+    select.each( function( index, element ){
+      //Визначаєм чи це реальна зупинка
+      var is_real = $(this).children("option:checked").attr("data-is-real");
+      if(is_real==1)
+        count_start_station++;
     });
 
     var isTime = true;
     var time;
     do{
-      time = prompt('Введіть час за який проходить транспорт весь маршрут, ми розрахуємо приблизний час за Вас :)', '');
+      time = prompt('Введіть час в ХВИЛИНАХ за який проходить транспорт весь маршрут, ми розрахуємо приблизний час за Вас :)', '');
       if(time == NaN) isTime = false;
       else if (time.replace (/\d/g, '').length) alert ('Ви ввели не тільки цифри, введіть будь ласка додатнє ціле число');
       else if (time == 0) alert ('Введіть число більше за нуль');
@@ -45,45 +53,26 @@ $(document).ready(function(){
       else {
         isTime = false;
 
-        var timeToWay = time / count_start_station;
+        var timeToWay = time * 60 / count_start_station;
+        var currentTime = 0;
+        var countCrosRoute = 0;
+        //Переробив перебор відносно селекта щоб можна було визначати
+        select.each( function( index, element ){
+          var is_real = $(this).children("option:checked").attr("data-is-real");
+          if(is_real==1){
+            $(this).parent().parent().find(".delta-time").val(parseInt(currentTime));
+            currentTime+=timeToWay
+          }else{
+            $(this).parent().parent().find(".delta-time").val(-1);
+            countCrosRoute++;
+          }
 
-        $("#forwardDirection").find(".delta-time").each( function( index, element ){
-            element.setAttribute("value", timeToWay.toFixed(2));
-          
         });
+        if(countCrosRoute!=0){
+          alert("На реальних зупинках час розраховано! Розставте час на " + countCrosRoute + " перехрестях! Середній час між зупинками рівний " + timeToWay + " c" );
+        }
       }
     } while(isTime);
-  });
-
-
-  $("#calculateTime2").click(function(e){
-    e.preventDefault();
-    var count_end_station = 0;
-    $("#backDirection").find("select").each( function( index, element ){
-      count_end_station++;
-    });
-
-    var isTime = true;
-    var time;
-    do{
-      time = prompt('Введіть час за який проходить транспорт весь маршрут, ми розрахуємо приблизний час за Вас :)', '');
-      if(time == NaN) isTime = false;
-      else if (time.replace (/\d/g, '').length) alert ('Ви ввели не тільки цифри, введіть будь ласка додатнє ціле число');
-      else if (time == 0) alert ('Введіть число більше за нуль');
-      else if (time == '') alert ('Але Ви нічого не ввели');
-      else if (time == null) alert ('Але Ви нічого не ввели');
-      else {
-        isTime = false;
-
-        var timeToWay = time / count_end_station;
-
-        $("#backDirection").find(".delta-time").each( function( index, element ){
-            element.setAttribute("value", timeToWay.toFixed(2));
-          
-        });
-      }
-    } while(isTime);
-
   });
 
 });
