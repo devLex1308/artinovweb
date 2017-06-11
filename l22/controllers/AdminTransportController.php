@@ -72,8 +72,14 @@ class AdminTransportController{
 
 		if(isset($_POST["action"])&&$_POST["action"]=="saveTimeRouteStart"){
 			if(isset($_POST['time_start'])){
-				foreach ($_POST['time_start'] as $key => $oneRow){
-					echo "Слід відредагувати запис в базі time_route_start з id ={$key} та записати туди значення  $oneRow<br>";
+				foreach ($_POST['time_start'] as $timeRouteStartId => $timeRouteStartTime){
+
+					$timeRoadStart = TimeRouteStart::getTimeRouteStartById($timeRouteStartId);
+					if($timeRouteStartTime != $timeRoadStart['time_start']){
+						echo TimeRouteStart::setTimeRouteStartStartTimeById($timeRouteStartId,$timeRouteStartTime);
+						echo "Слід відредагувати ще готовий маршрут в timetable якщо він є";
+					}
+
 				}
 			}
 		}

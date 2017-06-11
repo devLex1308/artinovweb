@@ -7,10 +7,10 @@ return array(
 	);
 
 return array(
-	'host' => 'locall',
+	'host' => 'localhost',
 	'dbname' => 'goto',
-	'user' => 'student',
-	'password' => 'srNH5eKH'
+	'user' => 'root',
+	'password' => ''
 );
 
 

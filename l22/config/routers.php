@@ -50,9 +50,9 @@ return array(
 	'ajax' => 'Ajax/index',
 	
 	'admin/gallery/upload' => "AdminGallery/upload",
-	'admin/gallery' => "AdminGallery/index"
+	'admin/gallery' => "AdminGallery/index",
 
-	// 'admin/timeroutestart/edit/([0-9]+)' => 'AdminTimeRoute/edit/$1'
+	'admin/timeroutestart/edit/([0-9]+)' => 'AdminTimeRoute/edit/$1'
 	// 'admin/timeroutestart/delete/([0-9]+)' => 'AdminTimeRoute/delete/$1'
 
 	);

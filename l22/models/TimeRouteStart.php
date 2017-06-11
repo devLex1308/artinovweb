@@ -77,4 +77,48 @@ class TimeRouteStart{
 		
 		$query->execute();
 	}
+
+	public static function getTimeRouteStartById($id){
+
+		$DBH = Db::getConnection();
+
+		$sql = '
+				SELECT *
+				FROM time_route_start
+				WHERE
+					id = :id
+			';
+
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+
+		$query->execute();
+
+		return$query->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public static function setTimeRouteStartStartTimeById($id,$time_start){
+
+		$DBH = Db::getConnection();
+
+		$sql = '
+				UPDATE time_route_start
+				SET
+					time_start  = :tim
+				WHERE
+					id = :id
+			';
+
+		$query = $DBH->prepare($sql);
+
+		$query->bindParam(":id", 	$id, 	PDO::PARAM_INT);
+		$query->bindParam(":tim"	,$time_start, PDO::PARAM_STR);
+
+		$query->execute();
+
+		return $query->rowCount();
+	}
+
+
 }
