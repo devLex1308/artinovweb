@@ -1,20 +1,24 @@
 <?php
 class Timetable{
 
-	public static function getTimeRouteStartId($transport_id){
+	public static function getTimeRouteStartId($time_route_start_id){
 		$DBH = Db::getConnection();
 
 		$sql = '
-				SELECT *
+				SELECT timetable.id as id,
+					   st.name AS station_name,
+					   st.is_real AS is_real,
+					   timetable.time AS `time`
 				FROM timetable
-				WHERE transport_id = :transport_id
+				LEFT JOIN station AS st ON st.id = timetable.station_id
+				WHERE time_route_start_id = :time_route_start_id
 			';
 
 		$query = $DBH->prepare($sql);
-		$query->bindParam(":transport_id", 	$transport_id, 	PDO::PARAM_INT);
+		$query->bindParam(":time_route_start_id", 	$time_route_start_id, 	PDO::PARAM_INT);
 
 		$query->execute();
-		return $query->fetchAll();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	//Дякую Юлі Гавришовій
