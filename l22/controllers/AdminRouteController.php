@@ -197,24 +197,24 @@ class AdminRouteController{
 					$delta_time_end[] = $value;
 				}
 			}
-
-			foreach ($id_stations_start as $key1 => $station1) {
-				foreach ($id_stations_start as $key2 => $station2) {
-					if($station1 == $station2 && $key1 != $key2){
-						$errors[] = "Рух за прямим маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
-						break 2;
-					}
-				}
-			}
-
-			foreach ($id_stations_end as $key1 => $station1) {
-				foreach ($id_stations_end as $key2 => $station2) {
-					if($station1 == $station2 && $key1 != $key2){
-						$errors[] = "Рух за зворотнім маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
-						break 2;
-					}
-				}
-			}
+			//TODO Здається воно не коректно працює
+//			foreach ($id_stations_start as $key1 => $station1) {
+//				foreach ($id_stations_start as $key2 => $station2) {
+//					if($station1 == $station2 && $key1 != $key2){
+//						$errors[] = "Рух за прямим маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
+//						break 2;
+//					}
+//				}
+//			}
+//
+//			foreach ($id_stations_end as $key1 => $station1) {
+//				foreach ($id_stations_end as $key2 => $station2) {
+//					if($station1 == $station2 && $key1 != $key2){
+//						$errors[] = "Рух за зворотнім маршрутом: Деякі введені вами зупинки мають однакову назву, будь ласка виправте дані!!!";
+//						break 2;
+//					}
+//				}
+//			}
 
 			$id_stations_start_edit = implode(",", $id_stations_start);
 			$id_stations_end_edit = implode(",", $id_stations_end);
